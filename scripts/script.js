@@ -17,7 +17,7 @@ function formatMessages(text) {
   let regExpString
 
   if (text[0] == '[') {
-    regExpString = /\[(?:\d\d|\d)\/(?:\d\d|\d)\/\d\d\s\d\d:\d\d:\d\d]/
+    regExpString = /\[(?:\d\d|\d)\/(?:\d\d|\d)\/\d(?:\d|\d\d\d) \d\d:\d\d:\d\d]/
   } else {
     regExpString = /\d\d\/\d\d\/\d(?:\d|\d\d\d) (?:\d|\d\d):\d\d da (?:manhã|tarde|noite) - /
   }
