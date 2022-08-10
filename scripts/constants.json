@@ -17,12 +17,12 @@
     "chamadadevídeoperdida"
   ],
   "types": {
-    "deleted": ["mensagemapagada", "thismessagewasdeleted.", "null"],
-    "sticker": ["figurinhaomitida", "stickeromitted"],
-    "media": ["<arquivodemídiaoculto>"],
+    "audio": ["áudioocultado", "audioomitted"], 
     "image": ["imagemocultada", "imageomitted"],
     "video": ["vídeoomitido", "videoomitted"],
-    "audio": ["áudioocultado", "audioomitted"], 
-    "file": ["documentoomitido", "documentomitted"]
+    "sticker": ["figurinhaomitida", "stickeromitted"],
+    "file": ["documentoomitido", "documentomitted"],
+    "media": ["arquivodemdiaoculto"],
+    "deleted": ["mensagemapagada", "thismessagewasdeleted", "null"]
   }
 }

@@ -1,16 +1,19 @@
 import constants from './constants.json' assert {type: 'json'}
 import Message from './Message.js'
+import Person from './Person.js'
 
 const input = document.querySelector('#file')
 
 input.addEventListener('change', async ({ target }) => {
-  const text = await target.files[0].text()
+  let text = await target.files[0].text()
+
+  text = text.replace(/\u200e/g, '')
 
   if (!text) { return }
 
   const messages = formatMessages(text)
 
-  console.log(messages)
+  const data = getData(messages)
 })
 
 function formatMessages(text) {
@@ -50,30 +53,33 @@ function formatMessages(text) {
   messages = messages.map((message, index) => {
     let [sender, content] = message.split(':', 2)
 
+    
     for (let errorMessage of constants.errorMessages) {
       if (removeSpecialCharacters(message).includes(errorMessage)) {
         return
-      }      
+      }
     }
-
+    
     sender = sender.trim()
     content = content.trim()
-
+    
     let type = 'text'
 
-    for (let key in constants.types) {
-      if (constants.types[key].includes(removeSpecialCharacters(content))) {
+    const types = constants.types
+    const value = content.replace(/\W/g, '').toLowerCase()
+
+    for (const key in types) {
+      if (types[key].find(element => element == value)) {
         type = key
         content = ''
         break
       } else if (key == 'file') {
-        for (let index in constants.types[key]) {
-          if (removeSpecialCharacters(content).includes(constants.types[key][index])) {
+        types.file.forEach(element => {
+          if (value.includes(element)) {
             type = key
             content = ''
-            break
           }
-        }
+        })
       }
     }
 
@@ -81,10 +87,36 @@ function formatMessages(text) {
   })
 
   messages = messages.filter(value => value != undefined)
-
   return messages
 }
 
-function removeSpecialCharacters(text) {
-  return text.toLowerCase().replace(/\s+/g, "")
+function removeSpecialCharacters(value) {
+  return value.toLowerCase().replace(/(?:\s+|\r\n)/g, '')
+}
+
+function getData(messages) {
+  const people = []
+
+  messages.forEach(({ sendingTime, sender, content, type }) => {
+    let person = people.find(({ name }) => name == sender)
+
+    if (!person) {
+      person = new Person(sender)
+    }
+
+    person.messages++
+    person.characters += content.length
+    person[type]++
+
+
+    const index = people.findIndex(({ name }) => name == sender)
+
+    if (index >= 0) {
+      people[index] = person
+    } else {
+      people.push(person)
+    }
+  })
+
+  console.log(people)
 }
