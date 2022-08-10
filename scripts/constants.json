@@ -17,7 +17,7 @@
     "chamadadevídeoperdida"
   ],
   "types": {
-    "audio": ["áudioocultado", "audioomitted"], 
+    "audio": ["udioocultado", "audioomitted"], 
     "image": ["imagemocultada", "imageomitted"],
     "video": ["vídeoomitido", "videoomitted"],
     "sticker": ["figurinhaomitida", "stickeromitted"],
