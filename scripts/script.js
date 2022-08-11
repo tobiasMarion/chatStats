@@ -97,6 +97,9 @@ function removeSpecialCharacters(value) {
 function getData(messages) {
   const people = []
 
+  let lastSender = ''
+  let charactersInARow = 0
+
   messages.forEach(({ sendingTime, sender, content, type }) => {
     let person = people.find(({ name }) => name == sender)
 
@@ -108,6 +111,16 @@ function getData(messages) {
     person.characters += content.length
     person[type]++
 
+    if (lastSender == sender) {
+      charactersInARow += content.length
+    } else {
+      lastSender = sender
+      charactersInARow = content.length
+    }
+
+    if (charactersInARow >= constants.minimumCharactersToBigMessage) {
+      person.bigMessages++
+    }
 
     const index = people.findIndex(({ name }) => name == sender)
 

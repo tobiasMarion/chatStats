@@ -4,8 +4,8 @@ class Person {
     characters = 0
     text = 0
     bigMessages = 0
-    averageReplyTime = 0
-    startedConversations = 0
+    averageReplyTime = 0 // todo
+    startedConversations = 0 // todo
     image = 0
     video = 0
     audio = 0

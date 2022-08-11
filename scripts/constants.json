@@ -1,9 +1,41 @@
 {
   "minimumCharactersToBigMessage": 500,
-  "errorMessages" : [
+
+  "types": {
+    "audio": [
+      "udioocultado",
+      "audioomitted"
+    ],
+    "image": [
+      "imagemocultada",
+      "imageomitted"
+    ],
+    "video": [
+      "vídeoomitido",
+      "videoomitted"
+    ],
+    "sticker": [
+      "figurinhaomitida",
+      "stickeromitted"
+    ],
+    "file": [
+      "documentoomitido",
+      "documentomitted"
+    ],
+    "media": [
+      "arquivodemdiaoculto"
+    ],
+    "deleted": [
+      "mensagemapagada",
+      "thismessagewasdeleted",
+      "null"
+    ]
+  },
+  
+  "errorMessages": [
     "asmensagenseaschamadassãoprotegidascomacriptografiadepontaapontaeficamsomenteentrevocêeosparticipantesdestaconversa.nemmesmoowhatsapppodelerououvi-las.",
     "aguardandomensagem",
-    "waitingforthismessage.thismaytakeawhile.",   
+    "waitingforthismessage.thismaytakeawhile.",
     "asmensagenseaschamadassãoprotegidascomacriptografiadepontaapontaeficamsomenteentrevocêeosparticipantesdestaconversa.nemmesmoowhatsapppodelerououvi-las.toqueparasabermais.",
     "messagesandcallsareend-to-endencrypted.nooneoutsideofthischat,notevenwhatsapp,canreadorlistentothem.",
     "vocêbloqueouessecontato.toqueparadesbloquear.",
@@ -15,14 +47,5 @@
     "missedvoicecall",
     "chamadadevídeoperdida",
     "chamadadevídeoperdida"
-  ],
-  "types": {
-    "audio": ["udioocultado", "audioomitted"], 
-    "image": ["imagemocultada", "imageomitted"],
-    "video": ["vídeoomitido", "videoomitted"],
-    "sticker": ["figurinhaomitida", "stickeromitted"],
-    "file": ["documentoomitido", "documentomitted"],
-    "media": ["arquivodemdiaoculto"],
-    "deleted": ["mensagemapagada", "thismessagewasdeleted", "null"]
-  }
+  ]
 }
