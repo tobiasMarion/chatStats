@@ -13,6 +13,10 @@ class Person {
     deleted = 0
     file = 0
     media = 0
+    messagesByDayOfTheWeek = [0, 0, 0, 0, 0, 0, 0]
+    lastWeekStarts = 0
+    messagesByWeek = []
+
 
     constructor(name) {
         this.name = name

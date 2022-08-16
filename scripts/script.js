@@ -1,6 +1,6 @@
 import constants from './constants.json' assert {type: 'json'}
-import Message from './Message.js'
 import Person from './Person.js'
+import formatMessages from './formatData.js'
 
 const input = document.querySelector('#file')
 
@@ -14,85 +14,9 @@ input.addEventListener('change', async ({ target }) => {
   const messages = formatMessages(text)
 
   const data = getData(messages)
+
+  console.log(data)
 })
-
-function formatMessages(text) {
-  let regExpString
-
-  if (text[0] == '[') {
-    regExpString = /\[(?:\d\d|\d)\/(?:\d\d|\d)\/\d(?:\d|\d\d\d) \d\d:\d\d:\d\d]/
-  } else {
-    regExpString = /\d\d\/\d\d\/\d(?:\d|\d\d\d) (?:\d|\d\d):\d\d da (?:manhã|tarde|noite) - /
-  }
-
-  const regExp = new RegExp(regExpString, 'gim')
-
-  const dates = [...text.matchAll(regExp)].map(a => {
-    let stringDate = a[0].replace(/(?:\[|\]|da | - )/g, '')
-
-    let [day, month, year, time, shift] = stringDate.split(/(?:\/| )/)
-    let [hour, minute, second] = time.split(':')
-
-    if (year < 2000) {
-      year = Number(year) + 2000
-    }
-
-    if (['tarde', 'noite',].includes(shift) && hour < 12) {
-      hour += 12
-    }
-
-    if (second) {
-      return Date.UTC(year, month - 1, day, hour, minute, second)
-    }
-    return Date.UTC(year, month - 1, day, hour, minute)
-  })
-
-  let messages = text.split(regExp)
-  messages.shift()
-
-  messages = messages.map((message, index) => {
-    let [sender, content] = message.split(':', 2)
-
-    
-    for (let errorMessage of constants.errorMessages) {
-      if (removeSpecialCharacters(message).includes(errorMessage)) {
-        return
-      }
-    }
-    
-    sender = sender.trim()
-    content = content.trim()
-    
-    let type = 'text'
-
-    const types = constants.types
-    const value = content.replace(/\W/g, '').toLowerCase()
-
-    for (const key in types) {
-      if (types[key].find(element => element == value)) {
-        type = key
-        content = ''
-        break
-      } else if (key == 'file') {
-        types.file.forEach(element => {
-          if (value.includes(element)) {
-            type = key
-            content = ''
-          }
-        })
-      }
-    }
-
-    return new Message(dates[index], sender, content, type)
-  })
-
-  messages = messages.filter(value => value != undefined)
-  return messages
-}
-
-function removeSpecialCharacters(value) {
-  return value.toLowerCase().replace(/(?:\s+|\r\n)/g, '')
-}
 
 function getData(messages) {
   const people = []
@@ -100,7 +24,7 @@ function getData(messages) {
   let lastSender = ''
   let charactersInARow = 0
 
-  messages.forEach(({ sendingTime, sender, content, type }) => {
+  messages.forEach(({ timestamp, sender, content, type }) => {
     let person = people.find(({ name }) => name == sender)
 
     if (!person) {
@@ -110,6 +34,40 @@ function getData(messages) {
     person.messages++
     person.characters += content.length
     person[type]++
+
+    const date = new Date(timestamp)
+    const dayOfTheWeek = date.getDay()
+    person.messagesByDayOfTheWeek[dayOfTheWeek]++
+
+    const weekStartSunday = (timestamp - dayOfTheWeek * constants.day) - (timestamp % constants.day)
+    let weekStart = new Date(weekStartSunday)
+
+    if (weekStartSunday == person.lastWeekStart) {
+      const index = person.messagesByWeek.length - 1
+      person.messagesByWeek[index][1]++
+    } else {
+      let nextWeekStart
+      if (person.lastWeekStart) {
+        nextWeekStart = person.lastWeekStart + constants.day * 7
+      } else {
+        nextWeekStart = weekStartSunday
+      }
+
+
+      do {
+        let value = 1
+        if (person.nextWeekStart < weekStart.getDate()) {
+          value = 0
+        }
+        const key = new Date(nextWeekStart + constants.day).toLocaleDateString()
+        person.messagesByWeek.push([key, value])
+        person.lastWeekStart = nextWeekStart
+      } while (nextWeekStart < weekStartSunday)
+
+
+    }
+
+
 
     if (lastSender == sender) {
       charactersInARow += content.length
@@ -122,6 +80,7 @@ function getData(messages) {
       person.bigMessages++
     }
 
+
     const index = people.findIndex(({ name }) => name == sender)
 
     if (index >= 0) {
@@ -131,5 +90,5 @@ function getData(messages) {
     }
   })
 
-  console.log(people)
+  return people
 }

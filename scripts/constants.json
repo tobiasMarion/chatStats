@@ -1,5 +1,6 @@
 {
-  "minimumCharactersToBigMessage": 500,
+  "day": 86400000,
+  "minimumCharactersToBigMessage": 2000,
 
   "types": {
     "audio": [
