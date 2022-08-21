@@ -24,7 +24,7 @@ function getData(messages) {
   let lastSender = ''
   let charactersInARow = 0
 
-  messages.forEach(({ timestamp, sender, content, type }) => {
+  messages.forEach(({ date, sender, content, type }) => {
     let person = people.find(({ name }) => name == sender)
 
     if (!person) {
@@ -33,40 +33,37 @@ function getData(messages) {
 
     person.messages++
     person.characters += content.length
-    person[type]++
+    person.type[type]++
 
-    const date = new Date(timestamp)
-    const dayOfTheWeek = date.getDay()
-    person.messagesByDayOfTheWeek[dayOfTheWeek]++
+    const day = date.getDay()
+    person.messagesByDayOfTheWeek[day]++
 
-    const weekStartSunday = (timestamp - dayOfTheWeek * constants.day) - (timestamp % constants.day)
-    let weekStart = new Date(weekStartSunday)
+    const sunday = date
+    sunday.setDate(sunday.getDate() - day)
+    const weekStart = sunday.toLocaleDateString()
 
-    if (weekStartSunday == person.lastWeekStart) {
-      const index = person.messagesByWeek.length - 1
-      person.messagesByWeek[index][1]++
-    } else {
-      let nextWeekStart
-      if (person.lastWeekStart) {
-        nextWeekStart = person.lastWeekStart + constants.day * 7
-      } else {
-        nextWeekStart = weekStartSunday
+    if (person.messagesByWeek.length > 0) {
+      const notSameWeek = weekStart != person.lastWeekStarts
+
+      if (notSameWeek) {
+        while (weekStart != person.lastWeekStarts) {
+          let [day, month, year] = person.lastWeekStarts.split('/')
+          month--
+          const emptyWeek = new Date(year, month, day)
+          emptyWeek.setDate(emptyWeek.getDate() + 7)
+          const emptyWeekString = emptyWeek.toLocaleDateString()
+          person.messagesByWeek.push([emptyWeekString, 0])
+          person.lastWeekStarts = emptyWeekString
+        }
       }
 
+      const index = person.messagesByWeek.length - 1
+      person.messagesByWeek[index][1]++
 
-      do {
-        let value = 1
-        if (person.nextWeekStart < weekStart.getDate()) {
-          value = 0
-        }
-        const key = new Date(nextWeekStart + constants.day).toLocaleDateString()
-        person.messagesByWeek.push([key, value])
-        person.lastWeekStart = nextWeekStart
-      } while (nextWeekStart < weekStartSunday)
-
-
+    } else {
+      person.messagesByWeek.push([weekStart, 1])
+      person.lastWeekStarts = sunday.toLocaleDateString()
     }
-
 
 
     if (lastSender == sender) {

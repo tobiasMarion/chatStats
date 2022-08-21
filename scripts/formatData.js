@@ -22,6 +22,8 @@ export default function formatMessages(text) {
         let [day, month, year, time, shift] = stringDate.split(/(?:\/| )/)
         let [hour, minute, second] = time.split(':')
 
+        month--
+
         if (year < 2000) {
             year = Number(year) + 2000
         }
@@ -30,10 +32,15 @@ export default function formatMessages(text) {
             hour += 12
         }
 
+        let date
+        
         if (second) {
-            return Date.UTC(year, month - 1, day, hour, minute, second)
+            date = new Date(year, month, day, hour, minute, second)
+            return date
         }
-        return Date.UTC(year, month - 1, day, hour, minute)
+
+        date = new Date(year, month, day, hour, minute)
+        return date
     })
 
     let messages = text.split(regExp)
