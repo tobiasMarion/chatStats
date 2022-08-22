@@ -1,4 +1,4 @@
-import constants from './constants.json' assert {type: 'json'}  
+import constants from '../constants.json' assert {type: 'json'}  
 import Message from './Message.js'
 
 function removeSpecialCharacters(value) {

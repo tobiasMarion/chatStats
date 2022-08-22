@@ -18,6 +18,10 @@
         * {
             font-family: 'Poppins', sans-serif;
         }
+
+        .landing {
+            display: none !important;
+        }
     </style>
 </head>
 
@@ -46,8 +50,10 @@
         </header>
 
         <main class="max-w-screen-xl mx-auto px-3 pb-24">
-            <section class="pt-20 max-w-screen-lg mx-auto md:mb-32">
-                <h1 class="text-3xl font-bold tracking-tight text-center text-green-900 md:text-5xl">Veja as estatísticas das suas
+            <!-- Landing sections -->
+            <section class="landing pt-20 max-w-screen-lg mx-auto md:mb-32">
+                <h1 class="text-3xl font-bold tracking-tight text-center text-green-900 md:text-5xl">Veja as
+                    estatísticas das suas
                     conversas do
                     WhatsApp</h1>
                 <p class="text-sm text-center text-zinc-500 mt-5 md:text-base">Lorem ipsum dolor sit amet, consectetur
@@ -62,7 +68,7 @@
                 <input type="file" id="file" class="hidden" accept=".txt">
             </section>
 
-            <section class="max-w-screen-lg mx-auto md:flex gap-x-8 mb-20 md:mb-32">
+            <section class="landing max-w-screen-lg mx-auto md:flex gap-x-8 mb-20 md:mb-32">
                 <div class="md:flex-auto md:w-7/12">
                     <h3 class="text-xl font-semibold mb-4 tracking-tight text-green-700 md:text-2xl">Os dados não
                         mentem...</h3>
@@ -79,7 +85,7 @@
                 <img src="./assets/chart.svg" alt="Gráfico" class="w-11/12 mx-auto md:w-5/12 md:flex-auto">
             </section>
 
-            <section class="max-w-screen-lg mx-auto mb-20 md:mb-32">
+            <section class="landing max-w-screen-lg mx-auto mb-20 md:mb-32">
                 <h3 class="text-xl font-semibold mb-4 tracking-tight text-green-700 md:text-2xl">Como utilizar
                 </h3>
                 <p class="mb-3 text-sm text-zinc-500 md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -90,6 +96,104 @@
                     <img src="./assets/vertical-steps.svg" class="w-11/12 mx-auto md:w-full" alt="ChatStats">
                 </picture>
             </section>
+
+            <!-- Result Section -->
+            <section class="results pt-20">
+                <article class="">
+                    <header>
+                        <img src="./assets/sample-avatar-1.svg" alt="Avatar">
+                        <h3>Fulano</h3>
+                    </header>
+
+                    <main>
+                        <ul>
+                            <li>Total de mensagens: <span>13.000</span></li>
+                            <li>Total de caracteres: <span>13.000</span></li>
+                            <li>
+                                <details>
+                                    <summary>Textões: <span>13.000</span></summary>
+                                    <p>São considerados <em>"textões" </em> todas as sequências de caracteres em uma ou
+                                        mais mensagens consecutivas que atinjam pelo menos <span>500</span> caracteres
+                                    </p>
+                                </details>
+                            </li>
+
+                        </ul>
+
+                        <ul>
+                            <li>
+                                <img src="" alt="Sticker">
+                                <span>Sticker</span>
+                            </li>
+                            <li>
+                                <img src="" alt="Áudio">
+                                <span>Áudio</span>
+                            </li>
+                            <li>
+                                <img src="" alt="Imagem">
+                                <span>Imagem</span>
+                            </li>
+                            <li>
+                                <img src="" alt="Vídeo">
+                                <span>Vídeo</span>
+                            </li>
+                            <li class="hidden">
+                                <img src="" alt="Mídias">
+                                <span>Mídias</span>
+                            </li>
+                        </ul>
+                    </main>
+
+
+                </article>
+                <article class="">
+                    <header>
+                        <img src="./assets/sample-avatar-2.svg" alt="Avatar">
+                        <h3>Fulano</h3>
+                    </header>
+
+                    <main>
+                        <ul>
+                            <li>Total de mensagens: <span>13.000</span></li>
+                            <li>Total de caracteres: <span>13.000</span></li>
+                            <li>
+                                <details>
+                                    <summary>Textões: <span>13.000</span></summary>
+                                    <p>São considerados <em>"textões" </em> todas as sequências de caracteres em uma ou
+                                        mais mensagens consecutivas que atinjam pelo menos <span>500</span> caracteres
+                                    </p>
+                                </details>
+                            </li>
+
+                        </ul>
+
+                        <ul>
+                            <li>
+                                <img src="" alt="Sticker">
+                                <span>Sticker</span>
+                            </li>
+                            <li>
+                                <img src="" alt="Áudio">
+                                <span>Áudio</span>
+                            </li>
+                            <li>
+                                <img src="" alt="Imagem">
+                                <span>Imagem</span>
+                            </li>
+                            <li>
+                                <img src="" alt="Vídeo">
+                                <span>Vídeo</span>
+                            </li>
+                            <li class="hidden">
+                                <img src="" alt="Mídias">
+                                <span>Mídias</span>
+                            </li>
+                        </ul>
+                    </main>
+                </article>
+            </section>
+
+
 
             <section class="max-w-screen-lg mx-auto md:flex gap-x-8">
                 <div class="md:flex-auto md:w-4/6">

@@ -1,15 +1,6 @@
 {
   "day": 86400000,
   "minimumCharactersToBigMessage": 500,
-  "daysOfWeek": [
-    "Sun",
-    "Mon",
-    "Tue",
-    "Wed",
-    "Thu",
-    "Fry",
-    "Sat"
-  ],
   "types": {
     "audio": [
       "udioocultado",
