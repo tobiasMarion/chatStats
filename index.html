@@ -41,8 +41,8 @@
                         <li><a href="#" class="hidden md:block text-sm font-medium text-zinc-400 contrast">Como usar</a>
                         </li>
                         <li><a href="#" class="hidden md:block text-sm font-medium text-zinc-400">Privacidade</a></li>
-                        <li><a href="#"
-                                class="bg-green-500 text-white font-semibold text-sm px-3 py-2 rounded-lg">Calcular</a>
+                        <li><a href="#" class="bg-green-500 text-white shadow-md shadow-green-400/50
+                                font-semibold text-sm px-3 py-2 rounded-lg">Calcular</a>
                         </li>
                     </ul>
                 </nav>
@@ -98,99 +98,127 @@
             </section>
 
             <!-- Result Section -->
-            <section class="results pt-20">
-                <article class="">
-                    <header>
-                        <img src="./assets/sample-avatar-1.svg" alt="Avatar">
-                        <h3>Fulano</h3>
-                    </header>
-
-                    <main>
-                        <ul>
-                            <li>Total de mensagens: <span>13.000</span></li>
-                            <li>Total de caracteres: <span>13.000</span></li>
-                            <li>
-                                <details>
-                                    <summary>Textões: <span>13.000</span></summary>
-                                    <p>São considerados <em>"textões" </em> todas as sequências de caracteres em uma ou
-                                        mais mensagens consecutivas que atinjam pelo menos <span>500</span> caracteres
-                                    </p>
-                                </details>
-                            </li>
-
-                        </ul>
-
-                        <ul>
-                            <li>
-                                <img src="" alt="Sticker">
-                                <span>Sticker</span>
-                            </li>
-                            <li>
-                                <img src="" alt="Áudio">
-                                <span>Áudio</span>
-                            </li>
-                            <li>
-                                <img src="" alt="Imagem">
-                                <span>Imagem</span>
-                            </li>
-                            <li>
-                                <img src="" alt="Vídeo">
-                                <span>Vídeo</span>
-                            </li>
-                            <li class="hidden">
-                                <img src="" alt="Mídias">
-                                <span>Mídias</span>
-                            </li>
-                        </ul>
-                    </main>
-
-
-                </article>
-                <article class="">
-                    <header>
-                        <img src="./assets/sample-avatar-2.svg" alt="Avatar">
-                        <h3>Fulano</h3>
-                    </header>
-
-                    <main>
-                        <ul>
-                            <li>Total de mensagens: <span>13.000</span></li>
-                            <li>Total de caracteres: <span>13.000</span></li>
-                            <li>
-                                <details>
-                                    <summary>Textões: <span>13.000</span></summary>
-                                    <p>São considerados <em>"textões" </em> todas as sequências de caracteres em uma ou
-                                        mais mensagens consecutivas que atinjam pelo menos <span>500</span> caracteres
-                                    </p>
-                                </details>
-                            </li>
-
-                        </ul>
-
-                        <ul>
-                            <li>
-                                <img src="" alt="Sticker">
-                                <span>Sticker</span>
-                            </li>
-                            <li>
-                                <img src="" alt="Áudio">
-                                <span>Áudio</span>
-                            </li>
-                            <li>
-                                <img src="" alt="Imagem">
-                                <span>Imagem</span>
-                            </li>
-                            <li>
-                                <img src="" alt="Vídeo">
-                                <span>Vídeo</span>
-                            </li>
-                            <li class="hidden">
-                                <img src="" alt="Mídias">
-                                <span>Mídias</span>
-                            </li>
-                        </ul>
-                    </main>
-                </article>
+            <section class="results py-10 my-10 max-w-screen-lg mx-auto">
+                <h1 class="text-3xl font-bold tracking-tight text-center text-green-900 md:text-5xl">Prontinho! Vamos ver o que encontramos...</h1>
+                <p class="text-sm text-center text-zinc-500 mt-4 md:text-base"></p>
+                
+                <div class="flex flex-col max-w-screen-lg items-center md:flex-row md:gap-8 md:justify-center">
+                    <!-- P1 -->
+                    <article class="w-full max-w-sm py-8 bg-white shadow-lg rounded-2xl border-zinc-100 border-2 mt-8">
+                        <header class="flex flex-col items-center mb-4">
+                            <img src="./assets/sample-avatar-1.svg" alt="Avatar">
+                            <h3 class="text-2xl font-medium text-green-700">Fulano</h3>
+                        </header>
+    
+                        <main>
+                            <ul>
+                                <li
+                                    class="px-4 odd:bg-slate-50 even:bg-white flex items-center py-1 odd:border-y-2 odd:border-slate-100 text-zinc-500">
+                                    Total de mensagens: <span
+                                        class="font-medium text-green-600 flex-1 text-right">13.000</span></li>
+                                <li
+                                    class="px-4 odd:bg-slate-50 even:bg-white flex items-center py-1 odd:border-y-2 odd:border-slate-100 text-zinc-500">
+                                    Total de caracteres: <span
+                                        class="font-medium text-green-600 flex-1 text-right">13.000</span></li>
+                                <li
+                                    class="px-4 odd:bg-slate-50 even:bg-white odd:border-y-2 odd:border-slate-100 text-zinc-500">
+                                    <details>
+                                        <summary class="flex py-1 items-center cursor-pointer">Textões: <span
+                                                class="font-medium text-green-600 flex-1 text-right">13.000</span></summary>
+                                        <p class="text-sm py-2">São considerados <em>"textões"</em> todas as sequências de
+                                            caracteres em uma ou mais mensagens consecutivas que atinjam pelo menos
+                                            <span>500</span> caracteres.
+                                        </p>
+                                    </details>
+                                </li>
+    
+                            </ul>
+    
+                            <ul class="grid grid-cols-2 justify-items-center pt-8 gap-4 px-4">
+                                <li class="flex flex-col gap-1 items-center">
+                                    <img src="./assets/media/sticker.svg" alt="Figurinhas" class="w-10">
+                                    <p class="text-zinc-500"><span>n</span> Figurinhas</p>
+                                </li>
+                                <li class="flex flex-col gap-1 items-center">
+                                    <img src="./assets/media/audio.svg" alt="Áudios" class="w-10">
+                                    <p class="text-zinc-500"><span>n</span> Áudios</p>
+                                </li>
+                                <li class="flex flex-col gap-1 items-center">
+                                    <img src="./assets/media/image.svg" alt="Imagens" class="w-10">
+                                    <p class="text-zinc-500"><span>n</span> Imagens</p>
+                                </li>
+                                <li class="flex flex-col gap-1 items-center">
+                                    <img src="./assets/media/video.svg" alt="Vídeo" class="w-10">
+                                    <p class="text-zinc-500"><span>n</span> Vídeos</p>
+                                </li>
+                                <li class="flex flex-col gap-1 items-center hidden" class="col-span-2 hidden">
+                                    <img src="./assets/media/image.svg" alt="Mídias" class="w-10">
+                                    <p class="text-zinc-500"><span>n</span> Mídias</p>
+                                </li>
+                            </ul>
+                        </main>
+    
+    
+                    </article>
+    
+                    <!-- P2 -->
+                    <article class="w-full max-w-sm py-8 bg-white shadow-lg rounded-2xl border-zinc-100 border-2 mt-8">
+                        <header class="flex flex-col items-center mb-4">
+                            <img src="./assets/sample-avatar-1.svg" alt="Avatar">
+                            <h3 class="text-2xl font-medium text-green-700">Fulano</h3>
+                        </header>
+    
+                        <main>
+                            <ul>
+                                <li
+                                    class="px-4 odd:bg-slate-50 even:bg-white flex items-center py-1 odd:border-y-2 odd:border-slate-100 text-zinc-500">
+                                    Total de mensagens: <span
+                                        class="font-medium text-green-600 flex-1 text-right">13.000</span></li>
+                                <li
+                                    class="px-4 odd:bg-slate-50 even:bg-white flex items-center py-1 odd:border-y-2 odd:border-slate-100 text-zinc-500">
+                                    Total de caracteres: <span
+                                        class="font-medium text-green-600 flex-1 text-right">13.000</span></li>
+                                <li
+                                    class="px-4 odd:bg-slate-50 even:bg-white odd:border-y-2 odd:border-slate-100 text-zinc-500">
+                                    <details>
+                                        <summary class="flex py-1 items-center cursor-pointer">Textões: <span
+                                                class="font-medium text-green-600 flex-1 text-right">13.000</span></summary>
+                                        <p class="text-sm py-2">São considerados <em>"textões"</em> todas as sequências de
+                                            caracteres em uma ou mais mensagens consecutivas que atinjam pelo menos
+                                            <span>500</span> caracteres.
+                                        </p>
+                                    </details>
+                                </li>
+    
+                            </ul>
+    
+                            <ul class="grid grid-cols-2 justify-items-center pt-8 gap-4 px-4">
+                                <li class="flex flex-col gap-1 items-center">
+                                    <img src="./assets/media/sticker.svg" alt="Figurinhas" class="w-10">
+                                    <p class="text-zinc-500"><span>n</span> Figurinhas</p>
+                                </li>
+                                <li class="flex flex-col gap-1 items-center">
+                                    <img src="./assets/media/audio.svg" alt="Áudios" class="w-10">
+                                    <p class="text-zinc-500"><span>n</span> Áudios</p>
+                                </li>
+                                <li class="flex flex-col gap-1 items-center">
+                                    <img src="./assets/media/image.svg" alt="Imagens" class="w-10">
+                                    <p class="text-zinc-500"><span>n</span> Imagens</p>
+                                </li>
+                                <li class="flex flex-col gap-1 items-center">
+                                    <img src="./assets/media/video.svg" alt="Vídeo" class="w-10">
+                                    <p class="text-zinc-500"><span>n</span> Vídeos</p>
+                                </li>
+                                <li class="flex flex-col gap-1 items-center hidden" class="col-span-2 hidden">
+                                    <img src="./assets/media/image.svg" alt="Mídias" class="w-10">
+                                    <p class="text-zinc-500"><span>n</span> Mídias</p>
+                                </li>
+                            </ul>
+                        </main>
+    
+    
+                    </article>
+                </div>
             </section>
 
 
