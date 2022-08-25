@@ -1,6 +1,6 @@
 import formatMessages from './formatData.js'
 import getData from './getData.js'
-
+import displayData from './displayData.js'
 
 const input = document.querySelector('#file')
 
@@ -18,7 +18,10 @@ input.addEventListener('change', async ({ target }) => {
 
   const delay = (Date.now() - start) / 1000
 
+  displayData(data)
+  
   console.log(data)
+
   console.log(`Total de mensagens: ${messages.length}`)
   console.log(`Tempo de Execução: ${delay.toFixed(2)} segundos`)
   console.log(`Mensagens analisadas por segundo: ${(messages.length / delay).toFixed(2)}`)
