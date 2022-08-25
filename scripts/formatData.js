@@ -11,7 +11,7 @@ export default function formatMessages(text) {
     if (text[0] == '[') {
         regExpString = /\[(?:\d\d|\d)\/(?:\d\d|\d)\/\d(?:\d|\d\d\d) \d\d:\d\d:\d\d]/
     } else {
-        regExpString = /\d\d\/\d\d\/\d(?:\d|\d\d\d) (?:\d|\d\d):\d\d da (?:manhã|tarde|noite) - /
+        regExpString = /\d\d\/\d\d\/\d(?:\d|\d\d\d) (?:\d|\d\d):\d\d(?:| da (?:manhã|tarde|noite)) - /
     }
 
     const regExp = new RegExp(regExpString, 'gim')

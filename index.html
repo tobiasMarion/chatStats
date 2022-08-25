@@ -18,6 +18,10 @@
         * {
             font-family: 'Poppins', sans-serif;
         }
+
+        .hidden {
+            display: none !important;
+        }
     </style>
 </head>
 
@@ -37,7 +41,7 @@
                         <li><a href="#" class="hidden md:block text-sm font-medium text-zinc-400 contrast">Como usar</a>
                         </li>
                         <li><a href="#" class="hidden md:block text-sm font-medium text-zinc-400">Privacidade</a></li>
-                        <li><a href="#" class="bg-green-500 text-white shadow-md shadow-green-400/50
+                        <li><a href="" class="bg-green-500 text-white shadow-md shadow-green-400/50
                                 font-semibold text-sm px-3 py-2 rounded-lg">Calcular</a>
                         </li>
                     </ul>
@@ -140,28 +144,26 @@
                             <ul class="grid grid-cols-2 justify-items-center pt-8 gap-4 px-4">
                                 <li class="flex flex-col gap-1 items-center">
                                     <img src="./assets/media/sticker.svg" alt="Figurinhas" class="w-10">
-                                    <p class="text-zinc-500"><span>n</span> Figurinhas</p>
+                                    <p class="text-zinc-500"><span data-type="sticker">n</span> Figurinhas</p>
                                 </li>
                                 <li class="flex flex-col gap-1 items-center">
                                     <img src="./assets/media/audio.svg" alt="Áudios" class="w-10">
-                                    <p class="text-zinc-500"><span>n</span> Áudios</p>
+                                    <p class="text-zinc-500"><span data-type="audio">n</span> Áudios</p>
                                 </li>
                                 <li class="flex flex-col gap-1 items-center">
                                     <img src="./assets/media/image.svg" alt="Imagens" class="w-10">
-                                    <p class="text-zinc-500"><span>n</span> Imagens</p>
+                                    <p class="text-zinc-500"><span data-type="image">n</span> Imagens</p>
                                 </li>
                                 <li class="flex flex-col gap-1 items-center">
                                     <img src="./assets/media/video.svg" alt="Vídeo" class="w-10">
-                                    <p class="text-zinc-500"><span>n</span> Vídeos</p>
+                                    <p class="text-zinc-500"><span data-type="video">n</span> Vídeos</p>
                                 </li>
-                                <li class="flex flex-col gap-1 items-center hidden" class="col-span-2 hidden">
+                                <li class="flex flex-col gap-1 items-center hidden col-span-2">
                                     <img src="./assets/media/image.svg" alt="Mídias" class="w-10">
-                                    <p class="text-zinc-500"><span>n</span> Mídias</p>
+                                    <p class="text-zinc-500"><span data-type="media">n</span> Mídias</p>
                                 </li>
                             </ul>
                         </main>
-
-
                     </article>
 
                     <!-- P1 -->
@@ -200,28 +202,26 @@
                             <ul class="grid grid-cols-2 justify-items-center pt-8 gap-4 px-4">
                                 <li class="flex flex-col gap-1 items-center">
                                     <img src="./assets/media/sticker.svg" alt="Figurinhas" class="w-10">
-                                    <p class="text-zinc-500"><span>n</span> Figurinhas</p>
+                                    <p class="text-zinc-500"><span data-type="sticker">n</span> Figurinhas</p>
                                 </li>
                                 <li class="flex flex-col gap-1 items-center">
                                     <img src="./assets/media/audio.svg" alt="Áudios" class="w-10">
-                                    <p class="text-zinc-500"><span>n</span> Áudios</p>
+                                    <p class="text-zinc-500"><span data-type="audio">n</span> Áudios</p>
                                 </li>
                                 <li class="flex flex-col gap-1 items-center">
                                     <img src="./assets/media/image.svg" alt="Imagens" class="w-10">
-                                    <p class="text-zinc-500"><span>n</span> Imagens</p>
+                                    <p class="text-zinc-500"><span data-type="image">n</span> Imagens</p>
                                 </li>
                                 <li class="flex flex-col gap-1 items-center">
                                     <img src="./assets/media/video.svg" alt="Vídeo" class="w-10">
-                                    <p class="text-zinc-500"><span>n</span> Vídeos</p>
+                                    <p class="text-zinc-500"><span data-type="video">n</span> Vídeos</p>
                                 </li>
-                                <li class="flex flex-col gap-1 items-center hidden" class="col-span-2 hidden">
+                                <li class="flex flex-col gap-1 items-center hidden col-span-2">
                                     <img src="./assets/media/image.svg" alt="Mídias" class="w-10">
-                                    <p class="text-zinc-500"><span>n</span> Mídias</p>
+                                    <p class="text-zinc-500"><span data-type="media">n</span> Mídias</p>
                                 </li>
                             </ul>
                         </main>
-
-
                     </article>
                 </div>
             </section>

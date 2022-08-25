@@ -19,7 +19,7 @@ input.addEventListener('change', async ({ target }) => {
   const delay = (Date.now() - start) / 1000
 
   displayData(data)
-  
+
   console.log(data)
 
   console.log(`Total de mensagens: ${messages.length}`)
