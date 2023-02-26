@@ -1,0 +1,51 @@
+{
+  "day": 86400000,
+  "minimumCharactersToBigMessage": 500,
+  "types": {
+    "audio": [
+      "udioocultado",
+      "audioomitted"
+    ],
+    "image": [
+      "imagemocultada",
+      "imageomitted"
+    ],
+    "video": [
+      "vdeoomitido",
+      "videoomitted"
+    ],
+    "sticker": [
+      "figurinhaomitida",
+      "stickeromitted"
+    ],
+    "file": [
+      "documentoomitido",
+      "documentomitted"
+    ],
+    "media": [
+      "arquivodemdiaoculto"
+    ],
+    "deleted": [
+      "mensagemapagada",
+      "thismessagewasdeleted",
+      "null"
+    ]
+  },
+  "errorMessages": [
+    "asmensagenseaschamadassãoprotegidascomacriptografiadepontaapontaeficamsomenteentrevocêeosparticipantesdestaconversa.nemmesmoowhatsapppodelerououvi-las.",
+    "aguardandomensagem",
+    "waitingforthismessage.thismaytakeawhile.",
+    "asmensagenseaschamadassãoprotegidascomacriptografiadepontaapontaeficamsomenteentrevocêeosparticipantesdestaconversa.nemmesmoowhatsapppodelerououvi-las.toqueparasabermais.",
+    "messagesandcallsareend-to-endencrypted.nooneoutsideofthischat,notevenwhatsapp,canreadorlistentothem.",
+    "vocêbloqueouessecontato.toqueparadesbloquear.",
+    "vocêbloqueouessecontato",
+    "youblockedthiscontact",
+    "vocêdesbloqueouessecontato.",
+    "youunblockedthiscontact",
+    "missedvideocall",
+    "missedvoicecall",
+    "chamadadevídeoperdida",
+    "chamadadevídeoperdida",
+    "seucódigodesegurançacom"
+  ]
+}

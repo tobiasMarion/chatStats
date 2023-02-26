@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatStats</title>
+
+    <link rel="icon" type="image/x-icon" href="/assets/icon-logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/output.css">
+</head>
+
+<body>
+    <div class="w-full min-h-screen bg-stone-50">
+        <header class="w-full bg-white p-3 shadow-sm">
+            <div class="max-w-screen-xl mx-auto flex items-center">
+                <a href="#" class="w-fit h-12 p-1">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="./assets/full-logo.png">
+                        <img src="./assets/icon-logo.png" class="h-full" alt="ChatStats">
+                    </picture>
+                </a>
+
+                <nav class="ml-auto">
+                    <ul class="flex items-center gap-x-4">
+                        <li><a href="#" class="hidden md:block text-sm font-medium text-zinc-400 contrast">Como usar</a>
+                        </li>
+                        <li><a href="#" class="hidden md:block text-sm font-medium text-zinc-400">Privacidade</a></li>
+                        <li><a href="" class="bg-green-500 text-white shadow-md shadow-green-400/50
+                                font-semibold text-sm px-3 py-2 rounded-lg">Calcular</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="max-w-screen-xl mx-auto px-3 pb-24">
+            <section class="pt-20 max-w-screen-lg mx-auto md:mb-32">
+                <form action="/stats" method="POST" enctype="multipart/form-data">
+                    <h1 class="text-3xl font-bold tracking-tight text-center text-green-900 md:text-5xl">Veja as
+                        estatísticas das suas
+                        conversas do
+                        WhatsApp</h1>
+                    <p class="text-sm text-center text-zinc-500 mt-5 md:text-base">Lorem ipsum dolor sit amet,
+                        consectetur
+                        adipiscing
+                        elit. Elit amet cras felis eget fermentum.</p>
+                    <label for="file"
+                        class="flex flex-col items-center p-8 border-2 rounded-2xl border-dashed border-zinc-400 mx-8 my-16 cursor-pointer md:mx-auto py-12">
+                        <img src="./assets/upload.svg" alt="Escolha um arquivo" class="mb-4 md:w-20">
+                        <p class="font-medium text-zinc-500 tracking-tight md:text-lg lg:text-xl">Escolher arquivo</p>
+                        <span class="text-xs text-zinc-400 mt-1">[chat.zip ou _chat.txt]</span>
+                    </label>
+                    <input type="file" id="file" class="hidden" name="chat" accept=".txt, .zip" required>
+                </form>
+            </section>
+
+            <section class="max-w-screen-lg mx-auto md:flex gap-x-8 mb-20 md:mb-32">
+                <div class="md:flex-auto md:w-7/12">
+                    <h3 class="text-xl font-semibold mb-4 tracking-tight text-green-700 md:text-2xl">Os dados não
+                        mentem...</h3>
+                    <p class="mb-3 text-sm text-zinc-500 md:text-base">Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Elit
+                        amet cras felis eget fermentum. Elit amet cras felis eget fermentum:</p>
+                    <ul class="pl-8 list-disc mb-3 text-sm text-zinc-500 md:text-base">
+                        <li>Envio de mídia</li>
+                        <li>Tempo médio de resposta</li>
+                        <li>Início de conversa</li>
+                        <li>Gráfico de mensagens por semana</li>
+                    </ul>
+                </div>
+                <img src="./assets/chart.svg" alt="Gráfico" class="w-11/12 mx-auto md:w-5/12 md:flex-auto">
+            </section>
+
+            <section class="max-w-screen-lg mx-auto mb-20 md:mb-32">
+                <h3 class="text-xl font-semibold mb-4 tracking-tight text-green-700 md:text-2xl">Como utilizar
+                </h3>
+                <p class="mb-3 text-sm text-zinc-500 md:text-base">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing
+                    elit. Elit
+                    amet cras felis eget fermentum. Elit amet cras felis eget fermentum:</p>
+                <picture>
+                    <source media="(min-width: 768px)" srcset="./assets/horizontal-steps.svg">
+                    <img src="./assets/vertical-steps.svg" class="w-11/12 mx-auto md:w-full" alt="ChatStats">
+                </picture>
+            </section>
+
+            <section class="max-w-screen-lg mx-auto md:flex gap-x-8">
+                <div class="md:flex-auto md:w-4/6">
+                    <h3 class="text-xl font-semibold mb-4 tracking-tight text-green-700 md:text-2xl">Privacidade &
+                        Segurança</h3>
+                    <p class="mb-3 text-sm text-zinc-500 md:text-base">Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Sollicitudin lorem donec fermentum lorem sed sit. Neque id pulvinar volutpat
+                        eu.</p>
+                    <p class="mb-3 text-sm text-zinc-500 md:text-base">Platea id viverra cras venenatis a pharetra ac
+                        vel convallis. Turpis sed a pulvinar tincidunt nunc etiam enim. Auctor dignissim donec tempor
+                        nunc.</p>
+                </div>
+                <img src="./assets/safety.svg" alt="Gráfico" class="w-1/2 mx-auto md:w-2/12 md:flex-auto">
+            </section>
+        </main>
+
+        <footer class="w-full py-1 flex gap-1 justify-center items-center bg-green-500 text-sm text-white">
+            <p class="font-light">Made with</p>
+            <img src="./assets/heart.svg" alt="love" class="h-2">
+            <p class="font-light">by Tobias</p>
+        </footer>
+    </div>
+
+    <script src="/scripts/autoSendForm.js"></script>
+</body>
+
+</html>
