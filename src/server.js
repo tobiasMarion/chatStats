@@ -3,7 +3,7 @@ require('dotenv/config');
 const express = require('express')
 const multer = require("multer");
 
-const { updloadHandler } = require('./controllers/chatController')
+const chatController = require('./controllers/chatController')
 
 
 const app = express()
@@ -18,7 +18,9 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/home.html')
 })
 
-app.post('/stats', upload.single('chat'), updloadHandler)
+app.post('/stats', upload.single('chat'), (req, res) => {
+  chatController.updloadHandler(req, res)
+})
 
 app.listen(port, () => {
   console.log(`ChatStats app listening on http://localhost:${port}`)
