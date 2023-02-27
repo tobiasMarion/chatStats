@@ -18,8 +18,8 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/home.html')
 })
 
-app.post('/stats', upload.single('chat'), (req, res) => {
-  chatController.updloadHandler(req, res)
+app.post('/stats', upload.single('chat'), async (req, res) => {
+  await chatController.updloadHandler(req, res)
 })
 
 app.listen(port, () => {

@@ -2,32 +2,50 @@ const fs = require('fs')
 const decompress = require('decompress')
 
 module.exports = {
-  updloadHandler(req, res) {
+  async updloadHandler(req, res) {
     const file = req.file
 
-    this.formatFile(file)
+    const rawText = await this.readFile(file)
 
-    res.send('chegou')
+    const messages = this.formatMessages(rawText)
+
+    res.send('<a href="http://localhost:3000">Return<a/>')
   },
 
-  async formatFile(file) {
-    const { originalname, filename } = file
+  async readFile(file) {
+    const { originalname, filename, path } = file
     const extesion = originalname.split('.').splice(-1)[0]
-    const renamedFile = `uploads/${filename}.${extesion}`
-
-    fs.rename(`uploads/${filename}`, renamedFile, (err) => {
-      if (err) throw err;
-    })
 
     if (extesion === 'zip') {
-      await decompress(renamedFile, `uploads/${filename}`)
+      const renamedFile = `uploads/${filename}.zip`
 
-      fs.unlink(renamedFile, (err) => {
-        if (err) throw err;
-      })
+      fs.renameSync(path, renamedFile)
+      await decompress(renamedFile, `uploads/_${filename}`)
+      fs.unlinkSync(renamedFile)
+
     } else if (extesion === 'txt') {
-      //mover para a pasta
-      //renomear
+      const renamedFile = `uploads/_${filename}/_chat.txt`
+
+      fs.mkdirSync(`uploads/_${filename}`)
+      fs.renameSync(`uploads/${filename}`, renamedFile)
     }
+
+    const filePath = `uploads/_${filename}/_chat.txt`
+    const rawText = fs.readFileSync(filePath).toString()
+    
+    fs.unlinkSync(filePath, err => {
+      if (err) throw err
+
+      fs.rmdirSync(`uploads/_${filename}`)
+    })
+    
+
+    return rawText
+
+  },
+
+  formatMessages(rawText) {
+
+    return []
   }
 }
