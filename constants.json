@@ -1,5 +1,7 @@
 {
-  "day": 86400000,
+  "messageDatePatterns": [
+
+  ],
   "minimumCharactersToBigMessage": 500,
   "types": {
     "audio": [

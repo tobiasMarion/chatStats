@@ -1,5 +1,9 @@
 const fs = require('fs')
 const decompress = require('decompress')
+const dayjs = require('dayjs')
+
+const customParseFormat = require('dayjs/plugin/customParseFormat')
+dayjs.extend(customParseFormat)
 
 module.exports = {
   async updloadHandler(req, res) {
@@ -32,20 +36,37 @@ module.exports = {
 
     const filePath = `uploads/_${filename}/_chat.txt`
     const rawText = fs.readFileSync(filePath).toString()
-    
-    fs.unlinkSync(filePath, err => {
-      if (err) throw err
 
-      fs.rmdirSync(`uploads/_${filename}`)
+    fs.rm(`${process.cwd()}/uploads/_${filename}`, { recursive: true }, err => {
+      if (err) throw err
     })
-    
 
     return rawText
 
   },
 
   formatMessages(rawText) {
+    rawText = rawText.replace(/\u200e/g, '')
+    
+    if (!rawText) return []
 
-    return []
+    let regExpMessagePatternIdentifier
+
+    if (rawText[0] == '[') {
+      // iOS Pattern
+      regExpMessagePatternIdentifier = /\[\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|) \d(?:\d|):\d(?:\d|):\d(?:\d|)]/
+    } else {
+      // Android Pattern
+      // do something cool
+    }
+
+    const regEx = new RegExp(regExpMessagePatternIdentifier, 'gim')
+
+    const dates = [...rawText.matchAll(regEx)].map(a => {
+      let stringDate = a[0].replace(/\[|]/g, '')
+
+      
+
+  })
   }
 }
