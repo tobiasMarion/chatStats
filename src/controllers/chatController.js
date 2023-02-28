@@ -5,6 +5,10 @@ const dayjs = require('dayjs')
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 
+const { messageDatePatterns, typeList } = require('../../constants.json')
+
+
+
 module.exports = {
   async updloadHandler(req, res) {
     const file = req.file
@@ -47,7 +51,7 @@ module.exports = {
 
   formatMessages(rawText) {
     rawText = rawText.replace(/\u200e/g, '')
-    
+
     if (!rawText) return []
 
     let regExpMessagePatternIdentifier
@@ -63,10 +67,47 @@ module.exports = {
     const regEx = new RegExp(regExpMessagePatternIdentifier, 'gim')
 
     const dates = [...rawText.matchAll(regEx)].map(a => {
-      let stringDate = a[0].replace(/\[|]/g, '')
+      let stringDate = a[0].replace(/\[|]/g, '').toUpperCase()
 
-      
+      const date = dayjs(stringDate, messageDatePatterns)
 
-  })
+      return date
+    })
+
+    let messages = rawText.split(regEx)
+    messages.shift()
+
+    const types = Object.keys(typeList)
+
+    messages = messages.map((rawMessage, index) => {
+      let [sender, content] = rawMessage.split(':', 2)
+
+      sender = sender.trim()
+      content = content.trim()
+
+      let type
+
+      for (key of types) {
+        const normalizedContent = content.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+
+        if (typeList[key].includes(normalizedContent)) {
+          type = key
+          content = ''
+          break
+        }
+      }
+
+      const message = {
+        date: dates[index],
+        type: type || 'text',
+        sender,
+        content
+      }
+
+
+      return message
+    })
+
+    return messages
   }
 }

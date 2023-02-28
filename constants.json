@@ -1,38 +1,55 @@
 {
   "messageDatePatterns": [
+    "D/M/YY h:mm:ss",
+    "DD/M/YY h:mm:ss",
+    "D/MM/YY h:mm:ss",
+    "DD/MM/YY h:mm:ss",
+    "D/M/YYYY h:mm:ss",
+    "DD/M/YYYY h:mm:ss",
+    "D/MM/YYYY h:mm:ss",
+    "DD/MM/YYYY h:mm:ss",
+    "D/M/YY HH:mm:ss",
+    "DD/M/YY HH:mm:ss",
+    "D/MM/YY HH:mm:ss",
+    "DD/MM/YY HH:mm:ss",
+    "D/M/YYYY HH:mm:ss",
+    "DD/M/YYYY HH:mm:ss",
+    "D/MM/YYYY HH:mm:ss",
+    "DD/MM/YYYY HH:mm:ss"
 
   ],
   "minimumCharactersToBigMessage": 500,
-  "types": {
+  "typeList": {
     "audio": [
-      "udioocultado",
-      "audioomitted"
+      "audio ocultado",
+      "audio omitted"
     ],
     "image": [
-      "imagemocultada",
-      "imageomitted"
+      "image omitted",
+      "imagem ocultada"
     ],
     "video": [
-      "vdeoomitido",
-      "videoomitted"
+      "video omitted",
+      "video omitido"
     ],
     "sticker": [
-      "figurinhaomitida",
-      "stickeromitted"
+      "sticker omitted",
+      "figurinha omitida"
     ],
     "file": [
-      "documentoomitido",
-      "documentomitted"
+      "document omitted",
+      "documento omitido"
     ],
     "media": [
-      "arquivodemdiaoculto"
+      "arquivo de midia oculto"
     ],
     "deleted": [
-      "mensagemapagada",
-      "thismessagewasdeleted",
+      "this message was deleted",
+      "mensagem apagada",
       "null"
     ]
   },
+  
   "errorMessages": [
     "asmensagenseaschamadassãoprotegidascomacriptografiadepontaapontaeficamsomenteentrevocêeosparticipantesdestaconversa.nemmesmoowhatsapppodelerououvi-las.",
     "aguardandomensagem",
