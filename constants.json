@@ -1,13 +1,13 @@
 {
   "messageDatePatterns": [
-    "D/M/YY h:mm:ss",
-    "DD/M/YY h:mm:ss",
-    "D/MM/YY h:mm:ss",
-    "DD/MM/YY h:mm:ss",
-    "D/M/YYYY h:mm:ss",
-    "DD/M/YYYY h:mm:ss",
-    "D/MM/YYYY h:mm:ss",
-    "DD/MM/YYYY h:mm:ss",
+    "D/M/YY h:mm:ss A",
+    "DD/M/YY h:mm:ss A",
+    "D/MM/YY h:mm:ss A",
+    "DD/MM/YY h:mm:ss A",
+    "D/M/YYYY h:mm:ss A",
+    "DD/M/YYYY h:mm:ss A",
+    "D/MM/YYYY h:mm:ss A",
+    "DD/MM/YYYY h:mm:ss A",
     "D/M/YY HH:mm:ss",
     "DD/M/YY HH:mm:ss",
     "D/MM/YY HH:mm:ss",
@@ -18,7 +18,7 @@
     "DD/MM/YYYY HH:mm:ss"
 
   ],
-  "minimumCharactersToBigMessage": 500,
+  "minimumCharactersToBigMessage": 300,
   "typeList": {
     "audio": [
       "audio ocultado",
@@ -51,20 +51,20 @@
   },
   
   "errorMessages": [
-    "asmensagenseaschamadassãoprotegidascomacriptografiadepontaapontaeficamsomenteentrevocêeosparticipantesdestaconversa.nemmesmoowhatsapppodelerououvi-las.",
-    "aguardandomensagem",
-    "waitingforthismessage.thismaytakeawhile.",
-    "asmensagenseaschamadassãoprotegidascomacriptografiadepontaapontaeficamsomenteentrevocêeosparticipantesdestaconversa.nemmesmoowhatsapppodelerououvi-las.toqueparasabermais.",
-    "messagesandcallsareend-to-endencrypted.nooneoutsideofthischat,notevenwhatsapp,canreadorlistentothem.",
-    "vocêbloqueouessecontato.toqueparadesbloquear.",
-    "vocêbloqueouessecontato",
-    "youblockedthiscontact",
-    "vocêdesbloqueouessecontato.",
-    "youunblockedthiscontact",
-    "missedvideocall",
-    "missedvoicecall",
-    "chamadadevídeoperdida",
-    "chamadadevídeoperdida",
-    "seucódigodesegurançacom"
+    "seu codigo de seguranca com",
+    "as mensagens e as chamadas sao protegidas com a criptografia de ponta a ponta e ficam somente entre voce e os participantes desta conversa. nem mesmo o whatsapp pode ler ou ouvi-las.",
+    "aguardando mensagem",
+    "waiting for this message. this may take a while.",
+    "as mensagens e as chamadas sao protegidas com a criptografia de ponta a ponta e ficam somente entre voce e os participantes desta conversa.nem mesmo o whatsapp pode ler ou ouvi-las. toque para saber mais.",
+    "messages and calls are end-to-end encrypted. no one outside of this chat, not even whatsapp, can read or listen to them.",
+    "voce bloqueou esse contato. toque para desbloquear.",
+    "voce bloqueou esse contato",
+    "you blocked this contact",
+    "voce desbloqueou esse contato",
+    "you unblocked this contact",
+    "missed video call",
+    "missed voice call",
+    "chamada de video perdida",
+    "chamada de video perdida"
   ]
 }

@@ -19,7 +19,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/stats', upload.single('chat'), async (req, res) => {
+  const start = Date.now()
   await chatController.updloadHandler(req, res)
+  console.log(`Delay: ${(Date.now() - start) / 1000}`)
 })
 
 app.listen(port, () => {

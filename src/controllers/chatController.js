@@ -5,7 +5,10 @@ const dayjs = require('dayjs')
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 
-const { messageDatePatterns, typeList } = require('../../constants.json')
+const { messageDatePatterns, typeList, errorMessages } = require('../../constants.json')
+const { countMessages } = require('./personController')
+
+const Message = require('../models/message')
 
 
 
@@ -17,7 +20,10 @@ module.exports = {
 
     const messages = this.formatMessages(rawText)
 
-    res.send('<a href="http://localhost:3000">Return<a/>')
+    const data = countMessages(messages)
+    console.log(data.people)
+
+    res.send(`<a href="http://localhost:3000">Return<a/><br>${messages.length}`)
   },
 
   async readFile(file) {
@@ -58,7 +64,7 @@ module.exports = {
 
     if (rawText[0] == '[') {
       // iOS Pattern
-      regExpMessagePatternIdentifier = /\[\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|) \d(?:\d|):\d(?:\d|):\d(?:\d|)]/
+      regExpMessagePatternIdentifier = /\[\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|) \d(?:\d|):\d(?:\d|):\d(?:\d|)(?: PM| AM|)]/
     } else {
       // Android Pattern
       // do something cool
@@ -87,8 +93,18 @@ module.exports = {
 
       let type
 
+      const normalizedContent = content.normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLowerCase()
+
+      if (errorMessages.includes(normalizedContent)) {
+        return null
+      } 
+      
+      // Special error messages (it contains Person 2 name)
+      if (normalizedContent.includes(errorMessages[0])) {
+        return null
+      }
+
       for (key of types) {
-        const normalizedContent = content.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 
         if (typeList[key].includes(normalizedContent)) {
           type = key
@@ -97,16 +113,15 @@ module.exports = {
         }
       }
 
-      const message = {
-        date: dates[index],
-        type: type || 'text',
-        sender,
-        content
-      }
+      type = type || 'text'
+
+      const message = new Message(dates[index], type, sender, content)
 
 
       return message
     })
+
+    messages = messages.filter(element => element != null)
 
     return messages
   }
