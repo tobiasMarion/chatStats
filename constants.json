@@ -52,6 +52,8 @@
   
   "errorMessages": [
     "seu codigo de seguranca com",
+    "created this group",
+    "you were added",
     "as mensagens e as chamadas sao protegidas com a criptografia de ponta a ponta e ficam somente entre voce e os participantes desta conversa. nem mesmo o whatsapp pode ler ou ouvi-las.",
     "aguardando mensagem",
     "waiting for this message. this may take a while.",
@@ -65,6 +67,7 @@
     "missed video call",
     "missed voice call",
     "chamada de video perdida",
-    "chamada de video perdida"
+    "chamada de video perdida",
+    "you started a video call"
   ]
 }

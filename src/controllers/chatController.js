@@ -21,9 +21,8 @@ module.exports = {
     const messages = this.formatMessages(rawText)
 
     const data = countMessages(messages)
-    console.log(data.people)
 
-    res.send(`<a href="http://localhost:3000">Return<a/><br>${messages.length}`)
+    res.json(data)
   },
 
   async readFile(file) {
@@ -67,7 +66,9 @@ module.exports = {
       regExpMessagePatternIdentifier = /\[\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|) \d(?:\d|):\d(?:\d|):\d(?:\d|)(?: PM| AM|)]/
     } else {
       // Android Pattern
-      // do something cool
+
+      // marco's file
+      regExpMessagePatternIdentifier = /\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|), \d(?:\d|):\d(?:\d|) (?:PM|AM|) - /
     }
 
     const regEx = new RegExp(regExpMessagePatternIdentifier, 'gim')
@@ -100,7 +101,7 @@ module.exports = {
       } 
       
       // Special error messages (it contains Person 2 name)
-      if (normalizedContent.includes(errorMessages[0])) {
+      if (normalizedContent.includes(errorMessages[0]) || normalizedContent.includes(errorMessages[1])) {
         return null
       }
 
