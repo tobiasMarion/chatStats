@@ -42,7 +42,7 @@ module.exports = {
 
           dateTable[row][personIndex + 1] = messagesThisWeek == null ? 1 : messagesThisWeek + 1
         } else {
-          const column = dateTable[0].push(sender)
+          const column = dateTable[0].push(sender) - 1
           dateTable[row][column] = 1
         }
       } else {
@@ -58,9 +58,9 @@ module.exports = {
 
           let newRow = [weekStart.format('DD/MM/YY')]
           if (foundPerson) {
-            newRow[personIndex] = 1
+            newRow[personIndex + 1] = 1
           } else {
-            const indexToAdd = people.length + 1
+            const indexToAdd = people.length
             newRow[indexToAdd] = 1
           }
           dateTable.push(newRow)
