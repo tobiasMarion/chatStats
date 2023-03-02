@@ -9,7 +9,7 @@ const { minimumCharactersToBigMessage } = require('../../constants.json')
 module.exports = {
   countMessages(messages) {
     const people = []
-    const dateTable = [['Semana']]
+    let dateTable = [['Semana']]
 
     let lastPersonIndex
     let charactersInARow
@@ -48,7 +48,7 @@ module.exports = {
       } else {
         if (lastMessageDate) {
           let weekStart = lastMessageDate.add(1, 'week').startOf('week')
-          
+
           while (weekStart.isBefore(date, 'week')) {
             let dateString = weekStart.startOf('week').format('DD/MM/YY')
             dateTable.push([dateString])
@@ -85,6 +85,16 @@ module.exports = {
         people.push(person)
         lastPersonIndex = people.length - 1
       }
+    })
+
+    dateTableColumns = dateTable[0].length 
+
+    dateTable = dateTable.map(row => {
+      for (let column = 0; column < dateTableColumns; column++) {
+        row[column] = row[column] != null ? row[column] : 0
+      }
+
+      return row
     })
 
     return { validMessages: messages.length, people, dateTable }

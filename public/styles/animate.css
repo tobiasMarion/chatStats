@@ -1,0 +1,43 @@
+.message1>path {
+  animation: messageAppear 4s ease 0s infinite normal none;
+}
+
+.message2>path {
+  animation: messageAppear 5s ease 3s infinite normal none;
+}
+
+.picture>path {
+  animation: messageAppear 5s ease 7s infinite normal none;
+}
+
+span.dots::after {
+  content: '...';
+  width: .5rem;
+  display: inline-block;
+  text-align: left;
+  animation: dots 3s infinite;
+}
+
+@keyframes dots {
+  0% {
+    content: '.';
+  }
+
+  33% {
+    content: '..';
+  }
+
+  66% {
+    content: '...';
+  }
+}
+
+@keyframes messageAppear {
+  0% {
+    transform: translateY(1rem);
+  }
+
+  20% {
+    transform: translateY(0);
+  }
+}
