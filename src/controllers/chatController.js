@@ -8,7 +8,7 @@ dayjs.extend(customParseFormat)
 const { messageDatePatterns, typeList, errorMessages } = require('../../constants.json')
 const { countMessages } = require('./personController')
 
-const Message = require('../models/message')
+const Message = require('../models/Message')
 
 
 
