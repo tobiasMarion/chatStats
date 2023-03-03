@@ -15,19 +15,19 @@ span.dots::after {
   width: .5rem;
   display: inline-block;
   text-align: left;
-  animation: dots 3s infinite;
+  animation: dots 2s infinite;
 }
 
 @keyframes dots {
-  0% {
+  10% {
     content: '.';
   }
 
-  33% {
+  50% {
     content: '..';
   }
 
-  66% {
+  90% {
     content: '...';
   }
 }

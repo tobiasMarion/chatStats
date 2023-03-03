@@ -97,6 +97,6 @@ module.exports = {
       return row
     })
 
-    return { validMessages: messages.length, people, dateTable }
+    return { validMessages: messages.length, people, dateTable, minimumCharactersToBigMessage }
   }
 }

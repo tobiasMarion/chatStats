@@ -22,7 +22,7 @@ module.exports = {
 
     const data = countMessages(messages)
 
-    res.json(data)
+    return data
   },
 
   async readFile(file) {
