@@ -5,14 +5,14 @@ class Person {
   messages = 0
   messagesByDayOfTheWeek = [0, 0, 0, 0, 0, 0, 0]
   types = {
-      image: 0,
-      text: 0,
-      video: 0,
-      audio: 0,
-      sticker: 0,
-      deleted: 0,
-      file: 0,
-      media: 0
+      images: 0,
+      texts: 0,
+      videos: 0,
+      audios: 0,
+      stickers: 0,
+      deleteds: 0,
+      files: 0,
+      medias: 0
   }
 
 

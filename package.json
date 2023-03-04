@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node .",
     "dev": "nodemon .",
-    "tailwind generate": "npx tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css"
+    "tailwind watch": "npx tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css --watch"
   },
   "repository": {
     "type": "git",

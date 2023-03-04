@@ -60,7 +60,8 @@ module.exports = {
           if (foundPerson) {
             newRow[personIndex + 1] = 1
           } else {
-            const indexToAdd = people.length
+            const indexToAdd = people.length + 1
+            dateTable[0][indexToAdd] = sender
             newRow[indexToAdd] = 1
           }
           dateTable.push(newRow)
@@ -96,6 +97,8 @@ module.exports = {
 
       return row
     })
+
+    dateTable = JSON.stringify(dateTable)
 
     return { validMessages: messages.length, people, dateTable, minimumCharactersToBigMessage }
   }

@@ -1,0 +1,64 @@
+<article 
+  data-person="<%= index %>" 
+  class="w-full max-w-sm md:max-w-xs shrink-0 py-8 bg-white shadow-lg rounded-2xl border-zinc-100 border-2 mt-8">
+  
+  <header class="flex flex-col items-center mb-4">
+    <img src="https://api.dicebear.com/5.x/big-smile/svg?seed=<%= person.name %>" alt="Avatar" class="w-40 h-auto">
+    <h3 data-stats="name" class="text-2xl font-medium text-green-700"><%= person.name %></h3>
+  </header>
+
+  <main>
+    <ul>
+      <li class="px-4 odd:bg-slate-50 even:bg-white flex items-center py-1 odd:border-y-2 odd:border-slate-100 text-zinc-500">
+        Total de mensagens: 
+        <span data-stats="messages" class="font-medium text-green-600 flex-1 text-right"><%= person.messages.toLocaleString() %></span>
+      </li>
+      <li class="px-4 odd:bg-slate-50 even:bg-white flex items-center py-1 odd:border-y-2 odd:border-slate-100 text-zinc-500">
+        Total de caracteres: <span data-stats="characters" class="font-medium text-green-600 flex-1 text-right"><%= person.characters.toLocaleString() %></span>
+      </li>
+      <li class="px-4 odd:bg-slate-50 even:bg-white odd:border-y-2 odd:border-slate-100 text-zinc-500">
+        <details>
+          <summary class="flex py-1 items-center cursor-pointer">Textões: <span data-stats="bigMessages"
+              class="font-medium text-green-600 flex-1 text-right">
+              <%= person.bigMessages.toLocaleString() %>
+            </span>
+          </summary>
+          <p class="text-sm py-2">São considerados <em>"textões"</em> todas as sequências
+            de
+            caracteres em uma ou mais mensagens consecutivas que atinjam pelo menos
+            <span>
+              <%= minimumCharactersToBigMessage %>
+            </span> caracteres.
+          </p>
+        </details>
+      </li>
+
+    </ul>
+
+    <ul class="grid grid-cols-2 justify-items-center pt-8 gap-4 px-4">
+      <li class="flex flex-col gap-1 items-center">
+        <img src="./assets/media/sticker.svg" alt="Figurinhas" class="w-10">
+        <p class="text-zinc-500"><span data-type="sticker"><%= person.types.stickers %></span> Figurinhas</p>
+      </li>
+      <li class="flex flex-col gap-1 items-center">
+        <img src="./assets/media/audio.svg" alt="Áudios" class="w-10">
+        <p class="text-zinc-500"><span data-type="audio"><%= person.types.audios %></span> Áudios</p>
+      </li>
+      <li class="flex flex-col gap-1 items-center">
+        <img src="./assets/media/image.svg" alt="Imagens" class="w-10">
+        <p class="text-zinc-500"><span data-type="image"><%= person.types.images %></span> Fotos</p>
+      </li>
+      <li class="flex flex-col gap-1 items-center">
+        <img src="./assets/media/video.svg" alt="Vídeo" class="w-10">
+        <p class="text-zinc-500"><span data-type="video"><%= person.types.videos %></span> Vídeos</p>
+      </li>
+
+      <% if (person.types.media) { %>       
+        <li class="flex flex-col gap-1 items-center col-span-2">
+          <img src="./assets/media/image.svg" alt="Mídias" class="w-10">
+          <p class="text-zinc-500"><span data-type="media"><%= person.types.medias %></span> Mídias</p>
+        </li>
+      <% } %>
+    </ul>
+  </main>
+</article>

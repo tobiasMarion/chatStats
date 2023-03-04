@@ -20,27 +20,27 @@
   ],
   "minimumCharactersToBigMessage": 300,
   "typeList": {
-    "audio": [
+    "audios": [
       "audio ocultado",
       "audio omitted"
     ],
-    "image": [
+    "images": [
       "image omitted",
       "imagem ocultada"
     ],
-    "video": [
+    "videos": [
       "video omitted",
       "video omitido"
     ],
-    "sticker": [
+    "stickers": [
       "sticker omitted",
       "figurinha omitida"
     ],
-    "file": [
+    "files": [
       "document omitted",
       "documento omitido"
     ],
-    "media": [
+    "medias": [
       "arquivo de midia oculto"
     ],
     "deleted": [

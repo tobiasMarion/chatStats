@@ -1,106 +1,43 @@
-<%- include('partials/head.ejs') %>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<%- include('partials/head.ejs', { title: "ChatStats | Resultados" }) %>
+
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
 
   <body>
-    <div class="w-full min-h-screen bg-stone-50">
-      <header class="w-full bg-white p-3 shadow-sm">
-        <div class="max-w-screen-xl mx-auto flex items-center">
-          <a href="#" class="w-fit h-12 p-1">
-            <picture>
-              <source media="(min-width: 768px)" srcset="./assets/full-logo.png">
-              <img src="./assets/icon-logo.png" class="h-full" alt="ChatStats">
-            </picture>
-          </a>
+    <div class="w-full min-h-screen bg-stone-50 scroll-smooth	">
+      <%- include('partials/header.ejs', {isHome: false}) %>
 
-          <nav class="ml-auto">
-            <ul class="flex items-center gap-x-4">
-              <li><a href="#" class="hidden md:block text-sm font-medium text-zinc-400 contrast">Como usar</a>
-              </li>
-              <li><a href="#" class="hidden md:block text-sm font-medium text-zinc-400">Privacidade</a></li>
-              <li><a href="" class="bg-green-500 text-white shadow-md shadow-green-400/50
-                                font-semibold text-sm px-3 py-2 rounded-lg">Calcular</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
 
-      <main class="max-w-screen-xl mx-auto px-3 pb-24">
+        <main class="max-w-screen-xl mx-auto px-3 pb-24">
 
-        <section class="results py-10 my-10 max-w-screen-lg mx-auto">
-          <h1 class="text-3xl font-bold tracking-tight text-center text-green-900 md:text-5xl">Prontinho! Vamos
-            ver o que encontramos...</h1>
-          <p class="text-sm text-center text-zinc-500 mt-4 md:text-base"></p>
+          <section class="results my-10 max-w-screen-lg mx-auto">
+            <h1 class="text-3xl font-bold tracking-tight text-center text-green-900 md:text-5xl">Prontinho! Vamos
+              ver o que encontramos...</h1>
+            <p class="text-sm text-center text-zinc-500 mt-4 md:text-base"> Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Unde, eveniet.</p>
 
-          <div class="flex flex-col max-w-screen-lg items-center md:flex-row md:gap-8 md:justify-center">
-            <% people.forEach((person, index) => {%>
-              <article data-person="<%= index %>"
-                class="w-full max-w-sm py-8 bg-white shadow-lg rounded-2xl border-zinc-100 border-2 mt-8">
-                <header class="flex flex-col items-center mb-4">
-                  <img src="https://api.dicebear.com/5.x/big-smile/svg?seed=<%= person.name %>" alt="Avatar" class="w-40 h-auto">
-                  <h3 data-stats="name" class="text-2xl font-medium text-green-700"><%= person.name %></h3>
-                </header>
+            <div class="flex flex-col md:flex-row md:gap-4 overflow-x-auto py-8 items-center md:items-start <%= people.length > 3 ? 'md:justify-start' :  'md:justify-center'%>">
 
-                <main>
-                  <ul>
-                    <li
-                      class="px-4 odd:bg-slate-50 even:bg-white flex items-center py-1 odd:border-y-2 odd:border-slate-100 text-zinc-500">
-                      Total de mensagens: <span data-stats="messages"
-                        class="font-medium text-green-600 flex-1 text-right"><%= person.messages.toLocaleString() %></span></li>
-                    <li
-                      class="px-4 odd:bg-slate-50 even:bg-white flex items-center py-1 odd:border-y-2 odd:border-slate-100 text-zinc-500">
-                      Total de caracteres: <span data-stats="characters"
-                        class="font-medium text-green-600 flex-1 text-right"><%= person.characters.toLocaleString() %></span></li>
-                    <li class="px-4 odd:bg-slate-50 even:bg-white odd:border-y-2 odd:border-slate-100 text-zinc-500">
-                      <details>
-                        <summary class="flex py-1 items-center cursor-pointer">Textões: <span data-stats="bigMessages"
-                            class="font-medium text-green-600 flex-1 text-right"><%= person.bigMessages.toLocaleString() %></span>
-                        </summary>
-                        <p class="text-sm py-2">São considerados <em>"textões"</em> todas as sequências
-                          de
-                          caracteres em uma ou mais mensagens consecutivas que atinjam pelo menos
-                          <span><%= minimumCharactersToBigMessage %></span> caracteres.
-                        </p>
-                      </details>
-                    </li>
+                  <% people.forEach((person, index)=> {%>
+                    <%- include('partials/personArticle.ejs', { person, index }) %>
+                      <%})%>
+            </div>
+          </section>
 
-                  </ul>
+          <%- include('partials/charts.ejs', {dateTable}) %>
+            <%- include('partials/privacySection.ejs') %>
 
-                  <ul class="grid grid-cols-2 justify-items-center pt-8 gap-4 px-4">
-                    <li class="flex flex-col gap-1 items-center">
-                      <img src="./assets/media/sticker.svg" alt="Figurinhas" class="w-10">
-                      <p class="text-zinc-500"><span data-type="sticker">n</span> Figurinhas</p>
-                    </li>
-                    <li class="flex flex-col gap-1 items-center">
-                      <img src="./assets/media/audio.svg" alt="Áudios" class="w-10">
-                      <p class="text-zinc-500"><span data-type="audio">n</span> Áudios</p>
-                    </li>
-                    <li class="flex flex-col gap-1 items-center">
-                      <img src="./assets/media/image.svg" alt="Imagens" class="w-10">
-                      <p class="text-zinc-500"><span data-type="image">n</span> Imagens</p>
-                    </li>
-                    <li class="flex flex-col gap-1 items-center">
-                      <img src="./assets/media/video.svg" alt="Vídeo" class="w-10">
-                      <p class="text-zinc-500"><span data-type="video">n</span> Vídeos</p>
-                    </li>
-                    <li class="flex flex-col gap-1 items-center hidden col-span-2">
-                      <img src="./assets/media/image.svg" alt="Mídias" class="w-10">
-                      <p class="text-zinc-500"><span data-type="media">n</span> Mídias</p>
-                    </li>
-                  </ul>
-                </main>
-              </article>
-            <%})%>
-          </div>
-        </section>
+        </main>
 
-        <%- include('partials/privacySection.ejs') %>
-
-      </main>
-
-      <%- include('partials/footer.ejs') %>
+        <%- include('partials/footer.ejs') %>
     </div>
 
-    <script src="./scripts/script.js" type="module"></script>
+    <script src="/scripts/drawChart.js"></script>
+
   </body>
 
-  </html>
+</html>
