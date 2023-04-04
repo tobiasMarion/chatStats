@@ -15,6 +15,7 @@ module.exports = {
     let charactersInARow
     let lastMessageDate
 
+    // Count messages
     messages.forEach(({ date, type, sender, content }) => {
       const foundPerson = people.find(person => person.name === sender)
       const personIndex = people.findIndex(person => person.name === sender)
@@ -88,8 +89,8 @@ module.exports = {
       }
     })
 
+    // Fill gaps Date Table
     dateTableColumns = dateTable[0].length 
-
     dateTable = dateTable.map(row => {
       for (let column = 0; column < dateTableColumns; column++) {
         row[column] = row[column] != null ? row[column] : 0
@@ -97,7 +98,6 @@ module.exports = {
 
       return row
     })
-
     dateTable = JSON.stringify(dateTable)
 
     return { validMessages: messages.length, people, dateTable, minimumCharactersToBigMessage }

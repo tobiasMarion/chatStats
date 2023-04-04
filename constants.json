@@ -16,7 +16,6 @@
     "DD/M/YYYY HH:mm:ss",
     "D/MM/YYYY HH:mm:ss",
     "DD/MM/YYYY HH:mm:ss"
-
   ],
   "minimumCharactersToBigMessage": 300,
   "typeList": {
@@ -49,7 +48,6 @@
       "null"
     ]
   },
-  
   "errorMessages": [
     "seu codigo de seguranca com",
     "created this group",
@@ -68,6 +66,7 @@
     "missed voice call",
     "chamada de video perdida",
     "chamada de video perdida",
-    "you started a video call"
+    "you started a video call",
+    "you changed the group description"
   ]
 }

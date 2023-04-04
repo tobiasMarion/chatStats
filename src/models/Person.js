@@ -3,7 +3,15 @@ class Person {
   bigMessages = 0
   characters = 0
   messages = 0
+  
   messagesByDayOfTheWeek = [0, 0, 0, 0, 0, 0, 0]
+  messagesByPartOfTheDay = {
+    dawn: 0,
+    morning: 0,
+    afternoon: 0,
+    night: 0
+  }
+
   types = {
       images: 0,
       texts: 0,

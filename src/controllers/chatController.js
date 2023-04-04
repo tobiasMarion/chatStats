@@ -13,14 +13,26 @@ const Message = require('../models/Message')
 
 
 module.exports = {
-  async updloadHandler(req, res) {
+  async updloadHandler(req, res, timeControl) {
     const file = req.file
 
     const rawText = await this.readFile(file)
+    timeControl.push({
+      'Etapa': 'Leitura do arquivo',
+      'Tempo (ms)': Date.now() - timeControl[0]
+    })
 
     const messages = this.formatMessages(rawText)
+    timeControl.push({
+      'Etapa': 'Formatar mensagens',
+      'Tempo (ms)': Date.now() - timeControl[1]['Tempo (ms)'] - timeControl[0]
+    })
 
     const data = countMessages(messages)
+    timeControl.push({ 
+      'Etapa': 'Contar mensagens', 
+      'Tempo (ms)': Date.now() - timeControl[2]['Tempo (ms)'] - timeControl[0] 
+    })
 
     return data
   },
@@ -98,8 +110,8 @@ module.exports = {
 
       if (errorMessages.includes(normalizedContent)) {
         return null
-      } 
-      
+      }
+
       // Special error messages (it contains Person 2 name)
       if (normalizedContent.includes(errorMessages[0]) || normalizedContent.includes(errorMessages[1])) {
         return null

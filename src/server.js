@@ -22,9 +22,24 @@ app.get('/', (req, res) => {
 })
 
 app.post('/stats', upload.single('chat'), async (req, res) => {
+  console.log('-=-=-=-=-= Nova requisição =-=-=-=-=-')
   const start = Date.now()
-  const data = await chatController.updloadHandler(req, res)
-  const delay = (Date.now() - start) / 1000
+  const timeControl = [start]
+
+  const data = await chatController.updloadHandler(req, res, timeControl)
+
+
+  const total = Date.now() - timeControl.shift()
+  timeControl.map(row => {
+    row['Tempo (%)'] = (row['Tempo (ms)'] / total * 100).toFixed(2)
+    return row
+  })
+
+  console.table(timeControl)
+  console.log(`Tempo Total: ${total}ms`)
+  console.log(`Total de Mensagens: ${data.validMessages}`)
+  console.log(`Mensagens por segundo: ${(data.validMessages / total * 1000).toFixed(0)} \n`)
+
   res.render('stats', data)
 })
 
