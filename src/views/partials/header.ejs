@@ -1,20 +1,21 @@
-<header class="w-full bg-white p-3 shadow-sm">
-  <div class="max-w-screen-xl mx-auto flex items-center">
+<header class="w-full bg-white p-4 sticky top-0 z-50">
+  <div class="max-w-screen-xl mx-auto flex items-center justify-between">
     <a href="/" class="w-fit h-12 p-1">
       <picture>
-        <source media="(min-width: 768px)" srcset="./assets/full-logo.png">
-        <img src="./assets/icon-logo.png" class="h-full" alt="ChatStats">
+        <source media="(min-width: 768px)" srcset="./assets/full-logo.svg">
+        <img src="./assets/icon.svg" class="h-full" alt="ChatStats">
       </picture>
     </a>
 
-    <nav class="ml-auto">
-      <ul class="flex items-center gap-x-4">
-        <% if (isHome) { %>
-          <li><a href="#how-to" class="hidden md:block text-sm font-medium text-zinc-400 contrast">Como usar</a></li>
-        <% } %>
-        <li><a href="#privacy" class="hidden md:block text-sm font-medium text-zinc-400">Privacidade</a></li>
-        <li><a href="/" class="bg-green-500 text-white shadow-md shadow-green-400/50 font-semibold text-sm px-3 py-2 rounded-lg">Calcular</a></li>
+    <nav>
+      <ul class="hidden md:flex items-center gap-x-8 text-base text-zinc-500">
+        <li><a href="#about">About</a></li>
+        <li><a href="#how-to-use">How to use</a></li>
+        <li><a href="#privacy-safety">Privacy & Safety</a></li>
+        </li>
       </ul>
     </nav>
+
+    <a href="#" class="text-white text-sm md:text-base bg-main font-semibold px-4 py-2 rounded-md">Count Messages</a>
   </div>
 </header>
