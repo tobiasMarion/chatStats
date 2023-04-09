@@ -10,62 +10,84 @@
                 <main>
                     <%- include('partials/uploadSection.ejs') %>
 
-                    <div class="px-6">         
-                        <section class="max-w-screen-xl md:mx-auto flex flex-col md:flex-row gap-8 my-32 md:my-40">
-                            <div class="flex-7">
-                                <h2 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 mb-12 md:mb-16 md:text-4xl relative inline-block z-10
+                        <div class="px-6">
+                            <section id="how-to-use"
+                                class="max-w-screen-xl md:mx-auto flex flex-col md:flex-row gap-8 my-32 md:my-40">
+                                <div class="flex-7">
+                                    <h2 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 mb-12 md:mb-16 md:text-4xl relative inline-block z-10
                                 after:absolute after:block after:w-full after:h-3 after:bg-main after:bottom-0 after:left-0 after:z-[-1]
                                 ">How to use</h2>
-    
-                                <ul class="flex flex-col gap-6">
-                                    <li class="flex gap-4 items-center">
-                                        <span class="flex flex-none items-center justify-center font-black text-xl md:text-3xl h-12 w-12 md:h-14 md:w-14 text-white bg-main rounded">1</span>
-                                        <div>
-                                            <h3 class="text-slate-700 font-medium text-lg md:text-xl">Export chat</h3>
-                                            <p class="text-slate-500">ChatMetrics helps people gain valuable insights from their WhatsApp chats.</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex gap-4 items-center">
-                                        <span class="flex flex-none items-center justify-center font-black text-xl md:text-3xl h-12 w-12 md:h-14 md:w-14 text-white bg-main rounded">2</span>
-                                        <div>
-                                            <h3 class="text-slate-700 font-medium text-lg md:text-xl">Upload file</h3>
-                                            <p class="text-slate-500">ChatMetrics helps people gain valuable insights from their WhatsApp chats.</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex gap-4 items-center">
-                                        <span class="flex flex-none items-center justify-center font-black text-xl md:text-3xl h-12 w-12 md:h-14 md:w-14 text-white bg-main rounded">3</span>
-                                        <div>
-                                            <h3 class="text-slate-700 font-medium text-lg md:text-xl">See the results</h3>
-                                            <p class="text-slate-500">ChatMetrics helps people gain valuable insights from their WhatsApp chats.</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-    
-                            <img src="assets/mockup1.svg" alt="Mockup" class="flex-5 mx-8 md:mx-0">
-                        </section>
-    
-                        <section class="max-w-screen-xl mx-auto mb-20 md:mb-32" id="how-to">
-                            <h3 class="text-xl font-semibold mb-4 tracking-tight text-green-700 md:text-2xl">Como utilizar
-                            </h3>
-                            <p class="mb-3 text-sm text-slate-500 md:text-base">Lorem ipsum dolor sit amet, consectetur
-                                adipiscing
-                                elit. Elit
-                                amet cras felis eget fermentum. Elit amet cras felis eget fermentum:</p>
-                            <picture>
-                                <source media="(min-width: 768px)" srcset="./assets/horizontal-steps.svg">
-                                <img src="./assets/vertical-steps.svg" class="w-11/12 mx-auto md:w-full" alt="ChatStats">
-                            </picture>
-                        </section>
-                    </div>
 
-                    <%- include('partials/privacySection.ejs') %>
+                                    <ul class="flex flex-col gap-6">
+                                        <li class="flex gap-4 items-center">
+                                            <span
+                                                class="flex flex-none items-center justify-center font-black text-xl md:text-3xl h-12 w-12 md:h-14 md:w-14 text-white bg-main rounded">1</span>
+                                            <div>
+                                                <h3 class="text-slate-700 font-medium text-lg md:text-xl">Open WhatsApp
+                                                </h3>
+                                                <p class="text-slate-500">ChatMetrics helps people gain valuable
+                                                    insights from their WhatsApp chats.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4 items-center">
+                                            <span
+                                                class="flex flex-none items-center justify-center font-black text-xl md:text-3xl h-12 w-12 md:h-14 md:w-14 text-white bg-main rounded">2</span>
+                                            <div>
+                                                <h3 class="text-slate-700 font-medium text-lg md:text-xl">Export chat
+                                                </h3>
+                                                <p class="text-slate-500">ChatMetrics helps people gain valuable
+                                                    insights from their WhatsApp chats.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4 items-center">
+                                            <span
+                                                class="flex flex-none items-center justify-center font-black text-xl md:text-3xl h-12 w-12 md:h-14 md:w-14 text-white bg-main rounded">3</span>
+                                            <div>
+                                                <h3 class="text-slate-700 font-medium text-lg md:text-xl">Upload file
+                                                </h3>
+                                                <p class="text-slate-500">ChatMetrics helps people gain valuable
+                                                    insights from their WhatsApp chats.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4 items-center">
+                                            <span
+                                                class="flex flex-none items-center justify-center font-black text-xl md:text-3xl h-12 w-12 md:h-14 md:w-14 text-white bg-main rounded">4</span>
+                                            <div>
+                                                <h3 class="text-slate-700 font-medium text-lg md:text-xl">See the
+                                                    results</h3>
+                                                <p class="text-slate-500">ChatMetrics helps people gain valuable
+                                                    insights from their WhatsApp chats.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <img src="assets/mockup1.svg" alt="Mockup" class="flex-5 mx-8 md:mx-0">
+                            </section>
+
+                            <section id="privacy-safety"
+                                class="max-w-screen-md mx-auto flex flex-col gap-8 items-center mb-20 md:mb-32">
+                                <h2 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl relative inline-block z-10 mx-auto
+                                after:absolute after:block after:w-full after:h-3 after:bg-main after:bottom-0 after:left-0 after:z-[-1]
+                                ">Privacy & Safety</h2>
+                                <p class="text-slate-500 text-center">ChatMetrics he lps people gain valuable insights
+                                    from their WhatsApp chats. With its
+                                    user-friendly interface, powerful analytics tools, and excellent customer support.
+                                    ChatMetrics helps people gain valuable insights from their WhatsApp chats. With its
+                                    user-friendly interface, powerful analytics tools, and excellent customer support.
+                                </p>
+
+                                <img src="assets/privacy-safety-illustration.svg"
+                                    alt="ChatStats receives upload, process it, display the data and deletes everything.">
+                            </section>
+                        </div>
                 </main>
 
                 <%- include('partials/footer.ejs') %>
         </div>
 
         <script src="/scripts/autoSendForm.js"></script>
+        <script src="/scripts/animateHome.js"></script>
     </body>
 
 </html>

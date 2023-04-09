@@ -1,4 +1,4 @@
-<header class="w-full bg-white p-4 sticky top-0 z-50">
+<header class="header w-full bg-white p-4 sticky top-0 z-50 border-b border-transparent transition-all">
   <div class="max-w-screen-xl mx-auto flex items-center justify-between">
     <a href="/" class="w-fit h-12 p-1">
       <picture>
@@ -8,14 +8,21 @@
     </a>
 
     <nav>
-      <ul class="hidden md:flex items-center gap-x-8 text-base text-slate-500">
-        <li><a class="hover:text-slate-700" href="#about">About</a></li>
-        <li><a class="hover:text-slate-700" href="#how-to-use">How to use</a></li>
-        <li><a class="hover:text-slate-700" href="#privacy-safety">Privacy & Safety</a></li>
+      <ul class="hidden md:flex items-center gap-x-8 text-base text-slate-500 hover:text-slate-700">
+        <li><a
+            class="relative after:transition-all after:absolute after:-bottom-2 after:left-0 after:w-0 after:rounded after:bg-main after:h-[2px]"
+            href="#">About</a></li>
+        <li><a
+            class="relative after:transition-all after:absolute after:-bottom-2 after:left-0 after:w-0 after:rounded after:bg-main after:h-[2px]"
+            href="#how-to-use">How to use</a></li>
+        <li><a
+            class="relative after:transition-all after:absolute after:-bottom-2 after:left-0 after:w-0 after:rounded after:bg-main after:h-[2px]"
+            href="#privacy-safety">Privacy & Safety</a></li>
         </li>
       </ul>
     </nav>
 
-    <a href="#" class="text-white text-sm md:text-base bg-main font-semibold px-4 py-2 rounded-md drop-shadow">Count Messages</a>
+    <a href="#" class="text-white text-sm md:text-base bg-main font-semibold px-4 py-2 rounded-md drop-shadow">Count
+      Messages</a>
   </div>
 </header>
