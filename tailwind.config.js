@@ -10,6 +10,11 @@ module.exports = {
       },
       colors: {
         main: '#12D790'
+      },
+      flex: {
+        '5': 5,
+        '7': 7,
+
       }
     },
   },

@@ -131,3 +131,6 @@ dist
 
 # Uploaded Chats
 /uploads
+
+# Tailwind output
+public/styles/output.css
