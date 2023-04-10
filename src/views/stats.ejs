@@ -1,39 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<%- include('partials/head.ejs', { title: "ChatStats | Resultados" }) %>
+<%- include('partials/head.ejs', { title: "ChatStats | Metrics" }) %>
 
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   </head>
 
   <body>
-    <div class="w-full min-h-screen bg-stone-50 scroll-smooth	">
-      <%- include('partials/header.ejs', {isHome: false}) %>
+    <div class="w-full min-h-screen bg-slate-50 scroll-smooth	">
+      <header class="bg-slate-800 px-3 pb-24 md:pb-32">
+        <div class="mx-auto max-w-screen-xl">
+          <header class="flex justify-between items-center py-6 mb-8">
+            <img src="/assets/logo-white.svg" alt="ChatStats">
 
+            <a href="/" class="font-medium text-white px-3 py-2 transition-all rounded hover:bg-slate-700">Count
+              again</a>
+          </header>
+          <span class="text-slate-200">Metrics / Overview</span>
+          <h1 class="text-white text-4xl md:text-6xl font-bold mb-4">Overview</h1>
+          <p class="text-base text-slate-100">Lorem ipsum dolor sit amet consectetur. Orci eget sit tempor
+            sed luctus ornare nisl semper eget.</p>
+        </div>
+      </header>
 
-        <main class="max-w-screen-xl mx-auto px-3 pb-24">
+      <main class="max-w-screen-xl mx-auto px-3 pb-24 -mt-12 md:-mt-16 flex flex-col gap-12 md:gap-16">
+        <section class="grid gap-4 grid-cols-2 md:grid-cols-4">
+          <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+            <img src="/assets/message-icon.svg" alt="Messages" class="mb-4">
+            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl">20.737</h3>
+            <p class="text-slate-500 text-sm md:text-base">Messages</p>
+          </article>
+          <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+            <img src="/assets/calendar-icon.svg" alt="Calendar" class="mb-4">
+            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl">912</h3>
+            <p class="text-slate-500 text-sm md:text-base">Days counted</p>
+          </article>
+          <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+            <img src="/assets/file-icon.svg" alt="Media Files" class="mb-4">
+            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl">20.737</h3>
+            <p class="text-slate-500 text-sm md:text-base">Media Files</p>
+          </article>
+          <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+            <img src="/assets/percent-icon.svg" alt="Messages per day" class="mb-4">
+            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl">30</h3>
+            <p class="text-slate-500 text-sm md:text-base">Messages per day</p>
+          </article>
+        </section>
 
-          <section class="results my-10 max-w-screen-lg mx-auto">
-            <h1 class="text-3xl font-bold tracking-tight text-center text-green-900 md:text-5xl">Prontinho! Vamos
-              ver o que encontramos...</h1>
-            <p class="text-sm text-center text-slate-500 mt-4 md:text-base"> Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Unde, eveniet.</p>
+        <section>
+          <h2
+            class="text-3xl font-bold leading-tight tracking-tight text-slate-800 md:text-4xl relative inline-block z-10 mx-auto
+              after:absolute after:block after:w-full after:h-3 after:bg-main after:bottom-0 after:left-0 after:z-[-1]">
+            People
+          </h2>
 
-            <div class="flex flex-col md:flex-row md:gap-4 overflow-x-auto py-8 items-center md:items-start <%= people.length > 3 ? 'md:justify-start' :  'md:justify-center'%>">
+          <div
+            class="people-cards-container flex pb-10 flex-col md:flex-row md:gap-4 overflow-x-auto items-center md:items-start <%= people.length > 3 ? 'md:justify-start' :  'md:justify-center'%>">
+            <% people.forEach((person, index)=> {%>
+              <%- include('partials/personArticle.ejs', { person, index }) %>
+                <%})%>
+          </div>
+        </section>
 
-                  <% people.forEach((person, index)=> {%>
-                    <%- include('partials/personArticle.ejs', { person, index }) %>
-                      <%})%>
-            </div>
-          </section>
+      </main>
 
-          <%- include('partials/charts.ejs', {dateTable}) %>
-          <%- include('partials/privacySection.ejs') %>
-
-        </main>
-
-        <%- include('partials/footer.ejs') %>
+      <%- include('partials/footer.ejs') %>
     </div>
 
     <script src="/scripts/drawChart.js"></script>

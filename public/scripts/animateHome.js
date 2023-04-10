@@ -18,7 +18,6 @@ window.addEventListener('scroll', event => {
 
     const isVisible = (scrollPosition >= offsetTop - 256) && (scrollPosition < offsetTop + offsetHeight - 256)
 
-
     if (isVisible) {
       navLinks[index].classList.remove('after:w-0')
       navLinks[index].classList.add('font-medium', 'text-slate-700', 'after:w-full')
