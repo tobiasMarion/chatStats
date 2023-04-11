@@ -28,22 +28,22 @@
         <section class="grid gap-4 grid-cols-2 md:grid-cols-4">
           <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
             <img src="/assets/message-icon.svg" alt="Messages" class="mb-4">
-            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl">20.737</h3>
+            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl"><%= messages.toLocaleString() %></h3>
             <p class="text-slate-500 text-sm md:text-base">Messages</p>
           </article>
           <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
             <img src="/assets/calendar-icon.svg" alt="Calendar" class="mb-4">
-            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl">912</h3>
+            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl"><%= daysCounted.toLocaleString() %></h3>
             <p class="text-slate-500 text-sm md:text-base">Days counted</p>
           </article>
           <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
             <img src="/assets/file-icon.svg" alt="Media Files" class="mb-4">
-            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl">20.737</h3>
+            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl"><%= mediaFiles.toLocaleString() %></h3>
             <p class="text-slate-500 text-sm md:text-base">Media Files</p>
           </article>
           <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
             <img src="/assets/percent-icon.svg" alt="Messages per day" class="mb-4">
-            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl">30</h3>
+            <h3 class="text-slate-700 font-semibold text-xl md:text-2xl"><%= messagesPerDay %></h3>
             <p class="text-slate-500 text-sm md:text-base">Messages per day</p>
           </article>
         </section>
@@ -56,10 +56,11 @@
           </h2>
 
           <div
-            class="people-cards-container flex pb-10 flex-col md:flex-row md:gap-4 overflow-x-auto items-center md:items-start <%= people.length > 3 ? 'md:justify-start' :  'md:justify-center'%>">
-            <% people.forEach((person, index)=> {%>
-              <%- include('partials/personArticle.ejs', { person, index }) %>
-                <%})%>
+            class="people-cards-container flex pb-10 flex-col md:flex-row md:gap-4 overflow-x-auto items-center md:items-start">
+            <% Object.keys(people).forEach( name => {%>
+              <% person = people[name] %>
+              <%- include('partials/personArticle.ejs', { name, person }) %>
+            <%})%>
           </div>
         </section>
 
@@ -67,8 +68,6 @@
 
       <%- include('partials/footer.ejs') %>
     </div>
-
-    <script src="/scripts/drawChart.js"></script>
 
   </body>
 

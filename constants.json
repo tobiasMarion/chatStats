@@ -15,7 +15,16 @@
     "D/M/YYYY HH:mm:ss",
     "DD/M/YYYY HH:mm:ss",
     "D/MM/YYYY HH:mm:ss",
-    "DD/MM/YYYY HH:mm:ss"
+    "DD/MM/YYYY HH:mm:ss",
+
+    "MM/DD/YY, h:mm A - ",
+    "M/DD/YY, h:mm A - ",
+    "MM/D/YY, h:mm A - ",
+    "M/D/YY, h:mm A - ",
+    "MM/DD/YY, HH:mm A - ",
+    "M/DD/YY, HH:mm A - ",
+    "MM/D/YY, HH:mm A - ",
+    "M/D/YY, HH:mm A - "
   ],
   "minimumCharactersToBigMessage": 300,
   "typeList": {
@@ -40,7 +49,8 @@
       "documento omitido"
     ],
     "medias": [
-      "arquivo de midia oculto"
+      "arquivo de midia oculto",
+      "<media omitted>"
     ],
     "deleted": [
       "this message was deleted",
@@ -48,9 +58,7 @@
       "null"
     ]
   },
-  "errorMessages": [
-    "seu codigo de seguranca com",
-    "created this group",
+  "invalidMessages": [
     "you were added",
     "as mensagens e as chamadas sao protegidas com a criptografia de ponta a ponta e ficam somente entre voce e os participantes desta conversa. nem mesmo o whatsapp pode ler ou ouvi-las.",
     "aguardando mensagem",
@@ -68,5 +76,9 @@
     "chamada de video perdida",
     "you started a video call",
     "you changed the group description"
+  ],
+  "specialInvalidMessages": [
+    "seu codigo de seguranca com",
+    "created this group"
   ]
 }

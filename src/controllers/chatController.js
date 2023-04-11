@@ -5,34 +5,31 @@ const dayjs = require('dayjs')
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 
-const { messageDatePatterns, typeList, errorMessages } = require('../../constants.json')
-const { countMessages } = require('./personController')
+const { messageDatePatterns } = require('../../constants.json')
 
-const Message = require('../models/Message')
+const Data = require('../models/Data')
+const Person = require('../models/Person')
 
-
+const { getMessageType } = require('./messageController')
 
 module.exports = {
-  async updloadHandler(req, res, timeControl) {
+  async updloadHandler(req, res) {
+    const started = Date.now()
     const file = req.file
 
     const rawText = await this.readFile(file)
-    timeControl.push({
-      'Etapa': 'Leitura do arquivo',
-      'Tempo (ms)': Date.now() - timeControl[0]
-    })
+    if (!rawText) return
+    const p1 = Date.now()
+    console.log(`\t Read File: ${p1 - started}ms`)
 
-    const messages = this.formatMessages(rawText)
-    timeControl.push({
-      'Etapa': 'Formatar mensagens',
-      'Tempo (ms)': Date.now() - timeControl[1]['Tempo (ms)'] - timeControl[0]
-    })
+    const messages = this.getMessages(rawText)
+    if (!messages) return
+    const p2 = Date.now()
+    console.log(`\t Get Messages: ${p2 - p1}ms`)
 
-    const data = countMessages(messages)
-    timeControl.push({ 
-      'Etapa': 'Contar mensagens', 
-      'Tempo (ms)': Date.now() - timeControl[2]['Tempo (ms)'] - timeControl[0] 
-    })
+    const data = this.getData(messages)
+    const p3 = Date.now()
+    console.log(`\t Get Data: ${p3 - p1}ms`)
 
     return data
   },
@@ -40,6 +37,13 @@ module.exports = {
   async readFile(file) {
     const { originalname, filename, path } = file
     const extesion = originalname.split('.').splice(-1)[0]
+
+    if (extesion != 'zip' && extesion != 'txt') {
+      fs.rm(`${process.cwd()}/${path}`, err => {
+        if (err) throw err
+      })
+      return
+    }
 
     if (extesion === 'zip') {
       const renamedFile = `uploads/${filename}.zip`
@@ -66,76 +70,76 @@ module.exports = {
 
   },
 
-  formatMessages(rawText) {
+  getMessages(rawText) {
     rawText = rawText.replace(/\u200e/g, '')
-
     if (!rawText) return []
 
     let regExpMessagePatternIdentifier
-
     if (rawText[0] == '[') {
       // iOS Pattern
       regExpMessagePatternIdentifier = /\[\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|) \d(?:\d|):\d(?:\d|):\d(?:\d|)(?: PM| AM|)]/
     } else {
-      // Android Pattern
-
-      // marco's file
-      regExpMessagePatternIdentifier = /\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|), \d(?:\d|):\d(?:\d|) (?:PM|AM|) - /
+      // Android Pattern (Android has many patterns, so this RegEX may not be completed)
+      regExpMessagePatternIdentifier = /\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|), \d(?:\d|):\d(?:\d|)(?::\d(?:\d|)|) (?:PM|AM|) - /
     }
-
     const regEx = new RegExp(regExpMessagePatternIdentifier, 'gim')
 
-    const dates = [...rawText.matchAll(regEx)].map(a => {
+    const rawMessages = rawText.split(regEx)
+    rawMessages.shift()
+
+    const messages = [...rawText.matchAll(regEx)].map((a, index) => {
       let stringDate = a[0].replace(/\[|]/g, '').toUpperCase()
-
       const date = dayjs(stringDate, messageDatePatterns)
+      const [sender, content] = rawMessages[index].split(':', 2).map(e => e.trim())
 
-      return date
+      return { date, sender, content }
     })
-
-    let messages = rawText.split(regEx)
-    messages.shift()
-
-    const types = Object.keys(typeList)
-
-    messages = messages.map((rawMessage, index) => {
-      let [sender, content] = rawMessage.split(':', 2)
-
-      sender = sender.trim()
-      content = content.trim()
-
-      let type
-
-      const normalizedContent = content.normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLowerCase()
-
-      if (errorMessages.includes(normalizedContent)) {
-        return null
-      }
-
-      // Special error messages (it contains Person 2 name)
-      if (normalizedContent.includes(errorMessages[0]) || normalizedContent.includes(errorMessages[1])) {
-        return null
-      }
-
-      for (key of types) {
-
-        if (typeList[key].includes(normalizedContent)) {
-          type = key
-          content = ''
-          break
-        }
-      }
-
-      type = type || 'text'
-
-      const message = new Message(dates[index], type, sender, content)
-
-
-      return message
-    })
-
-    messages = messages.filter(element => element != null)
 
     return messages
+  },
+
+  getData(messages) {
+    const accumulator = new Data()
+    const data = messages.reduce(this.countMessages, accumulator)
+
+    const firstMessageDate = messages[0].date
+    const lastMessageDate = messages[messages.length - 1].date
+    data.daysCounted = lastMessageDate.diff(firstMessageDate, 'days')
+    data.messagesPerDay = (data.messages / data.daysCounted).toFixed(2)
+
+    return data
+  },
+
+  countMessages(accumulator, message) {
+    const { date, sender, content } = message
+
+    if (!date || !sender || !content) {
+      return accumulator
+    }
+
+    const type = getMessageType(content)
+    if (type == 'invalid') {
+      return accumulator
+    }
+
+    accumulator.messages++
+
+    const person = accumulator.people[sender] || new Person()
+    person.messages++
+
+    if (type === 'text') {
+      person.words += content.split(' ').length
+      person.characters += content.split('').length
+    } else {
+      accumulator.mediaFiles++
+      person.types[type]++
+    }
+
+    person.messagesAcrossTheWeek[date.day()]++
+    person.messagesAcrossTheDay[date.hour()]++
+
+
+    accumulator.people[sender] = person
+    return accumulator
   }
 }
