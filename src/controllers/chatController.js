@@ -5,12 +5,11 @@ const dayjs = require('dayjs')
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 
-const { messageDatePatterns } = require('../../constants.json')
+const { messageDatePatterns, minCharactersToBigMessage } = require('../../constants.json')
 
-const Data = require('../models/Data')
 const Person = require('../models/Person')
 
-const { getMessageType } = require('./messageController')
+const { getMessageType, setWeekMessage } = require('./messageController')
 
 module.exports = {
   async updloadHandler(req, res) {
@@ -99,7 +98,12 @@ module.exports = {
   },
 
   getData(messages) {
-    const accumulator = new Data()
+    const accumulator = {
+      messages: 0,
+      mediaFiles: 0,
+      charactersInARow: 0,
+      people: {}
+    }
     const data = messages.reduce(this.countMessages, accumulator)
 
     const firstMessageDate = messages[0].date
@@ -110,8 +114,14 @@ module.exports = {
     return data
   },
 
+  setMessageInWeek(date, personWeeks) {
+
+    return personWeeks
+  },
+
   countMessages(accumulator, message) {
-    const { date, sender, content } = message
+    const { date, sender } = message
+    let { content } = message
 
     if (!date || !sender || !content) {
       return accumulator
@@ -133,13 +143,28 @@ module.exports = {
     } else {
       accumulator.mediaFiles++
       person.types[type]++
+      content = ''
     }
 
     person.messagesAcrossTheWeek[date.day()]++
     person.messagesAcrossTheDay[date.hour()]++
 
+    const previousSender = accumulator.previousMessage ? accumulator.previousMessage.sender : false
+
+    if (!previousSender || previousSender == sender) {
+      accumulator.charactersInARow += content.length
+    } else {
+      if (accumulator.charactersInARow >= minCharactersToBigMessage) {
+        accumulator.people[previousSender].bigMessages++
+      } 
+      accumulator.charactersInARow = content.length
+    }
+
+    person.timeline = setWeekMessage(date, person.timeline)
 
     accumulator.people[sender] = person
+    accumulator.previousMessage = message
+
     return accumulator
   }
 }

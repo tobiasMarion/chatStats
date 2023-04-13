@@ -5,7 +5,7 @@ class Person {
   bigMessages = 0
   firstMessage = 0
   
-  timeline = []
+  timeline = {}
   messagesAcrossTheWeek = new Array(7).fill(0)
   messagesAcrossTheDay = new Array(24).fill(0)
 
