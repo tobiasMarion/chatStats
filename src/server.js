@@ -29,8 +29,6 @@ app.post('/stats', upload.single('chat'), async (req, res) => {
     res.send('ERROR: File not supported')
     return
   }
-
-  console.log(Object.keys(data.people.Tobias.timeline))
   
   res.render('stats', data)
   console.log(`Request took ${(Date.now() - started).toLocaleString()}ms to complete \n`)

@@ -12,6 +12,7 @@ module.exports = {
         main: '#12D790'
       },
       flex: {
+        '2': 2,
         '5': 5,
         '7': 7,
 

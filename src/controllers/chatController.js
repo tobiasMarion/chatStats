@@ -5,7 +5,7 @@ const dayjs = require('dayjs')
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 
-const { messageDatePatterns, minCharactersToBigMessage } = require('../../constants.json')
+const { messageDatePatterns, minCharactersToBigMessage, minsToChatEnd } = require('../../constants.json')
 
 const Person = require('../models/Person')
 
@@ -111,12 +111,11 @@ module.exports = {
     data.daysCounted = lastMessageDate.diff(firstMessageDate, 'days')
     data.messagesPerDay = (data.messages / data.daysCounted).toFixed(2)
 
+    Object.keys(data.people).forEach(name => {
+      data.people[name].timeline = JSON.stringify(data.people[name].timeline)
+    })
+
     return data
-  },
-
-  setMessageInWeek(date, personWeeks) {
-
-    return personWeeks
   },
 
   countMessages(accumulator, message) {
@@ -156,11 +155,26 @@ module.exports = {
     } else {
       if (accumulator.charactersInARow >= minCharactersToBigMessage) {
         accumulator.people[previousSender].bigMessages++
-      } 
+      }
       accumulator.charactersInARow = content.length
     }
 
     person.timeline = setWeekMessage(date, person.timeline)
+
+    if (!previousSender) {
+      person.firstMessage++
+      accumulator.yesterdayDate = date
+    } else {
+      const sameDay = date.isSame(accumulator.previousMessage.date, 'day')
+      const enoughTime = date.diff(accumulator.yesterdayDate, 'minute') > minsToChatEnd
+
+      if (sameDay) {
+        accumulator.yesterdayDate = date
+      } else if (enoughTime) {
+        person.firstMessage++
+      }
+    }
+
 
     accumulator.people[sender] = person
     accumulator.previousMessage = message
