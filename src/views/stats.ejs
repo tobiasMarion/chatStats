@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <%- include('partials/head.ejs', { title: "ChatStats | Metrics" }) %>
+
   <body>
     <div class="w-full min-h-screen bg-slate-50 scroll-smooth	">
       <header class="bg-slate-800 px-3 pb-24 md:pb-32">
@@ -68,15 +69,18 @@
         </section>
 
         <section>
-          <article id="timeline" class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg mb-8">
-            <h2 class="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-slate-800 relative inline-block z-10 mx-auto">
-              Messages by <span class="relative inline-block z-10
+          <article id="timeline" class="p-6 md:p-8 bg-white border border-slate-200 drop-shadow rounded-lg mb-8">
+            <h2
+              class="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-slate-800 relative inline-block z-10 mx-auto">
+              Messages by <span
+                class="relative inline-block z-10
                 after:absolute after:block after:w-full after:h-2 after:bg-main after:bottom-1 after:left-0 after:z-[-1]">
                 Week</span>
             </h2>
-            <p class="text-slate-500 text-sm mb-6 md:text-base">Analyzing messages by week is a good way to see how time affected your message activity.</p>
-            <div class="canvas-container">
-              <canvas id="timeline-canvas" class="w-full h-full"></canvas>
+            <p class="text-slate-500 text-sm mb-6 md:text-base">Analyzing messages by week is a good way to see how time
+              affected your message activity.</p>
+            <div class="canvas-container h-96 w-full mt-8">
+              <canvas id="timeline-canvas"></canvas>
             </div>
             <div class="data-container hidden">
               <% Object.keys(people).forEach( name=> {%>
@@ -87,7 +91,7 @@
             </div>
           </article>
 
-          <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg mb-8">
+          <article id="across-the-day" class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg mb-8">
             <h2
               class="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-slate-800 relative inline-block z-10 mx-auto">
               Across the
@@ -98,7 +102,10 @@
               </span>
             </h2>
             <p class="text-slate-500 text-sm md:text-base mb-4">Let's see the hours when you most chat.</p>
-            <div id="dataContainer" class="">
+            <div class="canvas-container h-96 w-full mt-8">
+              <canvas id="across-the-day-canvas"></canvas>
+            </div>
+            <div class="data-container hidden">
               <% Object.keys(people).forEach( name=> {%>
                 <div data-name="<%= name %>">
                   <%= people[name].messagesAcrossTheDay %>
@@ -108,7 +115,8 @@
           </article>
 
           <div class="flex gap-8 flex-col md:flex-row">
-            <article id="first-message" class="md:flex-1 p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+            <article id="first-message"
+              class="md:flex-1 p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
               <h2
                 class="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-slate-800 relative inline-block z-10 mx-auto mb-4">
                 <span
@@ -118,18 +126,19 @@
                 </span>
                 of the day
               </h2>
-              <div class="canvas-container">
-                <canvas id="first-message-canvas" class="w-full h-full"></canvas>
+              <div class="canvas-container mx-8">
+                <canvas id="first-message-canvas"></canvas>
               </div>
               <div class="hidden data-container">
                 <% Object.keys(people).forEach( name=> {%>
                   <div data-name="<%= name %>">
                     <%= people[name].firstMessage %>
                   </div>
-                <% }) %>
+                  <% }) %>
               </div>
             </article>
-            <article class="md:flex-2 p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+            <article id="across-the-week"
+              class="md:flex-3 p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
               <h2
                 class="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-slate-800 relative inline-block z-10 mx-auto mb-4">
                 Messages by
@@ -140,12 +149,14 @@
                 </span>
               </h2>
 
-              <div id="dataContainer" class="">
+              <div class="canvas-container h-96 w-full mt-8">
+                <canvas id="across-the-week-canvas"></canvas>
+              </div>
+
+              <div class="data-container hidden">
                 <% Object.keys(people).forEach( name=> {%>
-                  <div data-name="<%= name %>">
-                    <%= people[name].messagesAcrossTheWeek %>
-                  </div>
-                <% }) %>
+                  <div data-name="<%= name %>"><%= people[name].messagesAcrossTheWeek %></div>
+                  <% }) %>
               </div>
             </article>
           </div>
@@ -153,9 +164,10 @@
       </main>
 
       <%- include('partials/footer.ejs') %>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script src="/scripts/drawCharts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="/scripts/drawCharts.js"></script>
 
 
   </body>
+
 </html>
