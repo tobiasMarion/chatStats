@@ -90,7 +90,7 @@ const charts = {
   },
 
   acrossTheWeek() {
-    const labels = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Fryday', 'Saturday']
+    const labels = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
     const chart = {
       datasets: [],

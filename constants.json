@@ -23,6 +23,7 @@
       "documento omitido"
     ],
     "medias": [
+      "<arquivo de midia oculto>",
       "arquivo de midia oculto",
       "<media omitted>"
     ],
@@ -53,33 +54,39 @@
   ],
   "specialInvalidMessages": [
     "seu codigo de seguranca com",
-    "created this group"
+    "created this group",
+    "usuario adicionado: +"
   ],
-  "messageDatePatterns": [
-    "D/M/YY h:mm:ss A",
-    "DD/M/YY h:mm:ss A",
-    "D/MM/YY h:mm:ss A",
-    "DD/MM/YY h:mm:ss A",
-    "D/M/YYYY h:mm:ss A",
-    "DD/M/YYYY h:mm:ss A",
-    "D/MM/YYYY h:mm:ss A",
-    "DD/MM/YYYY h:mm:ss A",
-    "D/M/YY HH:mm:ss",
-    "DD/M/YY HH:mm:ss",
-    "D/MM/YY HH:mm:ss",
-    "DD/MM/YY HH:mm:ss",
-    "D/M/YYYY HH:mm:ss",
-    "DD/M/YYYY HH:mm:ss",
-    "D/MM/YYYY HH:mm:ss",
-    "DD/MM/YYYY HH:mm:ss",
-
-    "MM/DD/YY, h:mm A - ",
-    "M/DD/YY, h:mm A - ",
-    "MM/D/YY, h:mm A - ",
-    "M/D/YY, h:mm A - ",
-    "MM/DD/YY, HH:mm A - ",
-    "M/DD/YY, HH:mm A - ",
-    "MM/D/YY, HH:mm A - ",
-    "M/D/YY, HH:mm A - "
-  ]
+  "messageDatePatterns": {
+    "iOS": [
+      "D/M/YY HH:mm:ss",
+      "D/M/YY h:mm:ss A",
+      "D/M/YYYY HH:mm:ss",
+      "D/M/YYYY h:mm:ss A",
+      "D/MM/YY h:mm:ss A",
+      "D/MM/YYYY h:mm:ss A",
+      "D/MM/YY HH:mm:ss",
+      "D/MM/YYYY HH:mm:ss",
+      "DD/M/YY h:mm:ss A",
+      "DD/M/YYYY h:mm:ss A",
+      "DD/M/YY HH:mm:ss",
+      "DD/M/YYYY HH:mm:ss",
+      "DD/MM/YY h:mm:ss A",
+      "DD/MM/YYYY h:mm:ss A",
+      "DD/MM/YY HH:mm:ss",
+      "DD/MM/YYYY HH:mm:ss"
+    ],
+    
+    "android": [
+      "DD/MM/YYYY HH:mm - ",
+      "MM/DD/YY, h:mm A - ",
+      "M/DD/YY, h:mm A - ",
+      "MM/D/YY, h:mm A - ",
+      "M/D/YY, h:mm A - ",
+      "MM/DD/YY, HH:mm A - ",
+      "M/DD/YY, HH:mm A - ",
+      "MM/D/YY, HH:mm A - ",
+      "M/D/YY, HH:mm A - "
+    ]
+  }
 }

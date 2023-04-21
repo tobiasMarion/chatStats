@@ -74,12 +74,16 @@ module.exports = {
     if (!rawText) return []
 
     let regExpMessagePatternIdentifier
+    let datePatterns
     if (rawText[0] == '[') {
       // iOS Pattern
       regExpMessagePatternIdentifier = /\[\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|) \d(?:\d|):\d(?:\d|):\d(?:\d|)(?: PM| AM|)]/
+      datePatterns = messageDatePatterns.iOS
     } else {
       // Android Pattern (Android has many patterns, so this RegEX may not be completed)
-      regExpMessagePatternIdentifier = /\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|), \d(?:\d|):\d(?:\d|)(?::\d(?:\d|)|) (?:PM|AM|) - /
+      regExpMessagePatternIdentifier = /\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|)(?:,|) \d(?:\d|):\d(?:\d|)(?: (?:PM|AM)|) - /
+      datePatterns = messageDatePatterns.android
+
     }
     const regEx = new RegExp(regExpMessagePatternIdentifier, 'gim')
 
@@ -88,7 +92,7 @@ module.exports = {
 
     const messages = [...rawText.matchAll(regEx)].map((a, index) => {
       let stringDate = a[0].replace(/\[|]/g, '').toUpperCase()
-      const date = dayjs(stringDate, messageDatePatterns)
+      const date = dayjs(stringDate, datePatterns)
       const [sender, content] = rawMessages[index].split(':', 2).map(e => e.trim())
 
       return { date, sender, content }
@@ -127,7 +131,7 @@ module.exports = {
     }
 
     const type = getMessageType(content)
-    if (type == 'invalid') {
+    if (type == 'invalid' || 'Usuário adicionado' === sender) {
       return accumulator
     }
 
