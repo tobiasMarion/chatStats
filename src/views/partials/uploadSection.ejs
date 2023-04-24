@@ -25,32 +25,41 @@
       </div>
     </div>
     <div class="md:flex-5 relative z-10">
-      <form class="form h-full" action="/stats" method="POST" class="hidden" enctype="multipart/form-data">
-        <img src="./assets/bg-dotted.svg" alt="Background"
-          class="hidden md:block h-[120%] absolute -right-8 -top-16 z-[-1]">
-        <label for="file"
-          class="h-full flex flex-col items-center justify-center bg-slate-50 p-8 border-[3px] rounded-2xl border-dashed border-main mx-8 cursor-pointer md:mx-auto py-12">
-          <img src="./assets/upload.svg" alt="Escolha um arquivo" class="mb-4 md:w-20">
-          <p
-            class="font-bold text-slate-600  text-center px-4 pt-4 mb-1 border-t border-slate-200 tracking-tight md:text-lg lg:text-xl">
-            Drag & Drop or <br> Choose file to upload
-          </p>
-          <p class="text-xs md:text-sm text-slate-500 font-medium">[chat<span class="text-main">.zip</span> ou
-            _chat<span class="text-main">.txt</span>]</p>
+      <img src="./assets/bg-dotted.svg" alt="Background"
+        class="hidden md:block h-[120%] absolute -right-8 -top-16 z-[-1]">
 
-          <button class="text-sx md:text-sm flex gap-1 items-center mt-4 text-slate-400 italic p-1"><img
-              src="./assets/settings.svg" alt="Gear">Change Settings</button>
-        </label>
-        <input type="file" id="file" class="hidden" name="chat" accept=".txt, .zip" required>
-      </form>
-      <div class="loading hidden">
-        <img src="assets/chatting_isometric.svg" alt="Loading" class="w-full max-w-sm mx-auto" onload="SVGInject(this)">
-        <h3 class="text-xl font-semibold mb-1 tracking-tight text-green-700 md:text-2xl text-center">
-          Carregando<span class="dots"></span></h3>
-        <p class="text-sm text-center text-slate-500 mt-1">Estamos analisando suas conversas.
-          Isso
-          pode
-          levar alguns segundos.</p>
+      <div class="m-1 h-full bg-slate-50 border-[3px] rounded-2xl border-dashed border-main">
+        <form class="form h-full" action="/stats" method="POST" class="hidden" enctype="multipart/form-data">
+          <label for="file" class="h-full flex flex-col items-center justify-center mx-8 cursor-pointer">
+            <img src="./assets/upload.svg" alt="Escolha um arquivo" class="mb-4 md:w-20">
+            <p
+              class="font-bold text-slate-600 text-center px-4 pt-4 mb-1 border-t border-slate-200 tracking-tight md:text-lg lg:text-xl">
+              Drag & Drop or <br> Choose file to upload
+            </p>
+            <p class="text-xs md:text-sm text-slate-500 font-medium">
+              [chat<span class="text-main">.zip</span> ou
+              _chat<span class="text-main">.txt</span>]
+            </p>
+          </label>
+          <input type="file" id="file" class="hidden" name="chat" accept=".txt, .zip" required>
+        </form>
+
+        <div class="loading hidden flex-col items-center justify-center h-full">
+          <img src="/assets/loading.svg" alt="Loading spinner" class="w-20 spin">
+          <div class="mt-4 pt-2 border-t border-slate-200 px-2">
+            <h3 class="text-center font-semibold text-slate-600 text-base md:text-xl">Loading<span class="dots"></span>
+            </h3>
+            <div class="messages">
+              <ul class="messages-list text-center text-slate-400">
+                <li class="message">Counting messages</li>
+                <li class="message">Calculating media distribution</li>
+                <li class="message">Building chatties' profile</li>
+                <li class="message">Generating charts</li>
+                <li class="message">Waiting her to reply you 😭</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

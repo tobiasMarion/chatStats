@@ -17,3 +17,8 @@
 	border-radius: 4px;
 	background-color: #CBD5E1;
 }
+
+*::selection {
+	background: #12D790;
+	color: white;
+}
