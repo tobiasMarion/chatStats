@@ -14,12 +14,7 @@ window.addEventListener('load', () => {
     opacity: 0,
     scale: .8,
   })
-
-  tl.add({
-    targets: '.cloud',
-    opacity: 1,
-  })
-});
+})
 
 window.addEventListener('scroll', () => {
   const scrollPosition = window.scrollY
