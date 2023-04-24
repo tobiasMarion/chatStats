@@ -1,11 +1,11 @@
 <section id="upload" class="bg-white py-20 md:py-32 px-6">
   <div class="w-full max-w-screen-xl mx-auto flex gap-8 flex-col md:flex-row">
-    <div class="flex flex-col gap-8 md:flex-7">
+    <div class="flex flex-col gap-8 md:flex-7 left opacity-0 translate-y-4">
       <bold class="text-6xl text-center font-black leading-none tracking-tight text-slate-900 md:text-7xl md:text-left">
         See the metrics from your
         <span
-          class="relative inline-block z-10
-                  after:absolute after:block after:w-full after:h-5 after:bg-main after:bottom-0 after:left-0 after:z-[-1]">
+          class="relative inline-block z-10 main-emphasis
+                  after:absolute after:block after:h-5 after:bg-main after:bottom-0 after:left-0 after:z-[-1]">
           WhatsApp
         </span>
         chats
@@ -24,11 +24,11 @@
           to use</a>
       </div>
     </div>
-    <div class="md:flex-5 relative z-10">
+    <div class="md:flex-5 relative z-10 right opacity-0 translate-y-4">
       <img src="./assets/bg-dotted.svg" alt="Background"
         class="hidden md:block h-[120%] absolute -right-8 -top-16 z-[-1]">
 
-      <div class="m-1 h-full bg-slate-50 border-[3px] rounded-2xl border-dashed border-main">
+      <div class="m-1 h-full bg-slate-50 border-[3px] rounded-2xl border-dashed border-main py-12">
         <form class="form h-full" action="/stats" method="POST" class="hidden" enctype="multipart/form-data">
           <label for="file" class="h-full flex flex-col items-center justify-center mx-8 cursor-pointer">
             <img src="./assets/upload.svg" alt="Escolha um arquivo" class="mb-4 md:w-20">

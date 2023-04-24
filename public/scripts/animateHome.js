@@ -2,7 +2,7 @@ const header = document.querySelector('.header')
 const sections = document.querySelectorAll('section')
 const navLinks = document.querySelectorAll('.header nav ul li a')
 
-window.addEventListener('scroll', event => {
+window.addEventListener('scroll', () => {
   const scrollPosition = window.scrollY
   // Toogle header shadow
   if (scrollPosition > 0) {
