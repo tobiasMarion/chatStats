@@ -1,30 +1,17 @@
-const ANIMATION_DURATION = 1000
-
-const section = document.querySelector('#how-to-use')
-const tl = anime.timeline({
-  easing: 'linear',
-  duration: ANIMATION_DURATION,
-  autoplay: false
-})
-
 window.addEventListener('load', () => {
-  tl.add({
-    targets: '.paper',
-    translateY: -32,
-    opacity: 0,
-    scale: .8,
+  gsap.registerPlugin(ScrollTrigger)
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#mockup',
+      start: 'top 50%',
+      end: 'bottom 80%',
+      scrub: 1,
+      // markers: true
+    }
   })
+
+  tl.to('.paper', { y: -128, opacity: 0, scale: 0.75, x: '12.5%', duration: 2 })
+  tl.fromTo('.ui', { opacity: 0 }, { opacity: 1, duration: 1 }, "-=0.5")
+  tl.fromTo('.chart', { clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }, { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)', duration: 1 }, "-=0.5")
 })
-
-window.addEventListener('scroll', () => {
-  const scrollPosition = window.scrollY
-  const { offsetTop, offsetHeight } = section
-
-  const scrollPercent = scrollPosition / (offsetTop + offsetHeight) - .1
-
-  tl.seek(scrollPercent * ANIMATION_DURATION)
-})
-
-
-
-
