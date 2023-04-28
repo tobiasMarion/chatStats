@@ -1,23 +1,6 @@
 {
-  "messageDatePatterns": [
-    "D/M/YY h:mm:ss A",
-    "DD/M/YY h:mm:ss A",
-    "D/MM/YY h:mm:ss A",
-    "DD/MM/YY h:mm:ss A",
-    "D/M/YYYY h:mm:ss A",
-    "DD/M/YYYY h:mm:ss A",
-    "D/MM/YYYY h:mm:ss A",
-    "DD/MM/YYYY h:mm:ss A",
-    "D/M/YY HH:mm:ss",
-    "DD/M/YY HH:mm:ss",
-    "D/MM/YY HH:mm:ss",
-    "DD/MM/YY HH:mm:ss",
-    "D/M/YYYY HH:mm:ss",
-    "DD/M/YYYY HH:mm:ss",
-    "D/MM/YYYY HH:mm:ss",
-    "DD/MM/YYYY HH:mm:ss"
-  ],
-  "minimumCharactersToBigMessage": 300,
+  "minCharactersToBigMessage": 300,
+  "minsToChatEnd": 60,
   "typeList": {
     "audios": [
       "audio ocultado",
@@ -40,7 +23,9 @@
       "documento omitido"
     ],
     "medias": [
-      "arquivo de midia oculto"
+      "<arquivo de midia oculto>",
+      "arquivo de midia oculto",
+      "<media omitted>"
     ],
     "deleted": [
       "this message was deleted",
@@ -48,9 +33,7 @@
       "null"
     ]
   },
-  "errorMessages": [
-    "seu codigo de seguranca com",
-    "created this group",
+  "invalidMessages": [
     "you were added",
     "as mensagens e as chamadas sao protegidas com a criptografia de ponta a ponta e ficam somente entre voce e os participantes desta conversa. nem mesmo o whatsapp pode ler ou ouvi-las.",
     "aguardando mensagem",
@@ -68,5 +51,42 @@
     "chamada de video perdida",
     "you started a video call",
     "you changed the group description"
-  ]
+  ],
+  "specialInvalidMessages": [
+    "seu codigo de seguranca com",
+    "created this group",
+    "criou este grupo",
+    "usuario adicionado: +"
+  ],
+  "messageDatePatterns": {
+    "iOS": [
+      "DD/MM/YYYY HH:mm:ss",
+      "DD/MM/YYYY h:mm:ss A",
+      "D/M/YY HH:mm:ss",
+      "D/M/YY h:mm:ss A",
+      "D/M/YYYY HH:mm:ss",
+      "D/M/YYYY h:mm:ss A",
+      "D/MM/YY h:mm:ss A",
+      "D/MM/YYYY h:mm:ss A",
+      "D/MM/YY HH:mm:ss",
+      "D/MM/YYYY HH:mm:ss",
+      "DD/M/YY h:mm:ss A",
+      "DD/M/YYYY h:mm:ss A",
+      "DD/M/YY HH:mm:ss",
+      "DD/M/YYYY HH:mm:ss",
+      "DD/MM/YY h:mm:ss A",
+      "DD/MM/YY HH:mm:ss"
+    ],
+    "android": [
+      "DD/MM/YYYY HH:mm - ",
+      "MM/DD/YY, h:mm A - ",
+      "M/DD/YY, h:mm A - ",
+      "MM/D/YY, h:mm A - ",
+      "M/D/YY, h:mm A - ",
+      "MM/DD/YY, HH:mm A - ",
+      "M/DD/YY, HH:mm A - ",
+      "MM/D/YY, HH:mm A - ",
+      "M/D/YY, HH:mm A - "
+    ]
+  }
 }

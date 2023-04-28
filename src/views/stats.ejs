@@ -1,42 +1,174 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<%- include('partials/head.ejs', { title: "ChatStats | Resultados" }) %>
-
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  </head>
+<%- include('partials/head.ejs', { title: "ChatStats | Metrics" }) %>
 
   <body>
-    <div class="w-full min-h-screen bg-stone-50 scroll-smooth	">
-      <%- include('partials/header.ejs', {isHome: false}) %>
+    <div class="w-full min-h-screen bg-slate-50	">
+      <header class="bg-slate-800 px-3 pb-24 md:pb-32">
+        <div class="mx-auto max-w-screen-xl">
+          <header class="flex justify-between items-center py-6 mb-8">
+            <img src="/assets/logo-white.svg" alt="ChatStats">
 
+            <a href="/" class="font-medium text-white px-3 py-2 transition-all rounded hover:bg-slate-700">Count
+              again</a>
+          </header>
+          <span class="text-slate-200">Metrics / Overview</span>
+          <h1 class="text-white text-4xl md:text-6xl font-bold mb-4">Overview</h1>
+          <p class="text-sm md:text-base text-slate-400 max-w-2xl">Your chat analysis is complete! Discover your chat frequency, most active
+            chatters, communication patterns and much more.</p>
+        </div>
+      </header>
 
-        <main class="max-w-screen-xl mx-auto px-3 pb-24">
+      <main class="max-w-screen-xl mx-auto px-3 pb-24 -mt-12 md:-mt-16 flex flex-col gap-12">
+        <section class="grid gap-4 grid-cols-2 md:grid-cols-4">
+          <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+            <img src="/assets/message-icon.svg" alt="Messages" class="mb-4">
+            <h3 class="text-slate-700 font-semibold text-xl md:text-3xl">
+              <%= messages.toLocaleString() %>
+            </h3>
+            <p class="text-slate-500 text-sm md:text-base">Messages</p>
+          </article>
+          <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+            <img src="/assets/calendar-icon.svg" alt="Calendar" class="mb-4">
+            <h3 class="text-slate-700 font-semibold text-xl md:text-3xl">
+              <%= daysCounted.toLocaleString() %>
+            </h3>
+            <p class="text-slate-500 text-sm md:text-base">Days counted</p>
+          </article>
+          <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+            <img src="/assets/file-icon.svg" alt="Media Files" class="mb-4">
+            <h3 class="text-slate-700 font-semibold text-xl md:text-3xl">
+              <%= mediaFiles.toLocaleString() %>
+            </h3>
+            <p class="text-slate-500 text-sm md:text-base">Media Files</p>
+          </article>
+          <article class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+            <img src="/assets/percent-icon.svg" alt="Messages per day" class="mb-4">
+            <h3 class="text-slate-700 font-semibold text-xl md:text-3xl">
+              <%= messagesPerDay %>
+            </h3>
+            <p class="text-slate-500 text-sm md:text-base">Messages per day</p>
+          </article>
+        </section>
 
-          <section class="results my-10 max-w-screen-lg mx-auto">
-            <h1 class="text-3xl font-bold tracking-tight text-center text-green-900 md:text-5xl">Prontinho! Vamos
-              ver o que encontramos...</h1>
-            <p class="text-sm text-center text-zinc-500 mt-4 md:text-base"> Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Unde, eveniet.</p>
+        <section>
+          <h2
+            class="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-slate-800 relative inline-block z-10 mx-auto
+              after:absolute after:block after:w-full after:h-3 after:bg-main after:bottom-0 after:left-0 after:z-[-1]">
+            People
+          </h2>
 
-            <div class="flex flex-col md:flex-row md:gap-4 overflow-x-auto py-8 items-center md:items-start <%= people.length > 3 ? 'md:justify-start' :  'md:justify-center'%>">
+          <div
+            class="people-cards-container flex pb-10 flex-col md:flex-row md:gap-4 overflow-x-auto items-center md:items-start">
+            <% Object.keys(people).forEach( name=> {%>
+              <% person=people[name] %>
+                <%- include('partials/personArticle.ejs', { name, person }) %>
+                  <%})%>
+          </div>
+        </section>
 
-                  <% people.forEach((person, index)=> {%>
-                    <%- include('partials/personArticle.ejs', { person, index }) %>
-                      <%})%>
+        <section>
+          <article id="timeline" class="p-6 md:p-8 bg-white border border-slate-200 drop-shadow rounded-lg mb-8">
+            <h2
+              class="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-slate-800 relative inline-block z-10 mx-auto">
+              Messages by <span
+                class="relative inline-block z-10
+                after:absolute after:block after:w-full after:h-2 after:bg-main after:bottom-1 after:left-0 after:z-[-1]">
+                Week</span>
+            </h2>
+            <p class="text-slate-500 text-sm mb-6 md:text-base">Analyzing messages by week is a good way to see how time
+              affected your message activity.</p>
+            <div class="canvas-container h-96 w-full mt-8">
+              <canvas id="timeline-canvas"></canvas>
             </div>
-          </section>
+            <div class="data-container hidden">
+              <% Object.keys(people).forEach( name=> {%>
+                <div data-name="<%= name %>" class="w-full overflow-hidden">
+                  <%= people[name].timeline %>
+                </div>
+                <% }) %>
+            </div>
+          </article>
 
-          <%- include('partials/charts.ejs', {dateTable}) %>
-          <%- include('partials/privacySection.ejs') %>
+          <article id="across-the-day" class="p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg mb-8">
+            <h2
+              class="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-slate-800 relative inline-block z-10 mx-auto">
+              Across the
+              <span
+                class="relative inline-block z-10
+                        after:absolute after:block after:w-full after:h-2 after:bg-main after:bottom-1 after:left-0 after:z-[-1]">
+                Day
+              </span>
+            </h2>
+            <p class="text-slate-500 text-sm md:text-base mb-4">Let's see the hours when you most chat.</p>
+            <div class="canvas-container h-96 w-full mt-8">
+              <canvas id="across-the-day-canvas"></canvas>
+            </div>
+            <div class="data-container hidden">
+              <% Object.keys(people).forEach( name=> {%>
+                <div data-name="<%= name %>">
+                  <%= people[name].messagesAcrossTheDay %>
+                </div>
+                <% }) %>
+            </div>
+          </article>
 
-        </main>
+          <div class="flex gap-8 flex-col md:flex-row">
+            <article id="first-message"
+              class="md:flex-1 p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+              <h2
+                class="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-slate-800 relative inline-block z-10 mx-auto mb-4">
+                <span
+                  class="relative inline-block z-10
+                  after:absolute after:block after:w-full after:h-2 after:bg-main after:bottom-1 after:left-0 after:z-[-1]">
+                  First message
+                </span>
+                of the day
+              </h2>
+              <div class="canvas-container mx-8">
+                <canvas id="first-message-canvas"></canvas>
+              </div>
+              <div class="hidden data-container">
+                <% Object.keys(people).forEach( name=> {%>
+                  <div data-name="<%= name %>">
+                    <%= people[name].firstMessage %>
+                  </div>
+                  <% }) %>
+              </div>
+            </article>
+            <article id="across-the-week"
+              class="md:flex-3 p-4 md:p-6 bg-white border border-slate-200 drop-shadow rounded-lg">
+              <h2
+                class="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-slate-800 relative inline-block z-10 mx-auto mb-4">
+                Messages by
+                <span
+                  class="relative inline-block z-10
+                        after:absolute after:block after:w-full after:h-2 after:bg-main after:bottom-1 after:left-0 after:z-[-1]">
+                  Day of the Week
+                </span>
+              </h2>
 
-        <%- include('partials/footer.ejs') %>
-    </div>
+              <div class="canvas-container h-96 w-full mt-8">
+                <canvas id="across-the-week-canvas"></canvas>
+              </div>
 
-    <script src="/scripts/drawChart.js"></script>
+              <div class="data-container hidden">
+                <% Object.keys(people).forEach( name=> {%>
+                  <div data-name="<%= name %>">
+                    <%= people[name].messagesAcrossTheWeek %>
+                  </div>
+                  <% }) %>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <%- include('partials/footer.ejs') %>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="/scripts/drawCharts.js"></script>
+
 
   </body>
 

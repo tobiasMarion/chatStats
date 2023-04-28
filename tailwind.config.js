@@ -6,7 +6,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Poppins', ...defaultTheme.fontFamily.sans]
+        sans: ['Inter', ...defaultTheme.fontFamily.sans]
+      },
+      colors: {
+        main: '#12D790'
+      },
+      flex: {
+        '3': 3,
+        '5': 5,
+        '7': 7,
       }
     },
   },

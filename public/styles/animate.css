@@ -1,47 +1,248 @@
-.message1>path {
-  animation: messageAppear 4s ease 0s infinite normal none;
-}
-
-.message2>path {
-  animation: messageAppear 5s ease 3s infinite normal none;
-}
-
-.picture>path {
-  animation: messageAppear 5s ease 7s infinite normal none;
-}
-
 span.dots::after {
-  content: '...';
+  content: '.';
   width: .5rem;
   display: inline-block;
   text-align: left;
-  animation: dots 2s infinite;
+  -webkit-animation: dots 3s infinite;
+  animation: dots 3s infinite;
 }
 
-@keyframes dots {
-  10% {
+.spin {
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+.loading {
+  -webkit-animation: appear 1s ease-in-out;
+  animation: appear 1s ease-in-out;
+}
+
+.messages {
+  height: 2rem;
+  overflow: hidden;
+}
+
+.messages-list {
+  -webkit-animation: change 15s infinite linear;
+  animation: change 15s infinite linear;
+}
+
+.message {
+  line-height: 40px;
+}
+
+#upload .left {
+  -webkit-animation: appear 500ms ease-in-out forwards;
+  animation: appear 500ms ease-in-out forwards;
+}
+
+#upload .right {
+  -webkit-animation: appear 500ms 250ms ease-in-out forwards;
+  animation: appear 500ms 250ms ease-in-out forwards;
+}
+
+.main-emphasis::after {
+  -webkit-animation: grow 350ms ease-in-out forwards;
+  animation: grow 350ms 500ms ease-in-out forwards;
+}
+
+@-webkit-keyframes grow {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes grow {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes dots {
+  0% {
     content: '.';
   }
 
-  50% {
+  33% {
     content: '..';
   }
 
-  90% {
+  66% {
     content: '...';
   }
 }
 
-@keyframes messageAppear {
+@keyframes dots {
   0% {
-    transform: translateY(1rem);
+    content: '.';
   }
 
-  20% {
-    transform: translateY(0);
+  33% {
+    content: '..';
+  }
+
+  66% {
+    content: '...';
   }
 }
 
-* {
-  scroll-behavior: smooth;
+@-webkit-keyframes appear {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*
+Annimation by yoannhel: https://codepen.io/yoannhel/pen/DMzjog
+6 is the number of animation.
+Here, there are 5 lines :
+
+1 to 2
+2 to 3
+3 to 4
+4 to 5
+5 to 4
+4 to 3
+3 to 2
+2 to 1
+
+8x + 8y = 100 (100% duration)
+
+HERE : 
+y = 3.5 -> Animation between two lines
+x = 9 -> Time spent on a line
+*/
+
+@-webkit-keyframes change {
+
+  0%,
+  9%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  12.5%,
+  21.5% {
+    transform: translate3d(0, -20%, 0);
+  }
+
+  25%,
+  34% {
+    transform: translate3d(0, -40%, 0);
+  }
+
+  37.5%,
+  46.5% {
+    transform: translate3d(0, -60%, 0);
+  }
+
+  50%,
+  59% {
+    transform: translate3d(0, -80%, 0);
+  }
+
+  62.5%,
+  71.5% {
+    transform: translate3d(0, -60%, 0);
+  }
+
+  74%,
+  83% {
+    transform: translate3d(0, -40%, 0);
+  }
+
+  86.5%,
+  95.5% {
+    transform: translate3d(0, -20%, 0);
+  }
+}
+
+@keyframes change {
+
+  0%,
+  9%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  12.5%,
+  21.5% {
+    transform: translate3d(0, -20%, 0);
+  }
+
+  25%,
+  34% {
+    transform: translate3d(0, -40%, 0);
+  }
+
+  37.5%,
+  46.5% {
+    transform: translate3d(0, -60%, 0);
+  }
+
+  50%,
+  59% {
+    transform: translate3d(0, -80%, 0);
+  }
+
+  62.5%,
+  71.5% {
+    transform: translate3d(0, -60%, 0);
+  }
+
+  74%,
+  83% {
+    transform: translate3d(0, -40%, 0);
+  }
+
+  86.5%,
+  95.5% {
+    transform: translate3d(0, -20%, 0);
+  }
 }

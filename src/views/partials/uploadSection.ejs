@@ -1,0 +1,66 @@
+<section id="upload" class="bg-white py-20 md:py-32 px-6">
+  <div class="w-full max-w-screen-xl mx-auto flex gap-8 flex-col md:flex-row">
+    <div class="flex flex-col gap-8 md:flex-7 left opacity-0 translate-y-4">
+      <bold class="text-6xl text-center font-black leading-none tracking-tight text-slate-900 md:text-7xl md:text-left">
+        See the metrics from your
+        <span
+          class="relative inline-block z-10 main-emphasis pr-2
+                  after:absolute after:block after:h-5 after:bg-main after:bottom-0 after:left-0 after:z-[-1]">
+          WhatsApp
+        </span>
+        chats
+      </bold>
+      <p class="text-sm text-center text-slate-500 md:text-base md:text-left">
+        Chat Stats is the ultimate tool for anyone who wants to uncover insights from their WhatsApp conversations. With
+        just a few clicks, you can get valuable data such as chat frequency, media count,
+        and most active members. Try it out today and see for yourself!</p>
+
+      <div class="flex gap-4 flex-col md:flex-row justify-center md:justify-start">
+        <a href="#"
+          class="px-6 py-3 text-center md:px-8 md:py-4 bg-main font-semibold text-white rounded-md drop-shadow md:text-lg brightness-100 hover:brightness-95 transition-all ease-out duration-200">Count
+          messages now</a>
+        <a href="#how-to-use"
+          class="px-6 py-3 text-center md:px-8 md:py-4 border bg-white border-slate-200 text-slate-800 font-semibold rounded-md drop-shadow-sm md:text-lg brightness-100 hover:brightness-95 transition-all ease-out duration-200">How
+          to use</a>
+      </div>
+    </div>
+    <div class="md:flex-5 relative z-10 right opacity-0 translate-y-4">
+      <img src="./assets/bg-dotted.svg" alt="Background"
+        class="hidden md:block h-[120%] absolute -right-8 -top-16 z-[-1]">
+
+      <div class="m-1 h-full bg-slate-50 border-[3px] rounded-2xl border-dashed border-main py-12">
+        <form class="form h-full" action="/stats" method="POST" class="hidden" enctype="multipart/form-data">
+          <label for="file" class="h-full flex flex-col items-center justify-center mx-8 cursor-pointer">
+            <img src="./assets/upload.svg" alt="Escolha um arquivo" class="mb-4 md:w-20">
+            <p
+              class="font-bold text-slate-600 text-center px-4 pt-4 mb-1 border-t border-slate-200 tracking-tight md:text-lg lg:text-xl">
+              Drag & Drop or <br> Choose file to upload
+            </p>
+            <p class="text-xs md:text-sm text-slate-500 font-medium">
+              [chat<span class="text-main">.zip</span> ou
+              _chat<span class="text-main">.txt</span>]
+            </p>
+          </label>
+          <input type="file" id="file" class="hidden" name="chat" accept=".txt, .zip" required>
+        </form>
+
+        <div class="loading hidden flex-col items-center justify-center h-full">
+          <img src="/assets/loading.svg" alt="Loading spinner" class="w-20 spin">
+          <div class="mt-4 pt-2 border-t border-slate-200 px-2">
+            <h3 class="text-center font-semibold text-slate-600 text-base md:text-xl">Loading<span class="dots"></span>
+            </h3>
+            <div class="messages">
+              <ul class="messages-list text-center text-slate-400">
+                <li class="message">Counting messages</li>
+                <li class="message">Calculating media distribution</li>
+                <li class="message">Building chatties' profile</li>
+                <li class="message">Generating charts</li>
+                <li class="message">Waiting her to reply you 😭</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
