@@ -1,10 +1,7 @@
-<center>
-  <img alt="ChatStats" title="ChatStats" src="./public/assets/logo.svg" width="220px" />
-</center>
-
-<hr>
-
-<h1 align="center">ChatStats</h1>
+<h1 align="center">
+  <img alt="ChatStats" title="ChatStats" src="./public/assets/logo.svg" width="220px" /> <br><br>
+  ChatStats
+</h1>
 
 
 ## 💬 About it
