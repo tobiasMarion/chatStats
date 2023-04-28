@@ -1,6 +1,5 @@
 <h1 align="center">
-  <img alt="ChatStats" title="ChatStats" src="./public/assets/logo.svg" width="220px" /> <br><br>
-  ChatStats
+  <img alt="ChatStats" title="ChatStats" src="./public/assets/logo.svg" width="256px" /> <br><br>
 </h1>
 
 
@@ -19,7 +18,7 @@ ChatStats is a web application that allows users to extract metrics from their W
 
 ## 🔧 Installation
 
-To install Chat Stats, you'll need to clone the repository and install the required packages using npm. Here are the steps:
+To install ChatStats, you'll need to clone the repository and install the required packages using npm. Here are the steps:
 
 1. Clone the repository:
 ```bash
