@@ -1,4 +1,9 @@
-window.addEventListener('load', () => {
+async function substituteMockup(imgElement) {
+  const returned = await SVGInject(imgElement)
+  setAnimation()
+}
+
+function setAnimation() {
   gsap.registerPlugin(ScrollTrigger)
 
   const tl = gsap.timeline({
@@ -14,4 +19,4 @@ window.addEventListener('load', () => {
   tl.to('.paper', { y: -128, opacity: 0, scale: 0.75, x: '12.5%', duration: 2 })
   tl.fromTo('.ui', { opacity: 0 }, { opacity: 1, duration: 1 }, "-=0.5")
   tl.fromTo('.chart', { clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }, { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)', duration: 1 }, "-=0.5")
-})
+}
