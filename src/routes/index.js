@@ -13,14 +13,18 @@ router.get('/', (req, res) => {
 router.post('/stats', upload.single('chat'), async (req, res) => {
   const started = Date.now()
   console.log('-> New Resquest')
-  const data = await chatController.updloadHandler(req, res)
-  if (!data) {
-    res.send('ERROR: File not supported')
-    return
+
+  try {
+    const data = await chatController.updloadHandler(req, res)
+    if (!data) throw 'File not suported'
+    res.render('stats', data)
+
+  } catch (error) {
+    res.send(`<h1>ERROR!</h1><p>${error}<p>`)
+  } finally {
+    console.log(`Request took ${(Date.now() - started).toLocaleString()}ms to complete \n`)
   }
 
-  res.render('stats', data)
-  console.log(`Request took ${(Date.now() - started).toLocaleString()}ms to complete \n`)
 })
 
 module.exports = router
