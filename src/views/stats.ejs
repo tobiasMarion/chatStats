@@ -60,7 +60,7 @@
           </h2>
 
           <div
-            class="people-cards-container flex pb-10 flex-col md:flex-row md:gap-4 overflow-x-auto items-center md:items-start">
+            class="people-cards-container flex pb-10 gap-4 overflow-x-auto items-center md:items-start">
             <% Object.keys(people).forEach( name=> {%>
               <% person=people[name] %>
                 <%- include('partials/personArticle.ejs', { name, person }) %>
