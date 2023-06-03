@@ -27,3 +27,25 @@ window.addEventListener('scroll', () => {
     }
   })
 })
+
+const howToButtons = document.querySelectorAll('#how-to-use nav ul li button')
+const steps = document.querySelectorAll('#how-to-use nav + div > ul')
+
+howToButtons.forEach(button => button.addEventListener('click', changePlatform))
+
+function changePlatform() {
+  howToButtons.forEach((button, index) => {
+    const buttonClasses = ['text-slate-600', 'after:w-full', 'font-semibold']
+    const stepsClasses = ['opacity-100', 'translate-y-0', 'opacity-0', 'translate-y-8', 'delay-300']
+    
+    buttonClasses.forEach(buttonClass => button.classList.toggle(buttonClass))
+    stepsClasses.forEach(stepClass => steps[index].classList.toggle(stepClass))
+  })
+}
+
+const countNowButton = document.querySelector('#count-now-button')
+countNowButton.addEventListener('click', () => {
+  const label = document.querySelector('#label-file')
+  
+  gsap.fromTo(label, { scale: 1 },  { scale: 1.05, duration: 1, ease: "back.out(1.7)"})
+})
