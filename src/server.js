@@ -1,6 +1,7 @@
 require('dotenv/config')
 
 const express = require('express')
+const getLanguageMiddleware = require('./getLanguageMiddleware')
 const routes = require('./routes/')
 
 const app = express()
@@ -10,6 +11,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 app.set('views', './src/views')
+app.use(getLanguageMiddleware)
 app.use('/', routes)
 
 

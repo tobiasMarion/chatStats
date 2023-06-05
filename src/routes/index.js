@@ -1,14 +1,24 @@
 const express = require('express')
 const multer = require("multer")
+const glob = require('glob')
+const fs = require('fs')
 const router = express.Router()
 const upload = multer({ dest: "uploads/" })
 
 const chatController = require('../controllers/chatController')
 
+const languages = {}
+
+glob.sync('languages/*.json').forEach(file => {
+  const lang = file.substring(file.indexOf('\\') + 1, file.length - 5)
+  languages[lang] = JSON.parse(fs.readFileSync(file).toString())
+})
 
 router.get('/', (req, res) => {
-  res.render('home')
+  res.render('home', { home: languages[req.lang].home })
 })
+
+router.get('/stats', (req, res) => res.redirect('../'))
 
 router.post('/stats', upload.single('chat'), async (req, res) => {
   const started = Date.now()

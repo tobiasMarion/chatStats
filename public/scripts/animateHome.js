@@ -35,7 +35,7 @@ howToButtons.forEach(button => button.addEventListener('click', changePlatform))
 
 function changePlatform() {
   howToButtons.forEach((button, index) => {
-    const buttonClasses = ['text-slate-600', 'after:w-full', 'font-semibold']
+    const buttonClasses = ['text-slate-600','text-slate-500', 'after:w-full', 'font-semibold']
     const stepsClasses = ['opacity-100', 'translate-y-0', 'opacity-0', 'translate-y-8', 'delay-300']
     
     buttonClasses.forEach(buttonClass => button.classList.toggle(buttonClass))
