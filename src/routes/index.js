@@ -10,7 +10,7 @@ const chatController = require('../controllers/chatController')
 const languages = {}
 
 glob.sync('languages/*.json').forEach(file => {
-  const lang = file.substring(file.indexOf('\\') + 1, file.length - 5)
+  const lang = file.substring(10, file.length - 5)
   languages[lang] = JSON.parse(fs.readFileSync(file).toString())
 })
 
