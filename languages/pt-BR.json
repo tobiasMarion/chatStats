@@ -7,9 +7,13 @@
       "Políticas de Privacidade"
     ],
     "headerButton": "Contar mensagens",
-    "heroTitle": "Veja as estatísticas das suas conversas do <span class=\"relative inline-block z-10 main-emphasis pr-2 after:absolute after:block after:h-5 after:bg-main after:bottom-0 after:left-0 after:z-[-1]\">WhatsApp</span>",
+    "heroTitle": "Veja as estatísticas das suas conversas do <span class=\"relative inline-block z-10 main-emphasis pr-2 after:absolute after:block after:h-4 after:bg-main after:bottom-0 after:left-0 after:z-[-1]\">WhatsApp</span>",
     "heroParagraph": "ChatStats é a melhor ferramenta para quem deseja descobrir insights de suas conversas do WhatsApp. Com apenas alguns cliques, você pode obter dados valiosos, como frequência de conversas, contagem de mídia e membros mais ativos. Experimente hoje e veja por si mesmo!",
+    "heroButton": ["Contar mensagens agora", "Como utilizar"], 
     "dragndrop": "Arraste e Solte ou <br> Escolha um arquivo para enviar",
-    "or": "ou"
+    "or": "ou",
+    "loading": "Carregando",
+    "loadingMessages": ["Contando mensagens", "Calculando distribuição de mídias", "Construindo perfil dos fofoqueiros", "Gerando Gráficos", "Esperando ela te responder 😭"]
+
   }
 }

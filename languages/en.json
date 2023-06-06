@@ -7,9 +7,12 @@
       "Privacy Policy"
     ],
     "headerButton": "Count Messages",
-    "heroTitle": "See the metrics from your <span class=\"relative inline-block z-10 main-emphasis pr-2 after:absolute after:block after:h-5 after:bg-main after:bottom-0 after:left-0 after:z-[-1]\">WhatsApp</span> chats",
-    "heroParagraph": "ChatStats é a melhor ferramenta para quem deseja descobrir insights de suas conversas do WhatsApp. Com apenas alguns cliques, você pode obter dados valiosos, como frequência de conversas, contagem de mídia e membros mais ativos. Experimente hoje e veja por si mesmo!",
-    "dragndrop": "Arraste e Solte ou <br> Escolha um arquivo para enviar",
-    "or": "ou"
+    "heroTitle": "See the metrics from your <span class=\"relative inline-block z-10 main-emphasis pr-2 after:absolute after:block after:h-4 after:bg-main after:bottom-0 after:left-0 after:z-[-1]\">WhatsApp</span> chats",
+    "heroParagraph": "Chat Stats is the ultimate tool for anyone who wants to uncover insights from their WhatsApp conversations. With just a few clicks, you can get valuable data such as chat frequency, media count, and most active members. Try it out today and see for yourself!",
+    "heroButton": ["Count messages now", "How to use"], 
+    "dragndrop": "Drag & Drop or <br> Choose a file to upload",
+    "or": "or",
+    "loading": "Loading",
+    "loadingMessages": ["Counting messages", "Calculating media distribution", "Building chatties' profile", "Generating charts", "Waiting her to reply you 😭"]
   }
 }

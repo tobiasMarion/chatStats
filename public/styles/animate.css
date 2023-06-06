@@ -7,6 +7,10 @@ span.dots::after {
   animation: dots 3s infinite;
 }
 
+bold span::after {
+  height: 1.5rem;
+}
+
 .spin {
   -webkit-animation: spin 2s infinite linear;
   animation: spin 2s infinite linear;
