@@ -13,7 +13,7 @@
     "dragndrop": "Arraste e Solte ou <br> Escolha um arquivo para enviar",
     "or": "ou",
     "loading": "Carregando",
-    "loadingMessages": ["Contando mensagens", "Calculando distribuição de mídias", "Construindo perfil dos fofoqueiros", "Gerando Gráficos", "Esperando ela te responder 😭"]
-
+    "loadingMessages": ["Contando mensagens", "Calculando distribuição de mídias", "Construindo perfil dos fofoqueiros", "Gerando Gráficos", "Esperando ela te responder 😭"],
+    "howToUseTitle": "<span class=\"relative after:absolute after:block after:w-full after:h-3 after:bg-main after:bottom-1 after:left-0 after:z-[-1]\">Como</span> utilizar"
   }
 }
