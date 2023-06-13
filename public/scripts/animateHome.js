@@ -36,7 +36,7 @@ howToButtons.forEach(button => button.addEventListener('click', changePlatform))
 function changePlatform() {
   howToButtons.forEach((button, index) => {
     const buttonClasses = ['text-slate-600','text-slate-500', 'after:w-full', 'font-semibold']
-    const stepsClasses = ['opacity-100', 'translate-y-0', 'opacity-0', 'translate-y-8', 'delay-300']
+    const stepsClasses = ['opacity-100', 'translate-y-0', 'opacity-0', 'translate-y-8', 'delay-300', 'z-[-10]']
     
     buttonClasses.forEach(buttonClass => button.classList.toggle(buttonClass))
     stepsClasses.forEach(stepClass => steps[index].classList.toggle(stepClass))
@@ -49,3 +49,7 @@ countNowButton.addEventListener('click', () => {
   
   gsap.fromTo(label, { scale: 1 },  { scale: 1.05, duration: 1, ease: "back.out(1.7)"})
 })
+
+const asqCofeeButton = document.querySelector('.asq-cofee-button')
+
+asqCofeeButton.addEventListener('click', () => { document.querySelector('#bmc-wbtn').click() })

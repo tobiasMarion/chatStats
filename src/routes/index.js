@@ -9,13 +9,13 @@ const chatController = require('../controllers/chatController')
 
 const languages = {}
 
-glob.sync('languages/*.json').forEach(file => {
-  const lang = file.substring(10, file.length - 5)
-  languages[lang] = JSON.parse(fs.readFileSync(file).toString())
+glob.sync('languages/*.json').forEach(fileName => {
+  const lang = fileName.substring(10, fileName.length - 5)
+  languages[lang] = JSON.parse(fs.readFileSync(fileName, 'utf-8'))
 })
 
 router.get('/', (req, res) => {
-  res.render('home', { home: languages[req.lang].home })
+  res.render('home', languages[req.lang].home )
 })
 
 router.get('/stats', (req, res) => res.redirect('../'))
