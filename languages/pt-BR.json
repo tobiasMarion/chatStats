@@ -91,16 +91,20 @@
       "paragraph": "Todo nosso código está disponível na internet para você ler, editar e tirar dúvidas sobre o projeto. Mais informações podem ser encontradas no nosso <a href=\"https://github.com/tobiasMarion/chatStats/\" class=\"text-main font-medium\" target=\"_blank\">GitHub</a>.",
       "questions": [
         {
-          "question":"Meus dados vão ficar salvos?",
-          "answer":  "Não. Nossa maior prioridade é sua privacidade. Os arquivos ficam salvos temporariamente enquanto estão sendo processados e ainda antes de retornarmos os dados para você, o arquivo é excluído. Mantemos apenas logs anônimos contendo data, hora e tamanho do arquivo para podermos continuar oferendo um serviço de qualidade."
+          "question": "Meus dados vão ficar salvos?",
+          "answer": "Não. Nossa maior prioridade é sua privacidade. Os arquivos ficam salvos temporariamente enquanto estão sendo processados e ainda antes de retornarmos os dados para você, o arquivo é excluído. Mantemos apenas logs anônimos contendo data, hora e tamanho do arquivo para podermos continuar oferecendo um serviço de qualidade."
         },
         {
-          "question":"O ChatStats é de graça?",
-          "answer":  "Sim! O ChatStats é um projeto completamente gratuito e livre para a comunidade. Se quiser deixar um contribuição, você pode ajudar o projeto através do <button class=\"text-main font-medium asq-cofee-button\">Buy me a coffee</button>."
+          "question": "O ChatStats é de graça?",
+          "answer": "Sim! O ChatStats é um projeto completamente gratuito e livre para a comunidade. Se quiser deixar um contribuição, você pode ajudar o projeto através do <button class=\"text-main font-medium asq-cofee-button\">Buy me a coffee</button>."
         },
         {
-          "question":"Todos os padrões de arquivo são suportados?",
-          "answer":  "Infelizmente, não. O WhatsApp não padroniza os arquivos exportardos, ainda mais os dos dispositivos Android. Se o seu arquivo teve não é suportado ainda, nós ficariamos gratos se você pudesse nos contatar através do nosso <a href=\"https://github.com/tobiasMarion/chatStats/\" class=\"text-main font-medium\" target=\"_blank\">GitHub</a>."
+          "question": "Todos os padrões de arquivo são suportados?",
+          "answer": "Infelizmente, não. O WhatsApp não padroniza os arquivos exportardos, ainda mais os dos dispositivos Android. Se o seu não é suportado ainda, nós ficariamos gratos se você pudesse nos informar através das <i>issues</i> do projeto no <a href=\"https://github.com/tobiasMarion/chatStats/issues\" class=\"text-main font-medium\" target=\"_blank\">GitHub</a>."
+        },
+        {
+          "question": "As mídias não foram contadas. O que aconteceu?",
+          "answer": "Seu arquivo contém algumas <i>mensagens especiais</i> que identificam que tipo de conteúdo ela possui. Esses marcadores variam dependendo da versão, língua e até configurações do aparelho. Nós continuamos trabalhando para garantir a compatibilidade do maior número possível de dispositivos com a nossa plataforma."
         }
       ]
     }

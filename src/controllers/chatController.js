@@ -28,7 +28,7 @@ module.exports = {
 
     const data = this.getData(messages)
     const p3 = Date.now()
-    console.log(`\t Get Data: ${p3 - p1}ms`)
+    console.log(`\t Get Data: ${p3 - p2}ms`)
 
     return data
   },
@@ -59,7 +59,7 @@ module.exports = {
     }
 
     const filePath = `uploads/_${filename}/_chat.txt`
-    const rawText = fs.readFileSync(filePath).toString()
+    const rawText = fs.readFileSync(filePath, 'utf-8')
 
     fs.rm(`${process.cwd()}/uploads/_${filename}`, { recursive: true }, err => {
       if (err) throw err

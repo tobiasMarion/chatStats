@@ -69,14 +69,14 @@
                             </div>
 
 
-                            <div class="md:flex-3 border-b h-min">
+                            <div class="flex-3 border-b h-min">
                                 <% faq.questions.forEach(({question, answer}) => { %>
                                     <details class="py-6 border-t">
-                                        <summary class="cursor-pointer text-lg font-medium text-slate-800 flex justify-between items-center">
+                                        <summary class="cursor-pointer text-base md:text-lg font-medium text-slate-800 flex justify-between items-center">
                                             <%= question %>
                                             <img src="/assets/arrow-down.svg" alt="Open/Close">
                                         </summary>
-                                        <p class="mt-4 text-slate-500"><%- answer %></p>
+                                        <p class="mt-4 text-slate-500 text-sm md:text-base"><%- answer %></p>
                                     </details>
                                 <% }) %>
                             </div>

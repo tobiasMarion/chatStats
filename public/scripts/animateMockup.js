@@ -1,5 +1,7 @@
+gsap.registerPlugin(ScrollTrigger)
+
 async function substituteMockup(imgElement) {
-  const returned = await SVGInject(imgElement)
+  await SVGInject(imgElement)
 
   if (innerWidth > 768) {
     setAnimation()
@@ -7,8 +9,6 @@ async function substituteMockup(imgElement) {
 }
 
 function setAnimation() {
-  gsap.registerPlugin(ScrollTrigger)
-
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: '#mockup',
