@@ -5,7 +5,7 @@ const fs = require('fs')
 const router = express.Router()
 const upload = multer({ dest: "uploads/" })
 
-const chatController = require('../controllers/chatController')
+const chatController = require('../controllers/chat')
 
 const languages = {}
 
@@ -15,26 +15,24 @@ glob.sync('languages/*.json').forEach(fileName => {
 })
 
 router.get('/', (req, res) => {
-  res.render('home', languages[req.lang].home )
+  res.render('home', { ...languages[req.lang].home, language: req.lang })
 })
 
 router.get('/stats', (req, res) => res.redirect('../'))
 
 router.post('/stats', upload.single('chat'), async (req, res) => {
+  console.log('New Resquest')
   const started = Date.now()
-  console.log('-> New Resquest')
 
   try {
     const data = await chatController.updloadHandler(req, res)
-    if (!data) throw 'File not suported'
     res.render('stats', data)
-
   } catch (error) {
-    res.send(`<h1>ERROR!</h1><p>${error}<p>`)
+    res.status(500).send(`<h1>ERROR!</h1><p>${error}<p>`)
+    console.log(`\tError: ${error}`)
   } finally {
-    console.log(`Request took ${(Date.now() - started).toLocaleString()}ms to complete \n`)
+    console.log(`Request took ${(Date.now() - started).toLocaleString()}ms to complete\n`)
   }
-
 })
 
 module.exports = router

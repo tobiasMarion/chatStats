@@ -8,10 +8,9 @@
     </a>
 
     <nav>
-      <ul class="hidden md:flex items-center gap-x-8 text-base text-slate-500 hover:text-slate-700">
+      <ul class="hidden md:flex items-center gap-x-8 text-base text-slate-500 ">
         <% nav.forEach(link => { %>
-          <li><a
-            class="relative after:transition-all after:absolute after:-bottom-2 after:left-0 after:w-0 after:rounded after:bg-main after:h-[2px]"
+          <li><a class="relative after:transition-all hover:text-slate-700 after:absolute after:-bottom-2 after:left-0 after:w-0 after:rounded after:bg-main after:h-[2px]"
             href="<%= link.href %>"><%= link.content %></a></li>
         <% }) %>
       </ul>

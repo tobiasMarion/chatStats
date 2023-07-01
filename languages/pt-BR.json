@@ -47,11 +47,11 @@
           "steps": [
             {
               "title": "Escolha a conversa",
-              "content": "No seu celular, abra o aplicativo do WhatsApp e vá até a conversa ou grupo que você deseja coletar as estatísticas;"
+              "content": "No seu celular, abra o aplicativo do WhatsApp e vá até a conversa ou grupo que você deseja coletar as estatísticas"
             },
             {
               "title": "Exporte o arquivo",
-              "content": "Clique no nome do contato ou grupo que você escolheu e desça até o final da página. Após isso, clique no botão <i>Exportar conversa</i>, selecione a opção <i>Sem mídia</i> e salve o arquivo em uma pasta de sua preferência;"
+              "content": "Clique no nome do contato ou grupo que você escolheu e desça até o final da página. Após isso, clique no botão <i>Exportar conversa</i>, selecione a opção <i>Sem mídia</i> e salve o arquivo em uma pasta de sua preferência"
             },
             {
               "title": "Faça o upload do arquivo",
@@ -68,11 +68,11 @@
           "steps": [
             {
               "title": "Escolha a conversa",
-              "content": "No seu celular, abra o aplicativo do WhatsApp e vá até a conversa ou grupo que você deseja coletar as estatísticas;"
+              "content": "No seu celular, abra o aplicativo do WhatsApp e vá até a conversa ou grupo que você deseja coletar as estatísticas"
             },
             {
               "title": "Exporte o arquivo",
-              "content": "Clique no nome do contato ou grupo que você escolheu e desça até o final da página. Após isso, clique no botão <i>Exportar conversa</i>, selecione a opção <i>Sem mídia</i> e salve o arquivo em uma pasta de sua preferência;"
+              "content": "Clique no ícone <img src=\"/assets/3dots-icon.svg\" class=\"inline-block\"> e selecione a opção <i>Mais</i>. Após isso, clique no botão <i>Exportar conversa</i>, selecione a opção <i>Sem mídia</i> e salve o arquivo em uma pasta de sua preferência"
             },
             {
               "title": "Faça o upload do arquivo",
@@ -107,6 +107,9 @@
           "answer": "Seu arquivo contém algumas <i>mensagens especiais</i> que identificam que tipo de conteúdo ela possui. Esses marcadores variam dependendo da versão, língua e até configurações do aparelho. Nós continuamos trabalhando para garantir a compatibilidade do maior número possível de dispositivos com a nossa plataforma."
         }
       ]
+    },
+    "footer": {
+      "paragraph": "Chat Stats valoriza sua privacidade e segurança. Nosso sistema apenas conta mensagens e extrai métricas, sem lê-las semanticamente ou salvá-las. Excluímos todos os dados relacionados ao arquivo enviado em nossos servidores, garantindo a proteção de suas informações."
     }
   }
 }

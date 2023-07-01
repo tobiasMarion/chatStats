@@ -22,6 +22,11 @@
         </span>
       </li>
       <li class="px-4 flex items-center py-1 border-b border-dashed border-slate-100 text-slate-500">
+        Words: <span data-stats="characters" class="font-medium text-green-600 flex-1 text-right pl-8">
+          <%= person.words.toLocaleString() %>
+        </span>
+      </li>
+      <li class="px-4 flex items-center py-1 border-b border-dashed border-slate-100 text-slate-500">
         Big messages: <span data-stats="characters" class="font-medium text-green-600 flex-1 text-right pl-4">
           <%= person.bigMessages.toLocaleString() %>
         </span>
@@ -31,36 +36,36 @@
     </ul>
 
     <ul class="grid grid-cols-2 md:flex md:justify-center pt-8 gap-6 px-4 text-center">
-      <% if (person.types.medias || !Object.values(person.types).some(v => v)) { %>
+      <% if (person.messageTypes.medias || !Object.values(person.messageTypes).some(v => v)) { %>
         <li class=" col-span-2">
           <img src="./assets/media/image.svg" alt="Mídias" class="w-10 md:w-8 mx-auto">
           <p class="text-slate-500 whitespace-nowrap text-base"><span data-type="media">
-              <%= person.types.medias %>
+              <%= person.messageTypes.medias %>
             </span> Media</p>
         </li>
         <% } else { %>
           <li>
             <img src="./assets/media/sticker.svg" alt="Figurinhas" class="w-10 md:w-8 mx-auto">
             <p class="text-slate-500 whitespace-nowrap text-base"><span data-type="sticker">
-                <%= person.types.stickers %>
+                <%= person.messageTypes.stickers %>
               </span> Stickers</p>
           </li>
           <li>
             <img src="./assets/media/audio.svg" alt="Áudios" class="w-10 md:w-8 mx-auto">
             <p class="text-slate-500 whitespace-nowrap text-base"><span data-type="audio">
-                <%= person.types.audios %>
+                <%= person.messageTypes.audios %>
               </span> Audios</p>
           </li>
           <li>
             <img src="./assets/media/image.svg" alt="Imagens" class="w-10 md:w-8 mx-auto">
             <p class="text-slate-500 whitespace-nowrap text-base"><span data-type="image">
-                <%= person.types.images %>
+                <%= person.messageTypes.images %>
               </span> Photos</p>
           </li>
           <li>
             <img src="./assets/media/video.svg" alt="Vídeo" class="w-10 md:w-8 mx-auto">
             <p class="text-slate-500 whitespace-nowrap text-base"><span data-type="video">
-                <%= person.types.videos %>
+                <%= person.messageTypes.videos %>
               </span> Videos</p>
           </li>
         <% } %>

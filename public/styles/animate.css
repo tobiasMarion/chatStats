@@ -17,6 +17,10 @@ details summary img {
 
 }
 
+details[open] summary  {
+  padding-bottom: .75rem;
+}
+
 details[open] summary img {
   transform: rotate(180deg);
 }

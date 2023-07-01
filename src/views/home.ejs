@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="<%= language %>">
 
 <%- include('partials/head.ejs', {title: 'ChatStats | See the metrics from your WhatsApp chats' }) %>
 
@@ -19,7 +19,7 @@
 
                     <div class="px-6">
                         <section id="how-to-use"
-                            class="max-w-screen-xl md:mx-auto flex flex-col md:flex-row gap-16 my-32 md:my-64 relative">
+                            class="max-w-screen-xl md:mx-auto flex flex-col md:flex-row gap-16 my-32 md:my-48 relative">
                             <div class="md:flex-7 md:sticky top-32 h-min">
                                 <h2 class="text-3xl font-bold leading-tight tracking-tight text-slate-800 mb-8 md:text-4xl relative inline-block z-10"><%- howToUse.title %></h2>
 
@@ -47,13 +47,13 @@
                                                 <li class="flex gap-4 items-start">
                                                     <span class="flex flex-none items-center justify-center font-black text-xl md:text-3xl h-12 w-12 md:h-14 md:w-14 text-white bg-main rounded mt-1"><%= stepCounter + 1 %></span>
                                                     <div>
-                                                        <h3 class="text-slate-700 font-medium text-xl md:text-2xl"><%- title %></h3>
+                                                        <h3 class="text-slate-700 font-medium text-xl md:text-2xl mb-1"><%- title %></h3>
                                                         <p class="text-slate-500"><%- content %></p>
                                                     </div>
                                                 </li>
-                                                <% }) %>
+                                            <% }) %>
                                         </ul>
-                                        <% }) %>
+                                    <% }) %>
                                 </div>
                             </div>
 
@@ -63,20 +63,20 @@
 
                         <section id="faq"
                             class="max-w-screen-xl md:mx-auto md:flex md:flex-row gap-16 my-32 md:my-64">
-                            <div class="flex-2 mb-8">
-                                <h2 class="text-3xl  font-bold leading-tight tracking-tight text-slate-800 mb-8 md:text-4xl relative inline-block z-10"><%- faq.title %></h2>
+                            <div class="flex-1 mb-8">
+                                <h2 class="text-3xl font-bold leading-tight tracking-tight text-slate-800 mb-8 md:text-4xl relative inline-block z-10"><%- faq.title %></h2>
                                 <p class="text-sm md:text-base text-slate-500"><%- faq.paragraph %></p>
                             </div>
 
 
-                            <div class="flex-3 border-b h-min">
+                            <div class="flex-2 border-b h-min">
                                 <% faq.questions.forEach(({question, answer}) => { %>
-                                    <details class="py-6 border-t">
-                                        <summary class="cursor-pointer text-base md:text-lg font-medium text-slate-800 flex justify-between items-center">
+                                    <details class="border-t">
+                                        <summary class="cursor-pointer text-base md:text-lg font-medium text-slate-800 flex justify-between items-center py-6">
                                             <%= question %>
                                             <img src="/assets/arrow-down.svg" alt="Open/Close">
                                         </summary>
-                                        <p class="mt-4 text-slate-500 text-sm md:text-base"><%- answer %></p>
+                                        <p class="text-slate-500 text-sm md:text-base mb-6"><%- answer %></p>
                                     </details>
                                 <% }) %>
                             </div>
@@ -84,7 +84,7 @@
                     </div>
                 </main>
 
-                <%- include('partials/footer.ejs') %>
+                <%- include('partials/footer.ejs', footer) %>
         </div>
         <script src="/scripts/autoSendForm.js"></script>
         <script src="/scripts/animateHome.js"></script>

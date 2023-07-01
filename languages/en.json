@@ -47,19 +47,19 @@
           "steps": [
             {
               "title": "Choose the chat",
-              "content": "In your phone, open WhatsApp and go to the chat or group that you want to get the metrics;"
+              "content": "In your phone, open WhatsApp and go to the chat or group that you want to get the metrics"
             },
             {
               "title": "Export file",
-              "content": "Clique no nome do contato ou grupo que você escolheu e desça até o final da página. Após isso, clique no botão <i>Exportar conversa</i>, selecione a opção <i>Sem mídia</i> e salve o arquivo em uma pasta de sua preferência;"
+              "content": "Clique no nome do contato ou grupo que você escolheu e desça até o final da página. Após isso, clique no botão <i>Exportar conversa</i>, selecione a opção <i>Sem mídia</i> e salve o arquivo em uma pasta de sua preferência"
             },
             {
-              "title": "Faça o upload do arquivo",
-              "content": "Envie o seu arquivo <i>.txt</i> ou <i>.zip</i> aqui. Para garantir que não teremos problemas coletando as métricas, não edite ou extraia o arquivo. Apenas faça o upload e nós fazemos a nossa parte!"
+              "title": "Upload the file",
+              "content": "Upload your <i>.txt</i> ou <i>.zip</i> file here. To make sure everything goes well, do not edit or extrac the file. Just send it and we do our job!"
             },
             {
-              "title": "Pronto! Agora vamos ver o que encontramos...",
-              "content": "Depois de processarmos o arquivo, você vai poder ver a frequência de conversa, contagem de mídia, membros mais ativos nas conversas e outras estatísticas."
+              "title": "Ready! Now let's see what we found...",
+              "content": "After we process your file, you will be able to see conversation frequency, media count, most active members and many other metrics."
             }
           ]
         },
@@ -67,32 +67,32 @@
           "name": "Android",
           "steps": [
             {
-              "title": "Escolha a conversa",
-              "content": "No seu celular, abra o aplicativo do WhatsApp e vá até a conversa ou grupo que você deseja coletar as estatísticas;"
+              "title": "Choose the chat",
+              "content": "In your phone, open WhatsApp and go to the chat or group that you want to get the metrics"
             },
             {
-              "title": "Exporte o arquivo",
-              "content": "Clique no nome do contato ou grupo que você escolheu e desça até o final da página. Após isso, clique no botão <i>Exportar conversa</i>, selecione a opção <i>Sem mídia</i> e salve o arquivo em uma pasta de sua preferência;"
+              "title": "Export file",
+              "content": "Click on the <img src=\"/assets/3dots-icon.svg\" class=\"inline-block\"> icon and select <i>More</i>. Then, click on <i>Export chat</i>, choose <i>Without media</i> and save the file in folder."
             },
             {
-              "title": "Faça o upload do arquivo",
-              "content": "Envie o seu arquivo <i>.txt</i> ou <i>.zip</i> aqui. Para garantir que não teremos problemas coletando as métricas, não edite ou extraia o arquivo. Apenas faça o upload e nós fazemos a nossa parte!"
+              "title": "Upload the file",
+              "content": "Upload your <i>.txt</i> ou <i>.zip</i> file here. To make sure everything goes well, do not edit or extrac the file. Just send it and we do our job!"
             },
             {
-              "title": "Pronto! Agora vamos ver o que encontramos...",
-              "content": "Depois de processarmos o arquivo, você vai poder ver a frequência de conversa, contagem de mídia, membros mais ativos nas conversas e outras estatísticas."
+              "title": "Ready! Now let's see what we found...",
+              "content": "After we process your file, you will be able to see conversation frequency, media count, most active members and many other metrics."
             }
           ]
         }
       ]
     },
     "faq": {
-      "title": "<span class=\"relative after:absolute after:block after:w-full after:h-3 after:bg-main after:bottom-1 after:left-0 after:z-[-1]\">Perguntas</span> Frequentes",
+      "title": "Frequently Asked <span class=\"relative after:absolute after:block after:w-full after:h-3 after:bg-main after:bottom-1 after:left-0 after:z-[-1]\">Questions</span>",
       "paragraph": "Todo nosso código está disponível na internet para você ler, editar e tirar dúvidas sobre o projeto. Mais informações podem ser encontradas no nosso <a href=\"https://github.com/tobiasMarion/chatStats/\" class=\"text-main font-medium\" target=\"_blank\">GitHub</a>.",
       "questions": [
         {
           "question": "Meus dados vão ficar salvos?",
-          "answer": "Não. Nossa maior prioridade é sua privacidade. Os arquivos ficam salvos temporariamente enquanto estão sendo processados e ainda antes de retornarmos os dados para você, o arquivo é excluído. Mantemos apenas logs anônimos contendo data, hora e tamanho do arquivo para podermos continuar oferendo um serviço de qualidade."
+          "answer": "Não. Nossa maior prioridade é sua privacidade. Os arquivos ficam salvos temporariamente enquanto estão sendo processados e ainda antes de retornarmos os dados para você, o arquivo é excluído. Mantemos apenas logs anônimos contendo data, hora e tamanho do arquivo para podermos continuar oferecendo um serviço de qualidade."
         },
         {
           "question": "O ChatStats é de graça?",
@@ -107,6 +107,9 @@
           "answer": "Seu arquivo contém algumas <i>mensagens especiais</i> que identificam que tipo de conteúdo ela possui. Esses marcadores variam dependendo da versão, língua e até configurações do aparelho. Nós continuamos trabalhando para garantir a compatibilidade do maior número possível de dispositivos com a nossa plataforma."
         }
       ]
+    },
+    "footer": {
+      "paragraph": "Chat Stats values your privacy and safety. Our system only counts messages and extracts metrics, without semantically reading or saving them. We promptly delete all related data from our servers and cache, ensuring the protection of your information."
     }
   }
 }
