@@ -61,14 +61,12 @@ module.exports = {
   countMessage({ date, sender, content, type }, report) {
     if (type === 'invalid') return report
 
+    if (type === 'pastMessageFragment' && !report.firstMessageDate) return report
+
     const person = report.people[sender] || new Person()
 
     if (!report.firstMessageDate) {
       report.firstMessageDate = date
-    }
-
-    if (content === undefined) {
-      console.log({ date, sender, content, type })
     }
 
     if (type === 'pastMessageFragment') {
