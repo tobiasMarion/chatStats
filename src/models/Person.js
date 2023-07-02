@@ -3,7 +3,7 @@ class Person {
   words = 0
   characters = 0
   bigMessages = 0
-  firstMessage = 0
+  firstMessages = 0
 
   timeline = {}
   messagesAcrossTheWeek = new Array(7).fill(0)

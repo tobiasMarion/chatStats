@@ -12,7 +12,8 @@ const {
   specialInvalidMessages,
   typeList,
   messageDatePatterns,
-  minCharactersToBigMessage
+  minCharactersToBigMessage,
+  minsToChatEnd
 } = require('../../constants.json')
 
 module.exports = {
@@ -104,6 +105,19 @@ module.exports = {
 
     person.messagesAcrossTheDay[date.hour()]++
     person.messagesAcrossTheWeek[date.day()]++
+
+    person.timeline = this.setWeekMessage(date, person.timeline)
+
+    if (!report.pastMessage) {
+      person.firstMessages++
+    } else {
+      const isNotSameDay = !date.isSame(report.pastMessage.date, 'day')
+      const pastEnoughTime = date.diff(report.pastMessage.date, 'minutes') >= minsToChatEnd
+
+      if (isNotSameDay && pastEnoughTime) {
+        person.firstMessages++
+      }
+    }
 
     report.people[sender] = person
 

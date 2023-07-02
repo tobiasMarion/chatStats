@@ -2,6 +2,9 @@
   "name": "chatstats",
   "version": "1.0.0",
   "description": "Get the statistics of your WhatsApp conversations",
+  "engines": {
+    "node": ">=16"
+  },
   "main": "./src/server.js",
   "scripts": {
     "start": "node .",

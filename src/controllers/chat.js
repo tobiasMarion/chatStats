@@ -23,7 +23,10 @@ module.exports = {
     data.daysCounted = data.pastMessage.date.diff(data.firstMessageDate, 'days')
     data.messagesPerDay =  (data.messages / data.daysCounted).toFixed(2)
 
-    console.log(data)
+    for (person in data.people) {
+      data.people[person].timeline = JSON.stringify(data.people[person].timeline)
+    }
+
     console.table({ timeToReadFile, timeToGetMessages, timeToCountMessages })
 
     return data
