@@ -21,18 +21,8 @@ router.get('/', (req, res) => {
 router.get('/stats', (req, res) => res.redirect('../'))
 
 router.post('/stats', upload.single('chat'), async (req, res) => {
-  console.log('New Resquest')
-  const started = Date.now()
-
-  try {
-    const data = await chatController.updloadHandler(req, res)
-    res.render('stats', data)
-  } catch (error) {
-    res.status(500).send(`<h1>ERROR!</h1><p>${error}<p>`)
-    console.log(`\tError: ${error}`)
-  } finally {
-    console.log(`Request took ${(Date.now() - started).toLocaleString()}ms to complete\n`)
-  }
+  const data = await chatController.updloadHandler(req, res)
+  res.render('stats', data)
 })
 
 module.exports = router
