@@ -13,9 +13,11 @@ const logsController = require('./logs')
 module.exports = {
   async updloadHandler(req, res) {
     const start = Date.now()
+    const { os, browser, isMobile } = req.useragent
 
     let logObject = {
       completed: false,
+      requestPlatform: { os, browser, isMobile },
       timeToResponse: null,
     }
 
@@ -86,8 +88,10 @@ module.exports = {
     })
 
     logObject = {
-      fileExtesion: extesion,
-      fileSize: file.size,
+      file: {
+        extesion, 
+        size: file.size
+      },
       timeToReadFile: Date.now() - startTime
     }
 

@@ -2,6 +2,7 @@ require('dotenv/config')
 
 const express = require('express')
 const mongoose = require('mongoose')
+const useragent = require('express-useragent')
 const getLanguageMiddleware = require('./utils/getLanguageMiddleware')
 const routes = require('./routes/')
 
@@ -16,6 +17,7 @@ app.set('views', './src/views')
 mongoose.connect(process.env.DATABASE_URI)
 
 app.use(getLanguageMiddleware)
+app.use(useragent.express())
 app.use('/', routes)
 
 app.listen(port, () => {

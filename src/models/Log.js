@@ -1,15 +1,21 @@
 const mongoose = require('mongoose')
 
 const LogSchema = mongoose.Schema({
-  requestDateTime: Date,
-  fileSize: Number,
-  fileExtension: String,
+  requestPlatform: {
+    browser: String,
+    os: String, 
+    isMobile: Boolean
+  },
+  file: {
+    size: Number,
+    extension: String,
+  },
   lines: Number,
-  completed: Boolean,
   timeToReadFile: Number,
   timeToGetMessages: Number,
   timeToCountMessages: Number,
   timeToResponse: Number,
+  completed: Boolean,
   errorMessage: String,
   createdAt: {
     type: Date,
