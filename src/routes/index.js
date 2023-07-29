@@ -15,14 +15,14 @@ glob.sync('languages/*.json').forEach(fileName => {
 })
 
 router.get('/', (req, res) => {
-  res.render('home', { ...languages[req.lang].home, language: req.lang })
+  res.render('home', { language: req.lang, ...languages[req.lang].home })
 })
 
 router.get('/stats', (req, res) => res.redirect('../'))
 
 router.post('/stats', upload.single('chat'), async (req, res) => {
   const data = await chatController.updloadHandler(req, res)
-  res.render('stats', data)
+  res.render('stats', { language: req.lang, ...languages[req.lang].home, data })
 })
 
 module.exports = router

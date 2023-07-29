@@ -111,5 +111,16 @@
     "footer": {
       "paragraph": "Chat Stats valoriza sua privacidade e segurança. Nosso sistema apenas conta mensagens e extrai métricas, sem lê-las semanticamente ou salvá-las. Excluímos todos os dados relacionados as suas mensagens em nossos servidores, garantindo a proteção de suas informações."
     }
-  }
+  },
+  "stats": {
+    "footer": {
+      "paragraph": "Chat Stats valoriza sua privacidade e segurança. Nosso sistema apenas conta mensagens e extrai métricas, sem lê-las semanticamente ou salvá-las. Excluímos todos os dados relacionados as suas mensagens em nossos servidores, garantindo a proteção de suas informações."
+    }
+  },
+  "privacyPolicy": {
+    "footer": {
+      "paragraph": "Chat Stats valoriza sua privacidade e segurança. Nosso sistema apenas conta mensagens e extrai métricas, sem lê-las semanticamente ou salvá-las. Excluímos todos os dados relacionados as suas mensagens em nossos servidores, garantindo a proteção de suas informações."
+    }
+  },
+  "errorPage": {}
 }

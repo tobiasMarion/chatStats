@@ -40,7 +40,6 @@ module.exports = {
       for (person in data.people) {
         data.people[person].timeline = JSON.stringify(data.people[person].timeline)
       }
-
       return data
 
     } catch (error) {
@@ -89,7 +88,7 @@ module.exports = {
 
     logObject = {
       file: {
-        extesion, 
+        extesion,
         size: file.size
       },
       timeToReadFile: Date.now() - startTime

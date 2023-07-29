@@ -42,12 +42,14 @@ module.exports = {
 
       const dateString = message.match(androidDateRegEx)[0]
       const rawMessage = message.split(androidDateRegEx)[1]
-      let [rawSender, rawContent] = rawMessage.split(':', 2)
+      sender = rawMessage.split(':')[0].slice(3).trim()
+      content = rawMessage.slice(rawMessage.indexOf(':'), rawMessage.length).trim()
+      const datePatterns = messageDatePatterns.android
+      date = dayjs(dateString, datePatterns)
 
-      if (!rawSender || !rawContent) {
-        return { type: 'pastMessageFragment', content: rawContent }
+      if (!sender || !content) {
+        return { type: 'pastMessageFragment', content: message }
       }
-
     }
 
     type = this.getMessageType(content)
@@ -93,7 +95,7 @@ module.exports = {
       report.charactersInARow += content.length
     } else if (!isSameSender) {
       const pastSender = report.pastMessage.sender
-      
+
       if (report.charactersInARow > minCharactersToBigMessage) {
         report.people[pastSender].bigMessages++
       }
