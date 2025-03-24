@@ -4,15 +4,18 @@ on:
   push:
     branches: [ "main" ]
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    - name: Set timestamp variable
+      run: echo "TAG=$(date +%s)" >> tag.env
+    - name: Load timestamp variable
+      run: source tag.env
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag tobiasmarion/chatstats:$(date +%s)
+      run: docker build . --file Dockerfile --tag tobiasmarion/chatstats:$TAG
     - name: Push image to Docker Hub
       run: |
           docker login -u tobiasmarion -p ${{ secrets.DOCKER_HUB_TOKEN }}
-          docker push tobiasmarion/chatstats:$(date +%s)
+          docker push tobiasmarion/chatstats:$TAG
