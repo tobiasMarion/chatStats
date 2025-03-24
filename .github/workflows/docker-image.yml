@@ -9,13 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set timestamp variable
-      run: echo "TAG=$(date +%s)" >> tag.env
-    - name: Load timestamp variable
-      run: source tag.env
+    - name: Set timestamp
+      run: echo "IMAGE_TAG=$(date +%s)" >> $GITHUB_ENV
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag tobiasmarion/chatstats:$TAG
+      run: docker build . --file Dockerfile --tag tobiasmarion/chatstats:$IMAGE_TAG
     - name: Push image to Docker Hub
       run: |
           docker login -u tobiasmarion -p ${{ secrets.DOCKER_HUB_TOKEN }}
-          docker push tobiasmarion/chatstats:$TAG
+          docker push tobiasmarion/chatstats:$IMAGE_TAG
