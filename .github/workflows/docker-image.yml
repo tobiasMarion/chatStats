@@ -11,8 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag chatstats:$(date +%s)
+      run: docker build . --file Dockerfile --tag tobiasmarion/chatstats:$(date +%s)
     - name: Push image to Docker Hub
       run: |
           docker login -u tobiasmarion -p ${{ secrets.DOCKER_HUB_TOKEN }}
-          docker push chatstats/app:lastest
+          docker push tobiasmarion/chatstats:$(date +%s)
