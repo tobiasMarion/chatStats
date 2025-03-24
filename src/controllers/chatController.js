@@ -22,7 +22,7 @@ module.exports = {
     console.log(`\t Read File: ${p1 - started}ms`)
 
     const messages = this.getMessages(rawText)
-    if (!messages) return
+    if (messages.length === 0) return
     const p2 = Date.now()
     console.log(`\t Get Messages: ${p2 - p1}ms`)
 
@@ -69,15 +69,15 @@ module.exports = {
 
   },
 
-  getMessages(rawText) {
-    rawText = rawText.replace(/\u200e/g, '')
+  getMessages(rawFileText) {
+    rawText = rawFileText.replace(/\u200e/g, '')
     if (!rawText) return []
 
     let regExpMessagePatternIdentifier
     let datePatterns
     if (rawText[0] == '[') {
       // iOS Pattern
-      regExpMessagePatternIdentifier = /\[\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|) \d(?:\d|):\d(?:\d|):\d(?:\d|)(?: PM| AM|)]/
+      regExpMessagePatternIdentifier = /\[\d(?:\d|)\/\d(?:\d|)\/\d\d(?:\d\d|), \d(?:\d|):\d(?:\d|):\d(?:\d|)(?: PM| AM|)]/
       datePatterns = messageDatePatterns.iOS
     } else {
       // Android Pattern (Android has many patterns, so this RegEX may not be completed)
@@ -86,8 +86,8 @@ module.exports = {
 
     }
     const regEx = new RegExp(regExpMessagePatternIdentifier, 'gim')
-
     const rawMessages = rawText.split(regEx)
+    console.log(rawMessages.length)
     rawMessages.shift()
 
     const messages = [...rawText.matchAll(regEx)].map((a, index) => {
