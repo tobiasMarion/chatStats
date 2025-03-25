@@ -7,6 +7,24 @@ span.dots::after {
   animation: dots 3s infinite;
 }
 
+bold span::after {
+  height: 1.5rem;
+}
+
+details summary img {
+  transition: 0.3s ease-out;
+  transform: rotate(0);
+
+}
+
+details[open] summary  {
+  padding-bottom: .75rem;
+}
+
+details[open] summary img {
+  transform: rotate(180deg);
+}
+
 .spin {
   -webkit-animation: spin 2s infinite linear;
   animation: spin 2s infinite linear;

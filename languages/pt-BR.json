@@ -1,0 +1,126 @@
+{
+  "home": {
+    "header": {
+      "nav": [
+        {
+          "content": "Sobre",
+          "href": "#"
+        },
+        {
+          "content": "Como Utilizar",
+          "href": "#how-to-use"
+        },
+        {
+          "content": "FAQ",
+          "href": "#faq"
+        },
+        {
+          "content": "Políticas de Privacidade",
+          "href": ""
+        }
+      ],
+      "button": "Contar mensagens"
+    },
+    "uploadSection": {
+      "title": "Veja as estatísticas das suas conversas do <span class=\"relative inline-block z-10 main-emphasis pr-2 after:absolute after:block after:h-4 after:bg-main after:bottom-0 after:left-0 after:z-[-1]\">WhatsApp</span>",
+      "paragraph": "Descubra a frequência de conversas, contagem de mídia, membros mais ativos e uma enorme diversidade de estatísticas com apenas alguns cliques na tela!",
+      "buttons": [
+        "Contar mensagens agora",
+        "Como utilizar"
+      ],
+      "dragndrop": "Arraste e Solte ou <br> Escolha um arquivo para enviar",
+      "or": "ou",
+      "loading": "Carregando",
+      "loadingMessages": [
+        "Contando mensagens",
+        "Calculando distribuição de mídias",
+        "Construindo perfil dos fofoqueiros",
+        "Gerando Gráficos",
+        "Esperando ela te responder 😭"
+      ]
+    },
+    "howToUse": {
+      "title": "<span class=\"relative after:absolute after:block after:w-full after:h-3 after:bg-main after:bottom-1 after:left-0 after:z-[-1]\">Como</span> utilizar",
+      "platformsTutorials": [
+        {
+          "name": "iOS",
+          "steps": [
+            {
+              "title": "Escolha a conversa",
+              "content": "No seu celular, abra o aplicativo do WhatsApp e vá até a conversa ou grupo que você deseja coletar as estatísticas"
+            },
+            {
+              "title": "Exporte o arquivo",
+              "content": "Clique no nome do contato ou grupo que você escolheu e desça até o final da página. Após isso, clique no botão <i>Exportar conversa</i>, selecione a opção <i>Sem mídia</i> e salve o arquivo em uma pasta de sua preferência"
+            },
+            {
+              "title": "Faça o upload do arquivo",
+              "content": "Envie o seu arquivo <i>.txt</i> ou <i>.zip</i> aqui. Para garantir que não teremos problemas coletando as métricas, não edite ou extraia o arquivo. Apenas faça o upload e nós fazemos a nossa parte!"
+            },
+            {
+              "title": "Pronto! Agora vamos ver o que encontramos...",
+              "content": "Depois de processarmos o arquivo, você vai poder ver a frequência de conversa, contagem de mídia, membros mais ativos nas conversas e outras estatísticas."
+            }
+          ]
+        },
+        {
+          "name": "Android",
+          "steps": [
+            {
+              "title": "Escolha a conversa",
+              "content": "No seu celular, abra o aplicativo do WhatsApp e vá até a conversa ou grupo que você deseja coletar as estatísticas"
+            },
+            {
+              "title": "Exporte o arquivo",
+              "content": "Clique no ícone <img src=\"/assets/3dots-icon.svg\" class=\"inline-block\"> e selecione a opção <i>Mais</i>. Após isso, clique no botão <i>Exportar conversa</i>, selecione a opção <i>Sem mídia</i> e salve o arquivo em uma pasta de sua preferência"
+            },
+            {
+              "title": "Faça o upload do arquivo",
+              "content": "Envie o seu arquivo <i>.txt</i> ou <i>.zip</i> aqui. Para garantir que não teremos problemas coletando as métricas, não edite ou extraia o arquivo. Apenas faça o upload e nós fazemos a nossa parte!"
+            },
+            {
+              "title": "Pronto! Agora vamos ver o que encontramos...",
+              "content": "Depois de processarmos o arquivo, você vai poder ver a frequência de conversa, contagem de mídia, membros mais ativos nas conversas e outras estatísticas."
+            }
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "<span class=\"relative after:absolute after:block after:w-full after:h-3 after:bg-main after:bottom-1 after:left-0 after:z-[-1]\">Perguntas</span> Frequentes",
+      "paragraph": "Todo nosso código está disponível na internet para você ler, editar e tirar dúvidas sobre o projeto. Mais informações podem ser encontradas no nosso <a href=\"https://github.com/tobiasMarion/chatStats/\" class=\"text-main font-medium\" target=\"_blank\">GitHub</a>.",
+      "questions": [
+        {
+          "question": "Meus dados vão ficar salvos?",
+          "answer": "Não. Nossa maior prioridade é sua privacidade. Os arquivos ficam salvos temporariamente enquanto estão sendo processados e ainda antes de retornarmos os dados para você, o arquivo é excluído. Mantemos apenas logs anônimos contendo data, hora e tamanho do arquivo para podermos continuar oferecendo um serviço de qualidade."
+        },
+        {
+          "question": "O ChatStats é de graça?",
+          "answer": "Sim! O ChatStats é um projeto completamente gratuito e livre para a comunidade. Se quiser deixar um contribuição, você pode ajudar o projeto através do <button class=\"text-main font-medium asq-cofee-button\">Buy me a coffee</button>."
+        },
+        {
+          "question": "Todos os padrões de arquivo são suportados?",
+          "answer": "Infelizmente, não. O WhatsApp não padroniza os arquivos exportardos, ainda mais os dos dispositivos Android. Se o seu não é suportado ainda, nós ficariamos gratos se você pudesse nos informar através das <i>issues</i> do projeto no <a href=\"https://github.com/tobiasMarion/chatStats/issues\" class=\"text-main font-medium\" target=\"_blank\">GitHub</a>."
+        },
+        {
+          "question": "As mídias não foram contadas. O que aconteceu?",
+          "answer": "Seu arquivo contém algumas <i>mensagens especiais</i> que identificam que tipo de conteúdo ela possui. Esses marcadores variam dependendo da versão, língua e até configurações do aparelho. Nós continuamos trabalhando para garantir a compatibilidade do maior número possível de dispositivos com a nossa plataforma."
+        }
+      ]
+    },
+    "footer": {
+      "paragraph": "Chat Stats valoriza sua privacidade e segurança. Nosso sistema apenas conta mensagens e extrai métricas, sem lê-las semanticamente ou salvá-las. Excluímos todos os dados relacionados as suas mensagens em nossos servidores, garantindo a proteção de suas informações."
+    }
+  },
+  "stats": {
+    "footer": {
+      "paragraph": "Chat Stats valoriza sua privacidade e segurança. Nosso sistema apenas conta mensagens e extrai métricas, sem lê-las semanticamente ou salvá-las. Excluímos todos os dados relacionados as suas mensagens em nossos servidores, garantindo a proteção de suas informações."
+    }
+  },
+  "privacyPolicy": {
+    "footer": {
+      "paragraph": "Chat Stats valoriza sua privacidade e segurança. Nosso sistema apenas conta mensagens e extrai métricas, sem lê-las semanticamente ou salvá-las. Excluímos todos os dados relacionados as suas mensagens em nossos servidores, garantindo a proteção de suas informações."
+    }
+  },
+  "errorPage": {}
+}

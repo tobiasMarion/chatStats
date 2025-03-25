@@ -1,11 +1,14 @@
+gsap.registerPlugin(ScrollTrigger)
+
 async function substituteMockup(imgElement) {
-  const returned = await SVGInject(imgElement)
-  setAnimation()
+  await SVGInject(imgElement)
+
+  if (innerWidth > 768) {
+    setAnimation()
+  }
 }
 
 function setAnimation() {
-  gsap.registerPlugin(ScrollTrigger)
-
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: '#mockup',
@@ -16,7 +19,7 @@ function setAnimation() {
     }
   })
 
-  tl.to('.paper', { y: -128, opacity: 0, scale: 0.75, x: '12.5%', duration: 2 })
-  tl.fromTo('.ui', { opacity: 0 }, { opacity: 1, duration: 1 }, "-=0.5")
+  tl.fromTo('.paper', {opacity: 1}, { y: -128, opacity: 0, scale: 0.75, x: '12.5%', duration: 2 })
+  tl.fromTo('.ui', { opacity: 0 }, { opacity: 1, duration: 1 }, "-=.5")
   tl.fromTo('.chart', { clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }, { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)', duration: 1 }, "-=0.5")
 }

@@ -4,6 +4,7 @@
 
 * {
 	scroll-behavior: smooth;
+	scroll-padding-top: 8rem;
 }
 
 .people-cards-container::-webkit-scrollbar-track {
@@ -20,6 +21,14 @@
 .people-cards-container::-webkit-scrollbar-thumb {
 	border-radius: 4px;
 	background-color: #CBD5E1;
+}
+
+details > summary {
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display:none;
 }
 
 *::selection {

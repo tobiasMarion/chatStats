@@ -1,0 +1,115 @@
+{
+  "home": {
+    "header": {
+      "nav": [
+        {
+          "content": "About",
+          "href": "#"
+        },
+        {
+          "content": "How to use",
+          "href": "#how-to-use"
+        },
+        {
+          "content": "FAQ",
+          "href": "#faq"
+        },
+        {
+          "content": "Privacy Policy",
+          "href": ""
+        }
+      ],
+      "button": "Count Messages"
+    },
+    "uploadSection": {
+      "title": "Get the metrics from your <span class=\"relative inline-block z-10 main-emphasis pr-2 after:absolute after:block after:h-4 after:bg-main after:bottom-0 after:left-0 after:z-[-1]\">WhatsApp</span> chats",
+      "paragraph": "Discover conversation frequency, media count, most active members and a huge range of statistics with just a few clicks on the screen!",
+      "buttons": [
+        "Count Messages Now",
+        "How to use"
+      ],
+      "dragndrop": "Drag & Drop ou <br> Choose a file to Upload",
+      "or": "or",
+      "loading": "Loading",
+      "loadingMessages": [
+        "Counting Messages",
+        "Calculating media distribution",
+        "Building chatties' profile",
+        "Generating charts",
+        "Waiting her to reply you 😭"
+      ]
+    },
+    "howToUse": {
+      "title": "<span class=\"relative after:absolute after:block after:w-full after:h-3 after:bg-main after:bottom-1 after:left-0 after:z-[-1]\">How</span> to use",
+      "platformsTutorials": [
+        {
+          "name": "iOS",
+          "steps": [
+            {
+              "title": "Choose the chat",
+              "content": "In your phone, open WhatsApp and go to the chat or group that you want to get the metrics"
+            },
+            {
+              "title": "Export file",
+              "content": "Clique no nome do contato ou grupo que você escolheu e desça até o final da página. Após isso, clique no botão <i>Exportar conversa</i>, selecione a opção <i>Sem mídia</i> e salve o arquivo em uma pasta de sua preferência"
+            },
+            {
+              "title": "Upload the file",
+              "content": "Upload your <i>.txt</i> ou <i>.zip</i> file here. To make sure everything goes well, do not edit or extrac the file. Just send it and we do our job!"
+            },
+            {
+              "title": "Ready! Now let's see what we found...",
+              "content": "After we process your file, you will be able to see conversation frequency, media count, most active members and many other metrics."
+            }
+          ]
+        },
+        {
+          "name": "Android",
+          "steps": [
+            {
+              "title": "Choose the chat",
+              "content": "In your phone, open WhatsApp and go to the chat or group that you want to get the metrics"
+            },
+            {
+              "title": "Export file",
+              "content": "Click on the <img src=\"/assets/3dots-icon.svg\" class=\"inline-block\"> icon and select <i>More</i>. Then, click on <i>Export chat</i>, choose <i>Without media</i> and save the file in folder."
+            },
+            {
+              "title": "Upload the file",
+              "content": "Upload your <i>.txt</i> ou <i>.zip</i> file here. To make sure everything goes well, do not edit or extrac the file. Just send it and we do our job!"
+            },
+            {
+              "title": "Ready! Now let's see what we found...",
+              "content": "After we process your file, you will be able to see conversation frequency, media count, most active members and many other metrics."
+            }
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked <span class=\"relative after:absolute after:block after:w-full after:h-3 after:bg-main after:bottom-1 after:left-0 after:z-[-1]\">Questions</span>",
+      "paragraph": "Todo nosso código está disponível na internet para você ler, editar e tirar dúvidas sobre o projeto. Mais informações podem ser encontradas no nosso <a href=\"https://github.com/tobiasMarion/chatStats/\" class=\"text-main font-medium\" target=\"_blank\">GitHub</a>.",
+      "questions": [
+        {
+          "question": "Meus dados vão ficar salvos?",
+          "answer": "Não. Nossa maior prioridade é sua privacidade. Os arquivos ficam salvos temporariamente enquanto estão sendo processados e ainda antes de retornarmos os dados para você, o arquivo é excluído. Mantemos apenas logs anônimos contendo data, hora e tamanho do arquivo para podermos continuar oferecendo um serviço de qualidade."
+        },
+        {
+          "question": "O ChatStats é de graça?",
+          "answer": "Sim! O ChatStats é um projeto completamente gratuito e livre para a comunidade. Se quiser deixar um contribuição, você pode ajudar o projeto através do <button class=\"text-main font-medium asq-cofee-button\">Buy me a coffee</button>."
+        },
+        {
+          "question": "Todos os padrões de arquivo são suportados?",
+          "answer": "Infelizmente, não. O WhatsApp não padroniza os arquivos exportardos, ainda mais os dos dispositivos Android. Se o seu não é suportado ainda, nós ficariamos gratos se você pudesse nos informar através das <i>issues</i> do projeto no <a href=\"https://github.com/tobiasMarion/chatStats/issues\" class=\"text-main font-medium\" target=\"_blank\">GitHub</a>."
+        },
+        {
+          "question": "As mídias não foram contadas. O que aconteceu?",
+          "answer": "Seu arquivo contém algumas <i>mensagens especiais</i> que identificam que tipo de conteúdo ela possui. Esses marcadores variam dependendo da versão, língua e até configurações do aparelho. Nós continuamos trabalhando para garantir a compatibilidade do maior número possível de dispositivos com a nossa plataforma."
+        }
+      ]
+    },
+    "footer": {
+      "paragraph": "Chat Stats values your privacy and safety. Our system only counts messages and extracts metrics, without semantically reading or saving them. We promptly delete all related data from our servers and cache, ensuring the protection of your information."
+    }
+  }
+}
