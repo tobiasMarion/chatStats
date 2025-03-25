@@ -5,15 +5,26 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Set timestamp
-      run: echo "IMAGE_TAG=$(date +%s)" >> $GITHUB_ENV
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag tobiasmarion/chatstats:$IMAGE_TAG
-    - name: Push image to Docker Hub
-      run: |
-          docker login -u tobiasmarion -p ${{ secrets.DOCKER_HUB_TOKEN }}
-          docker push tobiasmarion/chatstats:$IMAGE_TAG
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set timestamp
+        run: echo "IMAGE_TAG=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: tobiasmarion
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            tobiasmarion/chatstats:latest
+            tobiasmarion/chatstats:${{ env.IMAGE_TAG }}
