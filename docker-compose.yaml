@@ -1,8 +1,6 @@
 services:
   traefik:
     image: traefik:v3.0
-    container_name: traefik
-    restart: unless-stopped
     command:
       - "--providers.docker=true"
       - "--entrypoints.web.address=:80"
@@ -16,27 +14,19 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./letsencrypt:/letsencrypt"
-    networks:
-      - web
 
   chatstats:
     image: tobiasmarion/chatstats:latest
-    container_name: chatstats
-    restart: unless-stopped
     secrets:
-      - DATABASE_URI
+      - chatstats-db-uri
+    environment:
+      - DATABASE_URI=/run/secrets/chatstats-db-uri
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.chatstats.rule=Host(`chatstats.tobiasmarion.com`)"
       - "traefik.http.routers.chatstats.entrypoints=websecure"
       - "traefik.http.routers.chatstats.tls.certresolver=le"
-    networks:
-      - web
 
 secrets:
-  DATABASE_URI:
-    file: ./secrets/DATABASE_URI
-
-networks:
-  web:
+  chatstats-db-uri:
     external: true
