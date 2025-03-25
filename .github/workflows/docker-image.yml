@@ -11,9 +11,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set timestamp
-        run: echo "IMAGE_TAG=$(date +%s)" >> $GITHUB_ENV
-
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -27,4 +24,4 @@ jobs:
           push: true
           tags: |
             tobiasmarion/chatstats:latest
-            tobiasmarion/chatstats:${{ env.IMAGE_TAG }}
+            tobiasmarion/chatstats:${{ github.sha }}
