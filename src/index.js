@@ -14,7 +14,6 @@ app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 app.set('views', './src/views')
 
-console.log(process.env)
 mongoose.connect(process.env.DB_URI)
 
 app.use(getLanguageMiddleware)
