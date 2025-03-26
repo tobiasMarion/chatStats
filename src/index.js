@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 app.set('views', './src/views')
 
-mongoose.connect(process.env.DATABASE_URI)
+mongoose.connect(process.env['chatstats-db-uri'])
 
 app.use(getLanguageMiddleware)
 app.use(useragent.express())
